@@ -40,6 +40,94 @@ ZH_TITLES = {
         "EFSA 新聞中心 — 互動式工具一覽",
     "https://www.youtube.com/watch?v=pWH3et1Y26U":
         "EFSA 介紹影片：科學、安全食品、永續",
+    # EFSA 批次補翻譯（2025-07 ~ 2026-02）
+    "https://www.efsa.europa.eu/en/news/new-memorandum-understanding-mou-strengthens-cooperation-between-efsa-and-fao":
+        "EFSA 與 FAO 簽署新版合作備忘錄 — 強化雙邊食安創新與標準合作",
+    "https://www.efsa.europa.eu/en/news/efsa-and-ecdc-rapid-outbreak-assessment-cereulide-incident-likelihood-exposure-low":
+        "EFSA 與 ECDC：cereulide（嘔吐毒素）事件快速評估 — 暴露機率低",
+    "https://www.efsa.europa.eu/en/news/antimicrobial-resistance-foodborne-bacteria-remains-public-health-concern-europe":
+        "EFSA：歐洲食源性細菌抗藥性仍是公衛隱憂（部分國家有改善）",
+    "https://www.efsa.europa.eu/en/news/efsa-finds-sucralose-safe-when-used-currently-authorised-cannot-confirm-safety-extending-its":
+        "EFSA：蔗糖素（E 955）現行用途安全，擴大使用範圍尚無法確認",
+    "https://www.efsa.europa.eu/en/news/fish-and-seafood-consumption-eu-awareness-dietary-advice-mercury":
+        "EFSA 研究：歐盟消費者對魚貝類汞攝取建議的認知度",
+    "https://www.efsa.europa.eu/en/podcast/episode-37-no-secret-sauce-recipe-transparent-science":
+        "EFSA Podcast 第 37 集：透明科學 — 文件公開的法律考量",
+    "https://www.efsa.europa.eu/en/multimedia/pesticides-scroller":
+        "互動式資訊：歐盟農藥核准流程與最高殘留量設定",
+    "https://www.efsa.europa.eu/en/news/veterinary-drug-residues-food-whats-latest-eu":
+        "歐盟食品中動物用藥殘留 — EFSA 年度報告",
+    "https://www.efsa.europa.eu/en/news/provisional-safe-level-cannabidiol-novel-food":
+        "EFSA 設定大麻二酚（CBD）作為新興食品的暫定安全攝取量",
+    "https://www.efsa.europa.eu/en/infographics/efsas-scientific-opinion-welfare-turkeys-farm":
+        "EFSA 科學意見：火雞養殖福利評估",
+    "https://www.efsa.europa.eu/en/news/efsa-provides-rapid-risk-assessment-cereulide-infant-formula":
+        "EFSA 快速風險評估：嬰兒配方奶中之 cereulide（蠟樣芽孢桿菌毒素）",
+    "https://www.efsa.europa.eu/en/news/efsa-host-5th-european-conference-xylella-fastidiosa":
+        "EFSA 將於 6 月在義大利舉辦第 5 屆 Xylella（火傷病）國際研討會",
+    "https://www.efsa.europa.eu/en/news/precautionary-global-recall-infant-nutrition-products-following-detection-bacillus-cereus":
+        "因驗出蠟樣芽孢桿菌毒素，多國預警性全球回收嬰兒營養品",
+    "https://www.efsa.europa.eu/en/news/lectins-food-undercooked-beans-pose-health-risk-says-efsa":
+        "EFSA 警告：未充分烹煮的豆類（凝集素）構成健康風險",
+    "https://www.efsa.europa.eu/en/news/meat-intended-freezing-efsa-assesses-bacterial-growth-meat-it-reaches-consumers":
+        "EFSA 評估：冷凍前的牛羊豬肉之細菌生長變化",
+    "https://www.efsa.europa.eu/en/podcast/episode-36-nice-m-eat-you-what-are-alternative-proteins":
+        "EFSA Podcast 第 36 集：替代蛋白質 — 從豆類到細胞培養肉",
+    "https://www.efsa.europa.eu/en/news/efsa-introduction-bird-flu-us-dairy-cattle-europe-very-unlikely-vigilance-urged":
+        "EFSA：美國乳牛禽流感傳入歐洲機率極低，但仍籲提高警覺",
+    "https://www.efsa.europa.eu/en/news/avian-influenza-new-outbreaks-expected-europe-until-winter-ends":
+        "EFSA：歐洲禽流感冬季疫情預期持續到春末（29 國累計案例）",
+    "https://www.efsa.europa.eu/en/podcast/episode-35-bean-there-cooked-are-raw-legumes-safe":
+        "EFSA Podcast 第 35 集：生豆類的食安 — 凝集素與烹飪方式",
+    "https://www.efsa.europa.eu/en/infographics/foodborne-diseases-europe-whats-really-making-you-sick":
+        "歐洲食源性疾病 — 2024 歐盟 One Health 年度報告重點",
+    "https://www.efsa.europa.eu/en/news/serious-listeria-infections-rising-europe-eu-report-warns":
+        "EFSA 報告：歐洲嚴重李斯特菌感染上升（蛋、肉、即食食品為主要來源）",
+    "https://multimedia.efsa.europa.eu/drvs/index.htm":
+        "EFSA DRV 工具：營養素參考攝取量查詢器（含新版氟攝取上限）",
+    "https://www.efsa.europa.eu/en/news/have-your-say-dioxins-and-related-pcbs":
+        "EFSA 徵詢意見：戴奧辛與多氯聯苯之健康風險評估",
+    "https://www.efsa.europa.eu/en/news/avian-influenza-europe-enhanced-surveillance-and-strict-biosecurity-needed-detections-surge":
+        "EFSA：歐洲禽流感檢出激增（較去年同期 4 倍），須強化監測與生物安全",
+    "https://www.efsa.europa.eu/en/podcast/episode-34-cost-origin-taste-what-influences-our-food-choices":
+        "EFSA Podcast 第 34 集：影響消費者食品選擇的因素",
+    "https://www.efsa.europa.eu/en/news/delta-8-thc-efsa-sets-safe-intake-level":
+        "EFSA 設定 Delta-8 THC（大麻精神活性成分）安全攝取量",
+    "https://www.efsa.europa.eu/en/infographics/closer-look-pesticides-food":
+        "EFSA 圖表：食品中農藥的監測重點",
+    "https://www.efsa.europa.eu/en/news/have-your-say-complete-efsa-journal-survey":
+        "EFSA 期刊讀者意見調查（5-10 分鐘）",
+    "https://www.efsa.europa.eu/en/news/time-action-joint-statement-eu-cross-agency-one-health-task-force-and-european-and-central":
+        "世界 One Health 日 — 9 個國際組織聯合呼籲行動",
+    "https://www.efsa.europa.eu/en/podcast/episode-33-exposure-matters-why-dose-makes-poison":
+        "EFSA Podcast 第 33 集：劑量決定毒性 — 危害與風險的差別",
+    "https://www.efsa.europa.eu/en/interactive-pages/eurobarometer":
+        "歐盟 Eurobarometer 食安認知調查（2022 與 2025）",
+    "https://www.efsa.europa.eu/en/infographics/2025-eurobarometer-food-safety-eu-infographic":
+        "2025 歐盟食安認知調查重點圖表",
+    "https://www.efsa.europa.eu/en/podcast/episode-32-data-vs-stereotypes-what-europeans-eat":
+        "EFSA Podcast 第 32 集：用資料拆解歐洲人的飲食刻板印象",
+    "https://www.efsa.europa.eu/en/no-bird-flu":
+        "EFSA #NoBirdFlu 活動：強化農場生物安全",
+    "https://www.efsa.europa.eu/en/news/nobirdflu-clear-communications-better-biosecurity":
+        "EFSA：清楚的溝通可提升禽流感防範",
+    "https://www.efsa.europa.eu/en/news/nikolaus-kriz-assumes-role-efsas-new-executive-director":
+        "Nikolaus Kriz 接任 EFSA 執行長",
+    "https://www.efsa.europa.eu/en/podcast/episode-31-sizzling-summers-bbq-safety-served-hot":
+        "EFSA Podcast 第 31 集：夏季 BBQ 食安須知",
+    "https://www.efsa.europa.eu/en/infographics/welfare-animals-kept-fur-production":
+        "EFSA：毛皮養殖動物福利（水貂、狐狸、貉、龍貓）評估",
+    "https://www.efsa.europa.eu/en/infographics/welfare-beef-cattle-farm":
+        "EFSA：肉牛農場福利評估（室內、放牧、飼料育肥）",
+    "https://www.efsa.europa.eu/en/news/keeping-plant-pests-out-eu":
+        "EFSA：歐盟檢疫害蟲優先名單修訂（130 位專家參與）",
+    "https://www.efsa.europa.eu/en/news/fluoride-safety-updated-intake-levels-all-ages":
+        "EFSA：更新各年齡層氟安全攝取量（含水、食物、加氟鹽、口腔保健）",
+    "https://www.efsa.europa.eu/en/news/have-your-say-estragole-fennel-seed-preparations":
+        "EFSA 徵詢意見：茴香籽製品中 estragole 的健康風險",
+    "https://www.efsa.europa.eu/en/podcast/episode-30-food-supplements-add-or-not-add":
+        "EFSA Podcast 第 30 集：營養補充品該不該補？",
+
     # 日本 FSC
     "https://www.fsc.go.jp/iken-bosyu/pc1_idensi_soy_260527.html":
         "耐除草劑（嘉磷塞、固殺草）基改大豆 DBN9004 食品健康影響評估 — 公開徵詢",
@@ -53,6 +141,141 @@ ZH_TITLES = {
 
 
 SUMMARIES = {
+  # EFSA 批次 AI 重點
+  "https://www.efsa.europa.eu/en/news/new-memorandum-understanding-mou-strengthens-cooperation-between-efsa-and-fao": [
+    "EFSA 與 FAO（聯合國糧農組織）簽訂新版合作備忘錄",
+    "雙方目標：在快速技術變革中維持最高食安標準",
+    "聚焦領域：新興食品、食源性病害評估、科學能力共享",
+  ],
+  "https://www.efsa.europa.eu/en/news/efsa-and-ecdc-rapid-outbreak-assessment-cereulide-incident-likelihood-exposure-low": [
+    "事件：嬰兒配方奶中檢出 cereulide（蠟樣芽孢桿菌嘔吐毒素）",
+    "範圍：奧地利、比利時、丹麥、法國、盧森堡、西班牙、英國 7 國",
+    "風險評估：消費者整體暴露機率被評估為「低」",
+    "影響：相關嬰兒奶粉已預警性回收",
+  ],
+  "https://www.efsa.europa.eu/en/news/antimicrobial-resistance-foodborne-bacteria-remains-public-health-concern-europe": [
+    "歐洲沙門氏菌、彎曲桿菌抗藥性問題持續",
+    "部分國家成功降低抗藥性比例",
+    "重點抗生素：氟喹諾酮、頭孢三代",
+    "業者應強化飼養端抗生素管理（One Health 策略）",
+  ],
+  "https://www.efsa.europa.eu/en/news/efsa-finds-sucralose-safe-when-used-currently-authorised-cannot-confirm-safety-extending-its": [
+    "蔗糖素（E 955）作為甜味劑於現行核准用途仍安全",
+    "若擴大使用範圍（如高溫加熱食品）— 安全性無法確認",
+    "業者注意：食品熱加工含 E 955 需額外注意",
+  ],
+  "https://www.efsa.europa.eu/en/news/fish-and-seafood-consumption-eu-awareness-dietary-advice-mercury": [
+    "EFSA 調查歐盟消費者對汞含量高的魚種（鯊魚、旗魚等）攝取頻率",
+    "了解消費者對國家飲食建議的認知度",
+    "用於改善風險溝通策略",
+  ],
+  "https://www.efsa.europa.eu/en/news/veterinary-drug-residues-food-whats-latest-eu": [
+    "EFSA 年度動物用藥殘留報告",
+    "監測對象：肉、奶、蛋等動物源食品",
+    "整體合規率高，少數樣本超標",
+    "監測指引業者飼養端用藥控管",
+  ],
+  "https://www.efsa.europa.eu/en/news/provisional-safe-level-cannabidiol-novel-food": [
+    "EFSA 為大麻二酚（CBD）作為新興食品設定暫定安全攝取量",
+    "歐盟執委會認定 CBD 屬「新興食品」，須符合相關法規",
+    "影響：CBD 食品輸歐業者須注意申報程序",
+  ],
+  "https://www.efsa.europa.eu/en/news/efsa-provides-rapid-risk-assessment-cereulide-infant-formula": [
+    "因應跨國嬰兒配方奶 cereulide 召回事件",
+    "EFSA 由執委會委託作快速風險評估",
+    "毒素來源：蠟樣芽孢桿菌（Bacillus cereus）",
+    "對嬰兒族群風險評估為重點",
+  ],
+  "https://www.efsa.europa.eu/en/news/precautionary-global-recall-infant-nutrition-products-following-detection-bacillus-cereus": [
+    "事件：嬰兒營養品全球預警性回收",
+    "原因：檢出蠟樣芽孢桿菌毒素 cereulide",
+    "涉及多批次、多產品、多品牌",
+    "輸歐業者：嬰幼兒食品微生物管控應強化",
+  ],
+  "https://www.efsa.europa.eu/en/news/lectins-food-undercooked-beans-pose-health-risk-says-efsa": [
+    "未充分烹煮的豆類含凝集素（lectins），可致嘔吐、腹瀉",
+    "EFSA 應執委會請求進行此評估",
+    "高危族群：消費生豆類沙拉、嫩芽食品",
+    "建議：豆類煮沸 10 分鐘以上可破壞凝集素",
+  ],
+  "https://www.efsa.europa.eu/en/news/meat-intended-freezing-efsa-assesses-bacterial-growth-meat-it-reaches-consumers": [
+    "EFSA 評估牛、羊、豬肉在冷藏、儲存、解凍時的細菌生長",
+    "對冷凍肉品流通鏈業者有重要參考",
+    "影響：包裝標示、儲存條件規範可能調整",
+  ],
+  "https://www.efsa.europa.eu/en/news/efsa-introduction-bird-flu-us-dairy-cattle-europe-very-unlikely-vigilance-urged": [
+    "美國乳牛禽流感（H5N1）跨大西洋傳入歐洲機率：極低",
+    "但 EFSA 仍呼籲提高警覺",
+    "建議：強化乳牛、家禽生物安全",
+  ],
+  "https://www.efsa.europa.eu/en/news/avian-influenza-new-outbreaks-expected-europe-until-winter-ends": [
+    "2025/9-11 月：歐洲家禽 442 起、野鳥 2,454 起 HPAI 案例",
+    "涉及 29 個歐洲國家",
+    "預期疫情持續至冬末春初",
+    "對家禽輸歐業者影響：檢疫頻率可能提高",
+  ],
+  "https://www.efsa.europa.eu/en/news/serious-listeria-infections-rising-europe-eu-report-warns": [
+    "歐洲嚴重李斯特菌感染呈上升趨勢",
+    "主要污染源：蛋、肉、即食食品（RTE）",
+    "業者應強化即食食品生產線消毒",
+    "高風險族群：孕婦、新生兒、老人、免疫低下者",
+  ],
+  "https://www.efsa.europa.eu/en/news/have-your-say-dioxins-and-related-pcbs": [
+    "EFSA 徵詢意見：戴奧辛與 dl-PCBs 的健康風險評估草案",
+    "毒性：環境持久、在脂肪組織累積",
+    "主要食物來源：肉類、乳製品、魚類",
+    "業者可參與意見徵詢、表達技術觀點",
+  ],
+  "https://www.efsa.europa.eu/en/news/avian-influenza-europe-enhanced-surveillance-and-strict-biosecurity-needed-detections-surge": [
+    "2025/9-11 月：歐洲 26 國野鳥 HPAI 檢出 1,443 起",
+    "較去年同期 4 倍",
+    "EFSA 呼籲：強化監測 + 嚴格生物安全",
+    "對輸歐家禽業者：可能面臨更嚴格的進口檢疫",
+  ],
+  "https://www.efsa.europa.eu/en/news/delta-8-thc-efsa-sets-safe-intake-level": [
+    "Delta-8 THC 是大麻屬植物中的次要精神活性成分",
+    "EFSA 設定每日安全攝取量",
+    "影響：CBD 油、大麻籽糖果等業者須注意 Δ8-THC 殘留",
+  ],
+  "https://www.efsa.europa.eu/en/news/time-action-joint-statement-eu-cross-agency-one-health-task-force-and-european-and-central": [
+    "9 個國際組織於 World One Health Day 共同聲明",
+    "4 大行動建議：監測、預防、防疫、跨領域協作",
+    "推動歐洲與中亞地區 One Health 框架實施",
+  ],
+  "https://www.efsa.europa.eu/en/news/nikolaus-kriz-assumes-role-efsas-new-executive-director": [
+    "奧地利籍獸醫 Nikolaus Kriz 接任 EFSA 執行長",
+    "30 年國際食安、公衛經驗",
+    "前任職務：歐盟食品創新部門主管",
+  ],
+  "https://www.efsa.europa.eu/en/infographics/welfare-animals-kept-fur-production": [
+    "EFSA 評估毛皮養殖動物福利",
+    "對象：水貂、狐狸、貉、龍貓",
+    "結論：現行養殖條件難以保障動物福利",
+    "對歐盟政策影響：未來可能加嚴或禁止毛皮農場",
+  ],
+  "https://www.efsa.europa.eu/en/infographics/welfare-beef-cattle-farm": [
+    "EFSA 評估歐盟肉牛養殖福利",
+    "涵蓋：室內圈養、放牧、飼料育肥三種模式",
+    "重點建議：增加活動空間、減少集約飼養壓力",
+  ],
+  "https://www.efsa.europa.eu/en/news/keeping-plant-pests-out-eu": [
+    "EFSA 修訂歐盟「優先檢疫害蟲」名單",
+    "130 位專家參與評估",
+    "對台灣輸歐農產品：檢疫項目可能異動",
+  ],
+  "https://www.efsa.europa.eu/en/news/fluoride-safety-updated-intake-levels-all-ages": [
+    "EFSA 全面重新評估各年齡層氟攝取安全量",
+    "涵蓋：飲水、食物、加氟食鹽、含氟牙膏",
+    "影響：嬰幼兒族群安全攝取量更新",
+    "對食品業者：強化食品中氟含量檢測",
+  ],
+  "https://www.efsa.europa.eu/en/news/have-your-say-estragole-fennel-seed-preparations": [
+    "EFSA 徵詢意見：茴香籽製品 estragole（草蒿腦）健康風險",
+    "包含茴香茶等草本飲品",
+    "Estragole 屬潛在致癌物",
+    "業者可表達技術意見",
+  ],
+
   # 日本 FSC 公開徵詢
   "https://www.fsc.go.jp/iken-bosyu/pc1_idensi_soy_260527.html": [
     "標的：耐除草劑（嘉磷塞 + 固殺草）基改大豆品系 DBN9004",
