@@ -21,6 +21,7 @@ import source_jp_fsc
 import source_my_kkm
 import source_import_export
 import source_haccp
+import source_jp_curated
 
 # 來源 → 國家對應（顯示於前端國家篩選器）
 SOURCE_COUNTRY = {
@@ -65,6 +66,7 @@ def main():
         ("馬來西亞 KKM", source_my_kkm.crawl),
         ("進出口規範", source_import_export.crawl),
         ("HACCP 認證", source_haccp.crawl),
+        ("日本法規目錄", source_jp_curated.crawl),
     ]
 
     for name, fn in sources:

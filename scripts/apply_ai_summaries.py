@@ -275,6 +275,73 @@ SUMMARIES = {
     "Estragole 屬潛在致癌物",
     "業者可表達技術意見",
   ],
+  # EFSA Podcasts / Data viz / 短資訊（補充版）
+  "https://multimedia.efsa.europa.eu/pesticides-report-2024/index.html": [
+    "EFSA 2024 歐盟農藥殘留年度報告 — 互動式視覺化版本",
+    "可依國家、產品、農藥種類查詢",
+  ],
+  "https://www.efsa.europa.eu/en/podcast/episode-37-no-secret-sauce-recipe-transparent-science": [
+    "EFSA Podcast 第 37 集 — 開放科學與文件公開",
+    "討論法律觀點下的科學透明度",
+  ],
+  "https://www.efsa.europa.eu/en/multimedia/pesticides-scroller": [
+    "EFSA 互動式資訊：歐盟農藥的核准與監管流程",
+  ],
+  "https://www.efsa.europa.eu/en/infographics/efsas-scientific-opinion-welfare-turkeys-farm": [
+    "EFSA 火雞養殖福利圖卡 — 室內、有頂遮陽棚、有戶外活動空間三種模式比較",
+  ],
+  "https://www.efsa.europa.eu/en/podcast/episode-36-nice-m-eat-you-what-are-alternative-proteins": [
+    "EFSA Podcast 第 36 集 — 替代蛋白質（豆類、麵包蟲、培養肉）",
+  ],
+  "https://www.efsa.europa.eu/en/podcast/episode-35-bean-there-cooked-are-raw-legumes-safe": [
+    "EFSA Podcast 第 35 集 — 生豆類與凝集素的食安",
+  ],
+  "https://www.efsa.europa.eu/en/infographics/foodborne-diseases-europe-whats-really-making-you-sick": [
+    "EFSA One Health 2024 食源性疾病重點圖卡",
+  ],
+  "https://multimedia.efsa.europa.eu/drvs/index.htm": [
+    "EFSA 營養素參考攝取量（DRV）互動查詢工具",
+    "含新版氟攝取上限",
+  ],
+  "https://www.efsa.europa.eu/en/podcast/episode-34-cost-origin-taste-what-influences-our-food-choices": [
+    "EFSA Podcast 第 34 集 — 食品選擇影響因素",
+  ],
+  "https://www.efsa.europa.eu/en/infographics/closer-look-pesticides-food": [
+    "EFSA 圖卡：食品中農藥監測重點",
+  ],
+  "https://www.efsa.europa.eu/en/news/have-your-say-complete-efsa-journal-survey": [
+    "EFSA 期刊讀者意見徵詢（5-10 分鐘）",
+  ],
+  "https://www.efsa.europa.eu/en/podcast/episode-33-exposure-matters-why-dose-makes-poison": [
+    "EFSA Podcast 第 33 集 — 劑量決定毒性",
+  ],
+  "https://www.efsa.europa.eu/en/interactive-pages/eurobarometer": [
+    "歐盟 Eurobarometer 食安認知互動儀表板（2022, 2025）",
+  ],
+  "https://www.efsa.europa.eu/en/infographics/2025-eurobarometer-food-safety-eu-infographic": [
+    "2025 歐盟 Eurobarometer 食安認知圖卡",
+  ],
+  "https://www.efsa.europa.eu/en/podcast/episode-32-data-vs-stereotypes-what-europeans-eat": [
+    "EFSA Podcast 第 32 集 — 用數據檢視歐洲人的飲食",
+  ],
+  "https://www.efsa.europa.eu/en/no-bird-flu": [
+    "EFSA #NoBirdFlu 倡議活動：強化農場生物安全",
+  ],
+  "https://www.efsa.europa.eu/en/news/nobirdflu-clear-communications-better-biosecurity": [
+    "EFSA：清楚的溝通可強化禽流感生物安全",
+  ],
+  "https://www.efsa.europa.eu/en/podcast/episode-31-sizzling-summers-bbq-safety-served-hot": [
+    "EFSA Podcast 第 31 集 — 夏季 BBQ 食安",
+  ],
+  "https://www.efsa.europa.eu/en/podcast/episode-30-food-supplements-add-or-not-add": [
+    "EFSA Podcast 第 30 集 — 營養補充品的功效與限制",
+  ],
+  "https://www.efsa.europa.eu/en/news/presscorner": [
+    "EFSA 新聞中心入口",
+  ],
+  "https://www.youtube.com/watch?v=pWH3et1Y26U": [
+    "EFSA 機構介紹影片：科學、安全食品、永續",
+  ],
 
   # 日本 FSC 公開徵詢
   "https://www.fsc.go.jp/iken-bosyu/pc1_idensi_soy_260527.html": [
