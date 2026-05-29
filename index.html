@@ -198,24 +198,72 @@
       }).join("");
     }
 
+    // 跳到官網搜尋（用 Google site: 比官網內部搜尋穩定）
+    const EXTERNAL_SEARCH = [
+      { label: "食藥署官網", site: "fda.gov.tw",          color: "bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100" },
+      { label: "US FDA",    site: "fda.gov",              color: "bg-blue-50 text-blue-700 border-blue-200 hover:bg-blue-100" },
+      { label: "EFSA",      site: "efsa.europa.eu",       color: "bg-purple-50 text-purple-700 border-purple-200 hover:bg-purple-100" },
+      { label: "Codex",     site: "fao.org/fao-who-codexalimentarius", color: "bg-rose-50 text-rose-700 border-rose-200 hover:bg-rose-100" },
+      { label: "ISO",       site: "iso.org",              color: "bg-indigo-50 text-indigo-700 border-indigo-200 hover:bg-indigo-100" },
+    ];
+    function externalSearchUrl(site, query) {
+      const q = encodeURIComponent(`site:${site} ${query}`);
+      return `https://www.google.com/search?q=${q}`;
+    }
+    function renderExternalSearchButtons(query, layout) {
+      const sizeCls = layout === "big"
+        ? "px-4 py-2.5 text-sm"
+        : "px-2.5 py-1 text-xs";
+      return EXTERNAL_SEARCH.map(s =>
+        `<a href="${externalSearchUrl(s.site, query)}" target="_blank" rel="noopener"
+            class="inline-flex items-center gap-1 rounded-md border font-medium transition ${s.color} ${sizeCls}">
+            ${escapeHtml(s.label)}
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+         </a>`
+      ).join("");
+    }
+
     function renderFeed() {
       const items = filterItems();
       const slice = items.slice(0, DISPLAY_COUNT);
+      const hasQuery = CURRENT_QUERY.length > 0;
 
       document.getElementById("result-count").textContent =
         `共 ${items.length} 筆${CURRENT_QUERY || CURRENT_SOURCE !== "all" ? "（已篩選）" : ""}`;
 
       if (items.length === 0) {
-        document.getElementById("feed").innerHTML =
-          `<div class="text-center py-16 text-slate-400">
-            <p>沒有符合條件的資料</p>
-            <button onclick="clearFilters()" class="mt-3 text-xs text-emerald-600 hover:underline">清除篩選</button>
-          </div>`;
+        const emptyBody = hasQuery
+          ? `<div class="text-center py-12">
+              <svg class="w-12 h-12 mx-auto text-slate-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z"/></svg>
+              <p class="text-slate-700 font-medium mb-1">本站沒有符合「${escapeHtml(CURRENT_QUERY)}」的資料</p>
+              <p class="text-xs text-slate-500 mb-6">可能是該公告在抓取範圍之外（本站只收最新列表），試試到官網全文搜尋：</p>
+              <div class="flex flex-wrap justify-center gap-2 max-w-xl mx-auto">
+                ${renderExternalSearchButtons(CURRENT_QUERY, "big")}
+              </div>
+              <button onclick="clearFilters()" class="mt-6 text-xs text-slate-400 hover:text-slate-600 hover:underline">清除搜尋</button>
+             </div>`
+          : `<div class="text-center py-16 text-slate-400">
+              <p>沒有符合條件的資料</p>
+              <button onclick="clearFilters()" class="mt-3 text-xs text-emerald-600 hover:underline">清除篩選</button>
+             </div>`;
+        document.getElementById("feed").innerHTML = emptyBody;
         document.getElementById("load-more-wrap").classList.add("hidden");
         return;
       }
 
-      document.getElementById("feed").innerHTML = slice.map(renderCard).join("");
+      // 有結果但又有搜尋字 → 上方加個小提示橫條
+      const banner = hasQuery
+        ? `<div class="bg-amber-50 border border-amber-200 rounded-lg p-3 mb-4 text-xs flex flex-col sm:flex-row sm:items-center gap-2">
+             <div class="flex-1 text-amber-800">
+               <span class="font-semibold">本站找到 ${items.length} 筆</span> · 想找更舊或更詳細的？
+             </div>
+             <div class="flex flex-wrap gap-1.5">
+               ${renderExternalSearchButtons(CURRENT_QUERY, "small")}
+             </div>
+           </div>`
+        : "";
+
+      document.getElementById("feed").innerHTML = banner + slice.map(renderCard).join("");
       const moreBtn = document.getElementById("load-more-wrap");
       if (items.length > DISPLAY_COUNT) moreBtn.classList.remove("hidden");
       else moreBtn.classList.add("hidden");
