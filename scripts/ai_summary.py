@@ -89,37 +89,91 @@ def summarize(title: str, body: str, api_key: str | None = None) -> list[str] | 
     return bullets or None
 
 
-def enrich_items(items: list[dict], skip_existing: bool = True, max_new: int | None = None) -> int:
-    """對 items 清單中尚未有 ai_summary 的項目逐一產生摘要；回傳實際呼叫次數"""
+def is_english(text: str) -> bool:
+    """簡單判斷字串是否為英文（用中文字比例）"""
+    if not text:
+        return False
+    chinese_chars = sum(1 for c in text if "一" <= c <= "鿿")
+    return chinese_chars / max(len(text), 1) < 0.15
+
+
+def translate_title(title: str, api_key: str) -> str | None:
+    """把英文標題翻成繁體中文短標"""
+    if not title or not is_english(title):
+        return None
+    prompt = f"""請把以下英文食品法規 / 食安新聞標題翻成繁體中文短標。
+
+要求：
+1. 25 字以內
+2. 保留專有名詞（如 EFSA、HACCP、Salmonella）的英文或括號註記
+3. 純文字，不要引號、不要前後綴
+
+英文標題：{title}
+
+只輸出中文短標，不要任何說明。"""
+
+    payload = {
+        "model": MODEL,
+        "max_tokens": 100,
+        "messages": [{"role": "user", "content": prompt}],
+    }
+    req = urllib.request.Request(
+        API_URL, data=json.dumps(payload).encode("utf-8"),
+        headers={"x-api-key": api_key, "anthropic-version": "2023-06-01", "content-type": "application/json"},
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=20, context=_ctx) as r:
+            resp = json.loads(r.read().decode("utf-8"))
+        text = "".join(b.get("text", "") for b in resp.get("content", []) if b.get("type") == "text").strip()
+        text = text.strip("「」\"'`").strip()
+        return text if 3 <= len(text) <= 80 else None
+    except Exception as e:
+        print(f"    title 翻譯失敗: {e}", file=sys.stderr)
+        return None
+
+
+def enrich_items(items: list[dict], skip_existing: bool = True, max_new: int | None = None) -> tuple[int, int]:
+    """對 items 補 ai_summary 與 title_zh（英文來源）；回傳 (摘要數, 翻譯數)"""
     api_key = os.environ.get("ANTHROPIC_API_KEY")
     if not api_key:
         print("  [AI] 未設定 ANTHROPIC_API_KEY，跳過 AI 摘要")
-        return 0
+        return 0, 0
 
-    called = 0
+    n_summary = 0
+    n_title = 0
     for item in items:
-        if max_new is not None and called >= max_new:
+        if max_new is not None and (n_summary + n_title) >= max_new * 2:
             break
-        if skip_existing and item.get("ai_summary"):
-            continue
-        title = item.get("title", "")
-        body = item.get("summary", "")
-        if not body:
-            continue
-        bullets = summarize(title, body, api_key)
-        if bullets:
-            item["ai_summary"] = bullets
-            called += 1
-            print(f"    AI [{called}] {title[:40]}... ({len(bullets)} 點)")
-    return called
+
+        # 補 ai_summary
+        if not (skip_existing and item.get("ai_summary")):
+            title = item.get("title", "")
+            body = item.get("summary", "")
+            if body and len(body) >= 30:
+                bullets = summarize(title, body, api_key)
+                if bullets:
+                    item["ai_summary"] = bullets
+                    n_summary += 1
+                    print(f"    [摘要 {n_summary}] {title[:40]}... ({len(bullets)} 點)")
+
+        # 補 title_zh（英文標題且尚未翻譯）
+        if not item.get("title_zh") and is_english(item.get("title", "")):
+            zh = translate_title(item["title"], api_key)
+            if zh:
+                item["title_zh"] = zh
+                n_title += 1
+                print(f"    [翻譯 {n_title}] {item['title'][:40]} → {zh}")
+
+    return n_summary, n_title
 
 
 if __name__ == "__main__":
-    # 測試模式：把 items.json 重新跑一次 AI 摘要
+    # 對 items.json 中尚未有 ai_summary 的項目補摘要
     from pathlib import Path
     ROOT = Path(__file__).resolve().parent.parent
     f = ROOT / "data" / "items.json"
     d = json.loads(f.read_text(encoding="utf-8"))
-    n = enrich_items(d["items"], skip_existing=True)
+    n_sum, n_title = enrich_items(d["items"], skip_existing=True)
     f.write_text(json.dumps(d, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"完成，新增 {n} 筆 AI 摘要")
+    print(f"完成：{n_sum} 筆 AI 摘要、{n_title} 筆中文標題翻譯")
