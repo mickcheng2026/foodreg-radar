@@ -32,20 +32,34 @@ git pull --rebase origin main 2>&1 | tail -5 || {
 }
 echo
 
-# 3. 看有沒有要 commit 的變更
+# 3. 看有沒有要 commit 的變更（沒 commit 的檔案）
 echo "[3/4] 偵測變更..."
-if [[ -z "$(git status --porcelain)" ]]; then
-  echo "  沒有新變更，沒事可做，結束。"
+HAS_WORKING_CHANGES=0
+HAS_UNPUSHED_COMMITS=0
+
+if [[ -n "$(git status --porcelain)" ]]; then
+  HAS_WORKING_CHANGES=1
+  git status --short
+  git add -A
+  git commit -m "chore: 更新 $(date '+%Y-%m-%d %H:%M')"
+fi
+
+# 也檢查「已 commit 但還沒 push」的部分
+if [[ -n "$(git log origin/main..HEAD --oneline 2>/dev/null)" ]]; then
+  HAS_UNPUSHED_COMMITS=1
+  echo "  本機領先 origin/main："
+  git log origin/main..HEAD --oneline | sed 's/^/    /'
+fi
+
+if [[ "$HAS_WORKING_CHANGES" -eq 0 && "$HAS_UNPUSHED_COMMITS" -eq 0 ]]; then
+  echo "  完全沒有變更（檔案沒改、commit 沒落後），結束。"
   exit 0
 fi
-git status --short
-git add -A
-git commit -m "chore: 更新 $(date '+%Y-%m-%d %H:%M')"
 echo
 
 # 4. 推送
 echo "[4/4] 推送到 GitHub..."
-git push origin main || {
+git push -u origin main || {
   echo
   echo "❌ Push 失敗。常見原因："
   echo "  1. 第一次推送：要先設定 GitHub Personal Access Token (PAT)"
