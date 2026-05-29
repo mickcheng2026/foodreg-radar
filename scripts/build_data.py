@@ -61,11 +61,14 @@ def main():
             merged[item["url"]] = item
     for item in all_items:
         if item.get("url"):
-            # 新版本：更新 fetched_at 與內容，但保留 first_seen
+            # 新版本：更新 fetched_at 與內容；保留 first_seen 與 ai_summary
             old = merged.get(item["url"])
-            if old and old.get("first_seen"):
-                item["first_seen"] = old["first_seen"]
-            else:
+            if old:
+                if old.get("first_seen"):
+                    item["first_seen"] = old["first_seen"]
+                if old.get("ai_summary"):
+                    item["ai_summary"] = old["ai_summary"]
+            if not item.get("first_seen"):
                 item["first_seen"] = datetime.now(TPE).isoformat(timespec="seconds")
             merged[item["url"]] = item
 

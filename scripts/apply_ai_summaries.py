@@ -8,6 +8,18 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data" / "items.json"
 
 SUMMARIES = {
+  "https://www.fda.gov.tw/TC/newsContent.aspx?cid=5072&id=31554": [
+    "預告修正「藥事法偏遠地區列表」附表一、二、五、十、十四、十五（健保西醫巡迴地點）",
+    "依藥事法第 102 條第 2 項辦理，由衛生福利部主管",
+    "影響：偏遠地區藥師執業認定、處方權範圍",
+    "意見徵詢期 60 日，由食藥署承辦",
+  ],
+  "https://www.fda.gov.tw/TC/newsContent.aspx?cid=5072&id=31553": [
+    "預告修正「藥事法偏遠地區列表」附表六（非屬偏遠地區清單）",
+    "與 31554 號公告為配套修正，調整偏遠地區範圍",
+    "影響：藥師執業地點劃分、調劑作業認定",
+    "意見徵詢期 60 日",
+  ],
   "https://www.fda.gov.tw/TC/newsContent.aspx?cid=5072&id=31552": [
     "第二次預告修正「食品中動物用藥殘留量檢驗方法－Avermectin類抗生素」",
     "Avermectin 類為畜禽常用驅蟲抗生素，方法更新後影響殘留量檢測結果",
