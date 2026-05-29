@@ -10,6 +10,7 @@ from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 import source_tfda
+import source_tfda_law
 import source_efsa
 import source_iso
 import source_usfda
@@ -32,6 +33,7 @@ def main():
 
     sources = [
         ("食藥署 TFDA", source_tfda.crawl),
+        ("食藥署 食品類法規", source_tfda_law.crawl),
         ("EFSA", source_efsa.crawl),
         ("US FDA", source_usfda.crawl),
         ("ISO", source_iso.crawl),
