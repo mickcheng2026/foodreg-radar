@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-05-29T11:22:31+08:00",
+  "updated_at": "2026-05-29T11:33:49+08:00",
   "stats": {
-    "total": 47,
+    "total": 67,
     "by_source": {
       "食藥署": 32,
       "EFSA": 14,
-      "US FDA": 1
+      "US FDA": 21
     }
   },
   "items": [
@@ -22,7 +22,7 @@
         "預告",
         "修正"
       ],
-      "fetched_at": "2026-05-29T11:22:06+08:00",
+      "fetched_at": "2026-05-29T11:33:28+08:00",
       "first_seen": "2026-05-29T11:22:31+08:00",
       "ai_summary": [
         "預告修正「藥事法偏遠地區列表」附表一、二、五、十、十四、十五（健保西醫巡迴地點）",
@@ -44,7 +44,7 @@
         "預告",
         "修正"
       ],
-      "fetched_at": "2026-05-29T11:22:06+08:00",
+      "fetched_at": "2026-05-29T11:33:28+08:00",
       "first_seen": "2026-05-29T11:22:31+08:00",
       "ai_summary": [
         "預告修正「藥事法偏遠地區列表」附表六（非屬偏遠地區清單）",
@@ -66,7 +66,7 @@
         "預告",
         "修正"
       ],
-      "fetched_at": "2026-05-29T11:22:07+08:00",
+      "fetched_at": "2026-05-29T11:33:29+08:00",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "第二次預告修正「食品中動物用藥殘留量檢驗方法－Avermectin類抗生素」",
@@ -86,7 +86,7 @@
       "tags": [
         "新聞"
       ],
-      "fetched_at": "2026-05-29T11:22:13+08:00",
+      "fetched_at": "2026-05-29T11:33:34+08:00",
       "first_seen": "2026-05-28T00:35:05+08:00"
     },
     {
@@ -102,7 +102,7 @@
         "預告",
         "修正"
       ],
-      "fetched_at": "2026-05-29T11:22:07+08:00",
+      "fetched_at": "2026-05-29T11:33:29+08:00",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "預告修正「生物相似性藥品查驗登記基準」",
@@ -122,7 +122,7 @@
         "公告",
         "公告"
       ],
-      "fetched_at": "2026-05-29T11:22:08+08:00",
+      "fetched_at": "2026-05-29T11:33:30+08:00",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "115 年度食品添加物查驗登記業務委託「台灣優良農產品發展協會」審查",
@@ -142,7 +142,7 @@
       "tags": [
         "EFSA"
       ],
-      "fetched_at": "2026-05-29T11:22:29+08:00",
+      "fetched_at": "2026-05-29T11:33:47+08:00",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "歐盟非洲豬瘟（ASF）2025 年疫情明顯上升",
@@ -151,6 +151,384 @@
         "影響：輸歐豬肉與相關製品業者需注意檢疫升級可能"
       ],
       "title_zh": "歐盟非洲豬瘟疫情擴大 — 豬隻與野豬感染雙升"
+    },
+    {
+      "source": "usfda",
+      "source_label": "US FDA",
+      "source_color": "blue",
+      "title": "Dakota Honey Company recalls Dakota Honey Company Spreadable Spun Honey, Salted Caramel. Stir before use. Pro... — Foreign object (stainless steel dust/flakes or shreds of pla",
+      "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts#H-0770-2026",
+      "date": "2026-05-20",
+      "summary": "Product: Dakota Honey Company Spreadable Spun Honey, Salted Caramel. Stir before use. Produced in Winner, SD. Packaged in the following sized plastic jars: 1. Net Wt 4 oz (113g) UPC 8 60012-41981 4. 2. Net Wt | Reason: Foreign object (stainless steel dust/flakes or shreds of plastic) | Distribution: Retail locations in FL, GA, and SD Internet sales Nationwide | Recall #: H-0770-2026",
+      "tags": [
+        "召回",
+        "Class II",
+        "全美",
+        "進行中",
+        "異物"
+      ],
+      "fetched_at": "2026-05-29T11:33:48+08:00",
+      "title_zh": "Dakota Honey Company 召回 — 異物（金屬、玻璃、塑膠等）、塑膠",
+      "ai_summary": [
+        "召回廠商：Dakota Honey Company（Winner, SD）",
+        "產品：Dakota Honey Company Spreadable Spun Honey, Salted Caramel. Stir before use. Produced in Winner, SD. Packaged in the fol",
+        "召回原因：異物（金屬、玻璃、塑膠等）、塑膠",
+        "原因原文：Foreign object (stainless steel dust/flakes or shreds of plastic)",
+        "分級：Class II 中度風險（可能造成可逆健康影響）",
+        "流通範圍：Retail locations in FL, GA, and SD Internet sales Nationwide",
+        "召回編號：H-0770-2026"
+      ],
+      "first_seen": "2026-05-29T11:33:49+08:00"
+    },
+    {
+      "source": "usfda",
+      "source_label": "US FDA",
+      "source_color": "blue",
+      "title": "FINESALER LLC recalls Alain MILLIAT; MARMELADE ORANGE; 300 g 10.6 oz; packaged in glass jars — Product may contain foreign objects, specifically glass.",
+      "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts#H-0773-2026",
+      "date": "2026-05-20",
+      "summary": "Product: Alain MILLIAT; MARMELADE ORANGE; 300 g 10.6 oz; packaged in glass jars | Reason: Product may contain foreign objects, specifically glass. | Distribution: MA | Recall #: H-0773-2026",
+      "tags": [
+        "召回",
+        "Class II",
+        "進行中",
+        "異物"
+      ],
+      "fetched_at": "2026-05-29T11:33:48+08:00",
+      "title_zh": "FINESALER LLC 召回 — 異物（金屬、玻璃、塑膠等）、玻璃",
+      "ai_summary": [
+        "召回廠商：FINESALER LLC（Mamaroneck, NY）",
+        "產品：Alain MILLIAT; MARMELADE ORANGE; 300 g 10.6 oz; packaged in glass jars",
+        "召回原因：異物（金屬、玻璃、塑膠等）、玻璃",
+        "原因原文：Product may contain foreign objects, specifically glass.",
+        "分級：Class II 中度風險（可能造成可逆健康影響）",
+        "流通範圍：MA",
+        "召回編號：H-0773-2026"
+      ],
+      "first_seen": "2026-05-29T11:33:49+08:00"
+    },
+    {
+      "source": "usfda",
+      "source_label": "US FDA",
+      "source_color": "blue",
+      "title": "WE R NUTS recalls Uncle Giuseppe's Marketplace Milk Chocolate Bridge Mix, 11 oz Net Wt, packed in ... — Contains undeclared allergens (cashews, milk, and soy).",
+      "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts#H-0775-2026",
+      "date": "2026-05-20",
+      "summary": "Product: Uncle Giuseppe's Marketplace Milk Chocolate Bridge Mix, 11 oz Net Wt, packed in clear tamper resistant plastic container. UPC 812235023309. Distributed by: WE R NUTS LLC, 99 Seaview Blvd, Port Washing | Reason: Contains undeclared allergens (cashews, milk, and soy). | Distribution: NY, NJ | Recall #: H-0775-2026",
+      "tags": [
+        "召回",
+        "Class II",
+        "進行中",
+        "過敏原"
+      ],
+      "fetched_at": "2026-05-29T11:33:48+08:00",
+      "title_zh": "WE R NUTS 召回 — 未標示過敏原、牛奶過敏原、大豆過敏原、腰果過敏原",
+      "ai_summary": [
+        "召回廠商：WE R NUTS（Port Washington, NY）",
+        "產品：Uncle Giuseppe's Marketplace Milk Chocolate Bridge Mix, 11 oz Net Wt, packed in clear tamper resistant plastic container",
+        "召回原因：未標示過敏原、牛奶過敏原、大豆過敏原、腰果過敏原",
+        "原因原文：Contains undeclared allergens (cashews, milk, and soy).",
+        "分級：Class II 中度風險（可能造成可逆健康影響）",
+        "流通範圍：NY, NJ",
+        "召回編號：H-0775-2026"
+      ],
+      "first_seen": "2026-05-29T11:33:49+08:00"
+    },
+    {
+      "source": "usfda",
+      "source_label": "US FDA",
+      "source_color": "blue",
+      "title": "Dakota Honey Company recalls Dakota Honey Company Spreadable Spun Honey, Jalapeno. Stir before use. Produced ... — Foreign object (stainless steel dust/flakes or shreds of pla",
+      "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts#H-0771-2026",
+      "date": "2026-05-20",
+      "summary": "Product: Dakota Honey Company Spreadable Spun Honey, Jalapeno. Stir before use. Produced in Winner, SD. Packaged in the following sized plastic jars: 1. Net Wt 4 oz (113g) UPC 8 60012-41982 1. 2. Net Wt 12 oz | Reason: Foreign object (stainless steel dust/flakes or shreds of plastic) | Distribution: Retail locations in FL, GA, and SD Internet sales Nationwide | Recall #: H-0771-2026",
+      "tags": [
+        "召回",
+        "Class II",
+        "全美",
+        "進行中",
+        "異物"
+      ],
+      "fetched_at": "2026-05-29T11:33:48+08:00",
+      "title_zh": "Dakota Honey Company 召回 — 異物（金屬、玻璃、塑膠等）、塑膠",
+      "ai_summary": [
+        "召回廠商：Dakota Honey Company（Winner, SD）",
+        "產品：Dakota Honey Company Spreadable Spun Honey, Jalapeno. Stir before use. Produced in Winner, SD. Packaged in the following",
+        "召回原因：異物（金屬、玻璃、塑膠等）、塑膠",
+        "原因原文：Foreign object (stainless steel dust/flakes or shreds of plastic)",
+        "分級：Class II 中度風險（可能造成可逆健康影響）",
+        "流通範圍：Retail locations in FL, GA, and SD Internet sales Nationwide",
+        "召回編號：H-0771-2026"
+      ],
+      "first_seen": "2026-05-29T11:33:49+08:00"
+    },
+    {
+      "source": "usfda",
+      "source_label": "US FDA",
+      "source_color": "blue",
+      "title": "Pure Ground Ingredients, Inc. recalls Pure Ground Ingredients-Organic Peppermint Leaf Powder. wholesale bulk; tea/food... — Salmonella",
+      "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts",
+      "date": "2026-05-20",
+      "summary": "Product: Pure Ground Ingredients-Organic Peppermint Leaf Powder. wholesale bulk; tea/food manufacturers. Closed container stored in a cool settings at ambient/room temperature, free of direct sunlight. Packagi | Reason: Salmonella | Distribution: Distributed to CA.",
+      "tags": [
+        "召回",
+        "Not Yet Classified",
+        "微生物"
+      ],
+      "fetched_at": "2026-05-29T11:33:48+08:00",
+      "title_zh": "Pure Ground Ingredients, Inc. 召回 — 沙門氏菌污染",
+      "ai_summary": [
+        "召回廠商：Pure Ground Ingredients, Inc.（Minden, NV）",
+        "產品：Pure Ground Ingredients-Organic Peppermint Leaf Powder. wholesale bulk; tea/food manufacturers. Closed container stored ",
+        "召回原因：沙門氏菌污染",
+        "原因原文：Salmonella",
+        "分級：尚未分級",
+        "流通範圍：Distributed to CA."
+      ],
+      "first_seen": "2026-05-29T11:33:49+08:00"
+    },
+    {
+      "source": "usfda",
+      "source_label": "US FDA",
+      "source_color": "blue",
+      "title": "Dakota Honey Company recalls Dakota Honey Company the Honey Flight. 4 Flavors of Spreadable Spun Honey Origin... — Foreign object (stainless steel dust/flakes or shreds of pla",
+      "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts#H-0772-2026",
+      "date": "2026-05-20",
+      "summary": "Product: Dakota Honey Company the Honey Flight. 4 Flavors of Spreadable Spun Honey Original - Salted Caramel - Cinnamon - Jalapeno. UPC 8 60010-57968 8. 4 - 4 oz (340g) jars. Net Wt 16 oz (454g). Produced in W | Reason: Foreign object (stainless steel dust/flakes or shreds of plastic) | Distribution: Retail locations in FL, GA, and SD Internet sales Nationwide | Recall #: H-0772-2026",
+      "tags": [
+        "召回",
+        "Class II",
+        "全美",
+        "進行中",
+        "異物"
+      ],
+      "fetched_at": "2026-05-29T11:33:48+08:00",
+      "title_zh": "Dakota Honey Company 召回 — 異物（金屬、玻璃、塑膠等）、塑膠",
+      "ai_summary": [
+        "召回廠商：Dakota Honey Company（Winner, SD）",
+        "產品：Dakota Honey Company the Honey Flight. 4 Flavors of Spreadable Spun Honey Original - Salted Caramel - Cinnamon - Jalapen",
+        "召回原因：異物（金屬、玻璃、塑膠等）、塑膠",
+        "原因原文：Foreign object (stainless steel dust/flakes or shreds of plastic)",
+        "分級：Class II 中度風險（可能造成可逆健康影響）",
+        "流通範圍：Retail locations in FL, GA, and SD Internet sales Nationwide",
+        "召回編號：H-0772-2026"
+      ],
+      "first_seen": "2026-05-29T11:33:49+08:00"
+    },
+    {
+      "source": "usfda",
+      "source_label": "US FDA",
+      "source_color": "blue",
+      "title": "Raja Foods and Vegetables Inc. recalls Swad Mango Flavored Masala Candy — Contains undeclared Blue 1",
+      "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts#H-0778-2026",
+      "date": "2026-05-20",
+      "summary": "Product: Swad Mango Flavored Masala Candy | Reason: Contains undeclared Blue 1 | Distribution: NY, NJ, DE, MA, PA, MD, CT, CA, NH, VT, | Recall #: H-0778-2026",
+      "tags": [
+        "召回",
+        "Class II",
+        "進行中"
+      ],
+      "fetched_at": "2026-05-29T11:33:48+08:00",
+      "title_zh": "Raja Foods and Vegetables Inc. 召回 — Contains undeclared Blue 1",
+      "ai_summary": [
+        "召回廠商：Raja Foods and Vegetables Inc.（Maspeth, NY）",
+        "產品：Swad Mango Flavored Masala Candy",
+        "召回原因：Contains undeclared Blue 1",
+        "分級：Class II 中度風險（可能造成可逆健康影響）",
+        "流通範圍：NY, NJ, DE, MA, PA, MD, CT, CA, NH, VT,",
+        "召回編號：H-0778-2026"
+      ],
+      "first_seen": "2026-05-29T11:33:49+08:00"
+    },
+    {
+      "source": "usfda",
+      "source_label": "US FDA",
+      "source_color": "blue",
+      "title": "Ferris Coffee and Nut Company, Inc. recalls Frederik's by meijer Vanilla Bourbon Trail Mix, packed in plastic retail-sized b... — Undeclared allergens (wheat and soy).",
+      "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts#H-0774-2026",
+      "date": "2026-05-20",
+      "summary": "Product: Frederik's by meijer Vanilla Bourbon Trail Mix, packed in plastic retail-sized black bag NET WT 9 OZ (255g). On the back of the bag is both lot number and a stamped expiration date. UPC 719283 357212; | Reason: Undeclared allergens (wheat and soy). | Distribution: Distributed in IL, IN, KY, MI, OH, and WI. | Recall #: H-0774-2026",
+      "tags": [
+        "召回",
+        "Class II",
+        "進行中",
+        "過敏原"
+      ],
+      "fetched_at": "2026-05-29T11:33:48+08:00",
+      "title_zh": "Ferris Coffee and Nut Company, Inc. 召回 — 未標示過敏原、大豆過敏原、小麥過敏原",
+      "ai_summary": [
+        "召回廠商：Ferris Coffee and Nut Company, Inc.（Grand Rapids, MI）",
+        "產品：Frederik's by meijer Vanilla Bourbon Trail Mix, packed in plastic retail-sized black bag NET WT 9 OZ (255g). On the back",
+        "召回原因：未標示過敏原、大豆過敏原、小麥過敏原",
+        "原因原文：Undeclared allergens (wheat and soy).",
+        "分級：Class II 中度風險（可能造成可逆健康影響）",
+        "流通範圍：Distributed in IL, IN, KY, MI, OH, and WI.",
+        "召回編號：H-0774-2026"
+      ],
+      "first_seen": "2026-05-29T11:33:49+08:00"
+    },
+    {
+      "source": "usfda",
+      "source_label": "US FDA",
+      "source_color": "blue",
+      "title": "Sugar Foods LLC recalls Kroger HOMESTYLE Cheese AND Garlic CROUTONS NET WT 5 OZ (141g) UPC 0 11110 81353... — Possible Salmonella in croutons. The firm was notified by th",
+      "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts#H-0781-2026",
+      "date": "2026-05-20",
+      "summary": "Product: Kroger HOMESTYLE Cheese AND Garlic CROUTONS NET WT 5 OZ (141g) UPC 0 11110 81353 4 DISTRIBUTED BY THE KROGER CO., CINCINNATI, OHIO 45202 | Reason: Possible Salmonella in croutons. The firm was notified by their supplier that the non-fat milk powder used to manufacture the product was recalled due to possible salmonella. | Distribution: Product was shipped to distribution centers in the following states: IN, TN & WI. | Recall #: H-0781-2026",
+      "tags": [
+        "召回",
+        "Class I",
+        "進行中",
+        "過敏原",
+        "微生物"
+      ],
+      "fetched_at": "2026-05-29T11:33:48+08:00",
+      "title_zh": "Sugar Foods LLC 召回 — 沙門氏菌污染、牛奶過敏原",
+      "ai_summary": [
+        "召回廠商：Sugar Foods LLC（Villa Rica, GA）",
+        "產品：Kroger HOMESTYLE Cheese AND Garlic CROUTONS NET WT 5 OZ (141g) UPC 0 11110 81353 4 DISTRIBUTED BY THE KROGER CO., CINCIN",
+        "召回原因：沙門氏菌污染、牛奶過敏原",
+        "原因原文：Possible Salmonella in croutons. The firm was notified by their supplier that the non-fat milk powder used to manufactur",
+        "分級：Class I 重大風險（恐致死或嚴重健康危害）",
+        "流通範圍：Product was shipped to distribution centers in the following states: IN, TN & WI.",
+        "召回編號：H-0781-2026"
+      ],
+      "first_seen": "2026-05-29T11:33:49+08:00"
+    },
+    {
+      "source": "usfda",
+      "source_label": "US FDA",
+      "source_color": "blue",
+      "title": "Prospector Popcorn, LLC recalls Prospector Popcorn brand Belgian Chocolate Toffee flavored popcorn; Ingredients:... — Products contain undeclared soy, specifically soy lecithin.",
+      "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts#H-0779-2026",
+      "date": "2026-05-20",
+      "summary": "Product: Prospector Popcorn brand Belgian Chocolate Toffee flavored popcorn; Ingredients: Non-GMO popcorn, brown sugar, corn syrup, butter, vanilla, baking soda, sea salt, white chocolate (sugar, palm kernel f | Reason: Products contain undeclared soy, specifically soy lecithin. | Distribution: CT and NY | Recall #: H-0779-2026",
+      "tags": [
+        "召回",
+        "Class II",
+        "進行中",
+        "過敏原"
+      ],
+      "fetched_at": "2026-05-29T11:33:48+08:00",
+      "title_zh": "Prospector Popcorn, LLC 召回 — 大豆過敏原",
+      "ai_summary": [
+        "召回廠商：Prospector Popcorn, LLC（Ridgefield, CT）",
+        "產品：Prospector Popcorn brand Belgian Chocolate Toffee flavored popcorn; Ingredients: Non-GMO popcorn, brown sugar, corn syru",
+        "召回原因：大豆過敏原",
+        "原因原文：Products contain undeclared soy, specifically soy lecithin.",
+        "分級：Class II 中度風險（可能造成可逆健康影響）",
+        "流通範圍：CT and NY",
+        "召回編號：H-0779-2026"
+      ],
+      "first_seen": "2026-05-29T11:33:49+08:00"
+    },
+    {
+      "source": "usfda",
+      "source_label": "US FDA",
+      "source_color": "blue",
+      "title": "Dakota Honey Company recalls Dakota Honey Company Spreadable Spun Honey, Cinnamon-Infused. Stir before use. P... — Foreign object (stainless steel dust/flakes or shreds of pla",
+      "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts#H-0769-2026",
+      "date": "2026-05-20",
+      "summary": "Product: Dakota Honey Company Spreadable Spun Honey, Cinnamon-Infused. Stir before use. Produced in Winner, SD. Packaged in the following sized plastic jars: 1. Net Wt 4 oz (113g) UPC 8 60012-41980 7. 2. Net W | Reason: Foreign object (stainless steel dust/flakes or shreds of plastic) | Distribution: Retail locations in FL, GA, and SD Internet sales Nationwide | Recall #: H-0769-2026",
+      "tags": [
+        "召回",
+        "Class II",
+        "全美",
+        "進行中",
+        "異物"
+      ],
+      "fetched_at": "2026-05-29T11:33:48+08:00",
+      "title_zh": "Dakota Honey Company 召回 — 異物（金屬、玻璃、塑膠等）、塑膠",
+      "ai_summary": [
+        "召回廠商：Dakota Honey Company（Winner, SD）",
+        "產品：Dakota Honey Company Spreadable Spun Honey, Cinnamon-Infused. Stir before use. Produced in Winner, SD. Packaged in the f",
+        "召回原因：異物（金屬、玻璃、塑膠等）、塑膠",
+        "原因原文：Foreign object (stainless steel dust/flakes or shreds of plastic)",
+        "分級：Class II 中度風險（可能造成可逆健康影響）",
+        "流通範圍：Retail locations in FL, GA, and SD Internet sales Nationwide",
+        "召回編號：H-0769-2026"
+      ],
+      "first_seen": "2026-05-29T11:33:49+08:00"
+    },
+    {
+      "source": "usfda",
+      "source_label": "US FDA",
+      "source_color": "blue",
+      "title": "Raja Foods and Vegetables Inc. recalls Swad Orange Flavored Masala Candy — Contains undeclared FD&C Yellow 6",
+      "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts#H-0777-2026",
+      "date": "2026-05-20",
+      "summary": "Product: Swad Orange Flavored Masala Candy | Reason: Contains undeclared FD&C Yellow 6 | Distribution: NY, NJ, DE, MA, PA, MD, CT, CA, NH, VT, | Recall #: H-0777-2026",
+      "tags": [
+        "召回",
+        "Class II",
+        "進行中"
+      ],
+      "fetched_at": "2026-05-29T11:33:48+08:00",
+      "title_zh": "Raja Foods and Vegetables Inc. 召回 — Contains undeclared FD&C Yellow 6",
+      "ai_summary": [
+        "召回廠商：Raja Foods and Vegetables Inc.（Maspeth, NY）",
+        "產品：Swad Orange Flavored Masala Candy",
+        "召回原因：Contains undeclared FD&C Yellow 6",
+        "分級：Class II 中度風險（可能造成可逆健康影響）",
+        "流通範圍：NY, NJ, DE, MA, PA, MD, CT, CA, NH, VT,",
+        "召回編號：H-0777-2026"
+      ],
+      "first_seen": "2026-05-29T11:33:49+08:00"
+    },
+    {
+      "source": "usfda",
+      "source_label": "US FDA",
+      "source_color": "blue",
+      "title": "Ocinet, Inc. recalls ...And Kimchi branded kimchi; packaged in 3 sizes of glass containers (126oz, 63... — Undeclared allergen ingredient (fish)",
+      "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts#H-0780-2026",
+      "date": "2026-05-20",
+      "summary": "Product: ...And Kimchi branded kimchi; packaged in 3 sizes of glass containers (126oz, 63oz, 30oz); 126oz UPC- 8541200408 62oz UPC- 8651200409 30oz UPC- 8541200411 | Reason: Undeclared allergen ingredient (fish) | Distribution: Product was distributed to locations in California, Texas and Georgia. | Recall #: H-0780-2026",
+      "tags": [
+        "召回",
+        "Class II",
+        "進行中",
+        "過敏原"
+      ],
+      "fetched_at": "2026-05-29T11:33:48+08:00",
+      "title_zh": "Ocinet, Inc. 召回 — 未標示過敏原、魚類過敏原",
+      "ai_summary": [
+        "召回廠商：Ocinet, Inc.（Downey, CA）",
+        "產品：...And Kimchi branded kimchi; packaged in 3 sizes of glass containers (126oz, 63oz, 30oz); 126oz UPC- 8541200408 62oz UP",
+        "召回原因：未標示過敏原、魚類過敏原",
+        "原因原文：Undeclared allergen ingredient (fish)",
+        "分級：Class II 中度風險（可能造成可逆健康影響）",
+        "流通範圍：Product was distributed to locations in California, Texas and Georgia.",
+        "召回編號：H-0780-2026"
+      ],
+      "first_seen": "2026-05-29T11:33:49+08:00"
+    },
+    {
+      "source": "usfda",
+      "source_label": "US FDA",
+      "source_color": "blue",
+      "title": "Dakota Honey Company recalls Dakota Honey Company Spreadable Spun Honey, Original. Stir before use. Produced ... — Foreign object (stainless steel dust/flakes or shreds of pla",
+      "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts#H-0768-2026",
+      "date": "2026-05-20",
+      "summary": "Product: Dakota Honey Company Spreadable Spun Honey, Original. Stir before use. Produced in Winner, SD. Packaged in the following sized plastic jars: 1. Net Wt 4 oz (113g) UPC 8 60010-57969 5. 2. Net Wt 12 oz | Reason: Foreign object (stainless steel dust/flakes or shreds of plastic) | Distribution: Retail locations in FL, GA, and SD Internet sales Nationwide | Recall #: H-0768-2026",
+      "tags": [
+        "召回",
+        "Class II",
+        "全美",
+        "進行中",
+        "異物"
+      ],
+      "fetched_at": "2026-05-29T11:33:48+08:00",
+      "title_zh": "Dakota Honey Company 召回 — 異物（金屬、玻璃、塑膠等）、塑膠",
+      "ai_summary": [
+        "召回廠商：Dakota Honey Company（Winner, SD）",
+        "產品：Dakota Honey Company Spreadable Spun Honey, Original. Stir before use. Produced in Winner, SD. Packaged in the following",
+        "召回原因：異物（金屬、玻璃、塑膠等）、塑膠",
+        "原因原文：Foreign object (stainless steel dust/flakes or shreds of plastic)",
+        "分級：Class II 中度風險（可能造成可逆健康影響）",
+        "流通範圍：Retail locations in FL, GA, and SD Internet sales Nationwide",
+        "召回編號：H-0768-2026"
+      ],
+      "first_seen": "2026-05-29T11:33:49+08:00"
     },
     {
       "source": "tfda",
@@ -165,7 +543,7 @@
         "預告",
         "修正"
       ],
-      "fetched_at": "2026-05-29T11:22:08+08:00",
+      "fetched_at": "2026-05-29T11:33:30+08:00",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "預告修正「輸入醫療器材邊境抽查檢驗辦法」第六條附表二",
@@ -186,7 +564,7 @@
         "公告",
         "公告"
       ],
-      "fetched_at": "2026-05-29T11:22:09+08:00",
+      "fetched_at": "2026-05-29T11:33:31+08:00",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "新訂「食品廣告合規輔導指引」協助業者釐清廣告合規界線",
@@ -207,8 +585,165 @@
         "公告",
         "公告"
       ],
-      "fetched_at": "2026-05-29T11:22:09+08:00",
+      "fetched_at": "2026-05-29T11:33:32+08:00",
       "first_seen": "2026-05-28T00:35:05+08:00"
+    },
+    {
+      "source": "usfda",
+      "source_label": "US FDA",
+      "source_color": "blue",
+      "title": "Silver Moon LP dba Loard's Ice Cream recalls Banana Ice Cream - 32 oz (4 labels: Mollie Stone's; Dehoff's; Farmer Joe's, Piaz... — Undeclared Yellow #5",
+      "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts#H-0756-2026",
+      "date": "2026-05-13",
+      "summary": "Product: Banana Ice Cream - 32 oz (4 labels: Mollie Stone's; Dehoff's; Farmer Joe's, Piazza's Fine Foods) UPC: 8-12017-00903 | Reason: Undeclared Yellow #5 | Distribution: Loard's brand distributed to Loard's Ice Cream parlors located in Northern California. Private labels distributed to grocery stores located in Norther | Recall #: H-0756-2026",
+      "tags": [
+        "召回",
+        "Class II",
+        "進行中"
+      ],
+      "fetched_at": "2026-05-29T11:33:48+08:00",
+      "title_zh": "Silver Moon LP dba Loard's Ice Cream 召回 — Undeclared Yellow #5",
+      "ai_summary": [
+        "召回廠商：Silver Moon LP dba Loard's Ice Cream（San Leandro, CA）",
+        "產品：Banana Ice Cream - 32 oz (4 labels: Mollie Stone's; Dehoff's; Farmer Joe's, Piazza's Fine Foods) UPC: 8-12017-00903",
+        "召回原因：Undeclared Yellow #5",
+        "分級：Class II 中度風險（可能造成可逆健康影響）",
+        "流通範圍：Loard's brand distributed to Loard's Ice Cream parlors located in Northern California. Private labels distributed to grocery stores located in Norther",
+        "召回編號：H-0756-2026"
+      ],
+      "first_seen": "2026-05-29T11:33:49+08:00"
+    },
+    {
+      "source": "usfda",
+      "source_label": "US FDA",
+      "source_color": "blue",
+      "title": "Silver Moon LP dba Loard's Ice Cream recalls Loard's Peppermint Ice Cream - 32 oz; 56 oz — Undeclared Milk, Soy, Red #40.",
+      "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts#H-0745-2026",
+      "date": "2026-05-13",
+      "summary": "Product: Loard's Peppermint Ice Cream - 32 oz; 56 oz | Reason: Undeclared Milk, Soy, Red #40. | Distribution: Loard's brand distributed to Loard's Ice Cream parlors located in Northern California. Private labels distributed to grocery stores located in Norther | Recall #: H-0745-2026",
+      "tags": [
+        "召回",
+        "Class II",
+        "進行中",
+        "過敏原"
+      ],
+      "fetched_at": "2026-05-29T11:33:48+08:00",
+      "title_zh": "Silver Moon LP dba Loard's Ice Cream 召回 — 牛奶過敏原、大豆過敏原",
+      "ai_summary": [
+        "召回廠商：Silver Moon LP dba Loard's Ice Cream（San Leandro, CA）",
+        "產品：Loard's Peppermint Ice Cream - 32 oz; 56 oz",
+        "召回原因：牛奶過敏原、大豆過敏原",
+        "原因原文：Undeclared Milk, Soy, Red #40.",
+        "分級：Class II 中度風險（可能造成可逆健康影響）",
+        "流通範圍：Loard's brand distributed to Loard's Ice Cream parlors located in Northern California. Private labels distributed to grocery stores located in Norther",
+        "召回編號：H-0745-2026"
+      ],
+      "first_seen": "2026-05-29T11:33:49+08:00"
+    },
+    {
+      "source": "usfda",
+      "source_label": "US FDA",
+      "source_color": "blue",
+      "title": "California Dairies Inc. recalls Low Heat Non-Fat Dried Milk Powder - paper bags 25 kg. (packed under 5 labels: O... — Potential contamination with Salmonella.",
+      "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts#H-0699-2026",
+      "date": "2026-05-13",
+      "summary": "Product: Low Heat Non-Fat Dried Milk Powder - paper bags 25 kg. (packed under 5 labels: Off Grade NFDM Variable; Extra Grade NFDM Standard rBST Free; Grade A NFDM LH Basic; Grade A NFDM LH Standard rBST Free; | Reason: Potential contamination with Salmonella. | Distribution: U.S. Distribution: Unknown and to be determined during RAC assignment. Domestic consignees pick-up product from CDI. Foreign Distribution: Mexico, Phi | Recall #: H-0699-2026",
+      "tags": [
+        "召回",
+        "Class I",
+        "進行中",
+        "微生物"
+      ],
+      "fetched_at": "2026-05-29T11:33:48+08:00",
+      "title_zh": "California Dairies Inc. 召回 — 沙門氏菌污染",
+      "ai_summary": [
+        "召回廠商：California Dairies Inc.（Visalia, CA）",
+        "產品：Low Heat Non-Fat Dried Milk Powder - paper bags 25 kg. (packed under 5 labels: Off Grade NFDM Variable; Extra Grade NFDM",
+        "召回原因：沙門氏菌污染",
+        "原因原文：Potential contamination with Salmonella.",
+        "分級：Class I 重大風險（恐致死或嚴重健康危害）",
+        "流通範圍：U.S. Distribution: Unknown and to be determined during RAC assignment. Domestic consignees pick-up product from CDI. Foreign Distribution: Mexico, Phi",
+        "召回編號：H-0699-2026"
+      ],
+      "first_seen": "2026-05-29T11:33:49+08:00"
+    },
+    {
+      "source": "usfda",
+      "source_label": "US FDA",
+      "source_color": "blue",
+      "title": "Raw Farm LLC recalls RAW FARM RAW CHEDDAR SIMPLY SHREDDED Original MADE WITH: WHOLE RAW MILK TRULY RA... — Multi-state outbreak of E. coli O157:H7.",
+      "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts#H-0764-2026",
+      "date": "2026-05-13",
+      "summary": "Product: RAW FARM RAW CHEDDAR SIMPLY SHREDDED Original MADE WITH: WHOLE RAW MILK TRULY RAW - NEVER WARMED ABOVE 102F MADE IN THE USA KEEP REFRIGERATED INGREDIENTS: WHOLE RAW MILK, VEGETABLE RENNET, CULTURES, K | Reason: Multi-state outbreak of E. coli O157:H7. | Distribution: U.S. distribution: AZ, CA, CO, FL, GA, IL, IN, MD, NV, TX. Foreign distribution: None. | Recall #: H-0764-2026",
+      "tags": [
+        "召回",
+        "Class I",
+        "進行中",
+        "微生物"
+      ],
+      "fetched_at": "2026-05-29T11:33:48+08:00",
+      "title_zh": "Raw Farm LLC 召回 — 大腸桿菌污染",
+      "ai_summary": [
+        "召回廠商：Raw Farm LLC（Fresno, CA）",
+        "產品：RAW FARM RAW CHEDDAR SIMPLY SHREDDED Original MADE WITH: WHOLE RAW MILK TRULY RAW - NEVER WARMED ABOVE 102F MADE IN THE ",
+        "召回原因：大腸桿菌污染",
+        "原因原文：Multi-state outbreak of E. coli O157:H7.",
+        "分級：Class I 重大風險（恐致死或嚴重健康危害）",
+        "流通範圍：U.S. distribution: AZ, CA, CO, FL, GA, IL, IN, MD, NV, TX. Foreign distribution: None.",
+        "召回編號：H-0764-2026"
+      ],
+      "first_seen": "2026-05-29T11:33:49+08:00"
+    },
+    {
+      "source": "usfda",
+      "source_label": "US FDA",
+      "source_color": "blue",
+      "title": "Horizon Organic Dairy, LLC recalls Horizon Organic Chocolate Organic Lowfat Milk. Saleable Unit UPC: 742365004322 (... — Package integrity compromised.",
+      "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts#H-0711-2026",
+      "date": "2026-05-13",
+      "summary": "Product: Horizon Organic Chocolate Organic Lowfat Milk. Saleable Unit UPC: 742365004322 (6-8 FL OZ Milk Boxes). Case: ORG MILK 1% DHA CHOCOLATE 3/6PK (item 136518). Case UPC: 742365004322. Three 6-Packs, 18-8 | Reason: Package integrity compromised. | Distribution: Distributed to the following states: AZ, CA, NV, OR. | Recall #: H-0711-2026",
+      "tags": [
+        "召回",
+        "Class II"
+      ],
+      "fetched_at": "2026-05-29T11:33:48+08:00",
+      "title_zh": "Horizon Organic Dairy, LLC 召回 — Package integrity compromised.",
+      "ai_summary": [
+        "召回廠商：Horizon Organic Dairy, LLC（Broomfield, CO）",
+        "產品：Horizon Organic Chocolate Organic Lowfat Milk. Saleable Unit UPC: 742365004322 (6-8 FL OZ Milk Boxes). Case: ORG MILK 1%",
+        "召回原因：Package integrity compromised.",
+        "分級：Class II 中度風險（可能造成可逆健康影響）",
+        "流通範圍：Distributed to the following states: AZ, CA, NV, OR.",
+        "召回編號：H-0711-2026"
+      ],
+      "first_seen": "2026-05-29T11:33:49+08:00"
+    },
+    {
+      "source": "usfda",
+      "source_label": "US FDA",
+      "source_color": "blue",
+      "title": "Wehah Farms recalls LUNDBERG FAMILY FAMRS WHITE RICE JASMINE NET WT 32 OZ (2 lb) 907 g Manufactured ... — Potential contamination with foreign materials.",
+      "url": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts#H-0767-2026",
+      "date": "2026-05-13",
+      "summary": "Product: LUNDBERG FAMILY FAMRS WHITE RICE JASMINE NET WT 32 OZ (2 lb) 907 g Manufactured and Distributed by: Lundberg Family Farms Richvale, CA 95974 UPC: 073416040281 | Reason: Potential contamination with foreign materials. | Distribution: U.S. States: CA, CT, FL, IL, NC, NH, NY, PA, TN, VT, WA, WI. Foreign distribution: None | Recall #: H-0767-2026",
+      "tags": [
+        "召回",
+        "Class II",
+        "進行中",
+        "異物"
+      ],
+      "fetched_at": "2026-05-29T11:33:48+08:00",
+      "title_zh": "Wehah Farms 召回 — 異物",
+      "ai_summary": [
+        "召回廠商：Wehah Farms（Richvale, CA）",
+        "產品：LUNDBERG FAMILY FAMRS WHITE RICE JASMINE NET WT 32 OZ (2 lb) 907 g Manufactured and Distributed by: Lundberg Family Farm",
+        "召回原因：異物",
+        "原因原文：Potential contamination with foreign materials.",
+        "分級：Class II 中度風險（可能造成可逆健康影響）",
+        "流通範圍：U.S. States: CA, CT, FL, IL, NC, NH, NY, PA, TN, VT, WA, WI. Foreign distribution: None",
+        "召回編號：H-0767-2026"
+      ],
+      "first_seen": "2026-05-29T11:33:49+08:00"
     },
     {
       "source": "efsa",
@@ -222,7 +757,7 @@
         "EFSA",
         "Podcast"
       ],
-      "fetched_at": "2026-05-29T11:22:29+08:00",
+      "fetched_at": "2026-05-29T11:33:47+08:00",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "EFSA Podcast 第 40 集，主題：科學溝通與打擊不實訊息",
@@ -243,7 +778,7 @@
         "公告",
         "預告"
       ],
-      "fetched_at": "2026-05-29T11:22:10+08:00",
+      "fetched_at": "2026-05-29T11:33:32+08:00",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "預告訂定「西藥非處方藥仿單與外盒刊載應遵行事項」草案",
@@ -264,7 +799,7 @@
         "預告",
         "公告"
       ],
-      "fetched_at": "2026-05-29T11:22:10+08:00",
+      "fetched_at": "2026-05-29T11:33:32+08:00",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "預告廢止 105 年「西藥非處方藥仿單外盒格式及規範」",
@@ -325,7 +860,7 @@
       "tags": [
         "EFSA"
       ],
-      "fetched_at": "2026-05-29T11:22:29+08:00",
+      "fetched_at": "2026-05-29T11:33:47+08:00",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "EFSA 推動「Plant Health 4 Life」植物健康倡議第 4 年（最終年）",
@@ -346,7 +881,7 @@
         "新聞",
         "修正"
       ],
-      "fetched_at": "2026-05-29T11:22:15+08:00",
+      "fetched_at": "2026-05-29T11:33:34+08:00",
       "first_seen": "2026-05-28T00:35:05+08:00"
     },
     {
@@ -361,7 +896,7 @@
         "EFSA",
         "農藥殘留"
       ],
-      "fetched_at": "2026-05-29T11:22:29+08:00",
+      "fetched_at": "2026-05-29T11:33:47+08:00",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "title_zh": "2024 歐盟農藥殘留報告（互動式視覺化）"
     },
@@ -377,7 +912,7 @@
         "EFSA",
         "農藥殘留"
       ],
-      "fetched_at": "2026-05-29T11:22:29+08:00",
+      "fetched_at": "2026-05-29T11:33:47+08:00",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "EFSA 公布最新歐盟農藥殘留檢測結果",
@@ -397,7 +932,7 @@
       "tags": [
         "EFSA"
       ],
-      "fetched_at": "2026-05-29T11:22:29+08:00",
+      "fetched_at": "2026-05-29T11:33:47+08:00",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "EU‑ANSA（歐盟科學諮詢機構網絡）重申科學研究在政策制定中的核心角色",
@@ -419,7 +954,7 @@
         "預告",
         "修正"
       ],
-      "fetched_at": "2026-05-29T11:22:21+08:00",
+      "fetched_at": "2026-05-29T11:33:40+08:00",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "預告修正「管制藥品分級及品項」",
@@ -439,7 +974,7 @@
       "tags": [
         "新聞"
       ],
-      "fetched_at": "2026-05-29T11:22:16+08:00",
+      "fetched_at": "2026-05-29T11:33:35+08:00",
       "first_seen": "2026-05-28T00:35:05+08:00"
     },
     {
@@ -453,7 +988,7 @@
       "tags": [
         "新聞"
       ],
-      "fetched_at": "2026-05-29T11:22:16+08:00",
+      "fetched_at": "2026-05-29T11:33:36+08:00",
       "first_seen": "2026-05-28T00:35:05+08:00"
     },
     {
@@ -467,7 +1002,7 @@
       "tags": [
         "EFSA"
       ],
-      "fetched_at": "2026-05-29T11:22:29+08:00",
+      "fetched_at": "2026-05-29T11:33:47+08:00",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "EFSA 旗艦倡議「Safe2Eat」邁入第 6 年",
@@ -487,7 +1022,7 @@
       "tags": [
         "新聞"
       ],
-      "fetched_at": "2026-05-29T11:22:17+08:00",
+      "fetched_at": "2026-05-29T11:33:36+08:00",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "食藥署與國健署合作推動「食品紅黃綠」正面營養標示制度",
@@ -507,7 +1042,7 @@
       "tags": [
         "EFSA"
       ],
-      "fetched_at": "2026-05-29T11:22:29+08:00",
+      "fetched_at": "2026-05-29T11:33:47+08:00",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "EFSA 更新指引文件分類，分為 5 類：目的、內容、適用性、強制程度、對象",
@@ -528,7 +1063,7 @@
         "EFSA",
         "Podcast"
       ],
-      "fetched_at": "2026-05-29T11:22:29+08:00",
+      "fetched_at": "2026-05-29T11:33:47+08:00",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "EFSA Podcast 第 39 集：歐盟食安實習生計畫介紹",
@@ -547,7 +1082,7 @@
       "tags": [
         "新聞"
       ],
-      "fetched_at": "2026-05-29T11:22:18+08:00",
+      "fetched_at": "2026-05-29T11:33:37+08:00",
       "first_seen": "2026-05-28T00:35:05+08:00"
     },
     {
@@ -561,7 +1096,7 @@
       "tags": [
         "新聞"
       ],
-      "fetched_at": "2026-05-29T11:22:19+08:00",
+      "fetched_at": "2026-05-29T11:33:37+08:00",
       "first_seen": "2026-05-28T00:35:05+08:00"
     },
     {
@@ -577,7 +1112,7 @@
         "預告",
         "修正"
       ],
-      "fetched_at": "2026-05-29T11:22:22+08:00",
+      "fetched_at": "2026-05-29T11:33:41+08:00",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "預告修正「食品添加物規格檢驗方法－二氧化鈦」",
@@ -599,7 +1134,7 @@
         "預告",
         "修正"
       ],
-      "fetched_at": "2026-05-29T11:22:22+08:00",
+      "fetched_at": "2026-05-29T11:33:42+08:00",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "同時預告修正「鹽酸吡哆辛（維生素 B6）」與「二氧化碳」兩項添加物的規格檢驗方法",
@@ -620,7 +1155,7 @@
         "預告",
         "修正"
       ],
-      "fetched_at": "2026-05-29T11:22:23+08:00",
+      "fetched_at": "2026-05-29T11:33:42+08:00",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "預告修正「食品添加物規格檢驗方法－食用紅色七號鋁麗基」",
@@ -640,7 +1175,7 @@
         "預告法規",
         "預告"
       ],
-      "fetched_at": "2026-05-29T11:22:24+08:00",
+      "fetched_at": "2026-05-29T11:33:43+08:00",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "預告廢止「歐來金得」舊版動物用藥檢驗方法",
@@ -660,7 +1195,7 @@
       "tags": [
         "EFSA"
       ],
-      "fetched_at": "2026-05-29T11:22:29+08:00",
+      "fetched_at": "2026-05-29T11:33:47+08:00",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "歐盟高病原性禽流感（HPAI）疫情在秋冬高峰後開始下降",
@@ -681,7 +1216,7 @@
         "EFSA",
         "Podcast"
       ],
-      "fetched_at": "2026-05-29T11:22:29+08:00",
+      "fetched_at": "2026-05-29T11:33:47+08:00",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "EFSA Podcast 第 38 集：食品風險評估的演進與創新",
@@ -701,7 +1236,7 @@
       "tags": [
         "新聞"
       ],
-      "fetched_at": "2026-05-29T11:22:19+08:00",
+      "fetched_at": "2026-05-29T11:33:38+08:00",
       "first_seen": "2026-05-28T00:35:05+08:00"
     },
     {
@@ -715,7 +1250,7 @@
       "tags": [
         "EFSA"
       ],
-      "fetched_at": "2026-05-29T11:22:29+08:00",
+      "fetched_at": "2026-05-29T11:33:47+08:00",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "EFSA 公開徵詢「Xylella fastidiosa（火傷病）」防治方法評估",
@@ -736,7 +1271,7 @@
         "預告法規",
         "預告"
       ],
-      "fetched_at": "2026-05-29T11:22:24+08:00",
+      "fetched_at": "2026-05-29T11:33:43+08:00",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "預告修訂「藥品優良臨床試驗作業指引」",
@@ -756,7 +1291,7 @@
       "tags": [
         "新聞"
       ],
-      "fetched_at": "2026-05-29T11:22:20+08:00",
+      "fetched_at": "2026-05-29T11:33:39+08:00",
       "first_seen": "2026-05-28T00:35:05+08:00"
     },
     {
@@ -770,7 +1305,7 @@
       "tags": [
         "新聞"
       ],
-      "fetched_at": "2026-05-29T11:22:21+08:00",
+      "fetched_at": "2026-05-29T11:33:40+08:00",
       "first_seen": "2026-05-28T00:35:05+08:00"
     },
     {
@@ -785,7 +1320,7 @@
         "預告法規",
         "預告"
       ],
-      "fetched_at": "2026-05-29T11:22:25+08:00",
+      "fetched_at": "2026-05-29T11:33:44+08:00",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "預告廢止「食品中殘留農藥檢驗方法－殺蟎劑三亞蟎」",
@@ -807,7 +1342,7 @@
         "預告",
         "修正"
       ],
-      "fetched_at": "2026-05-29T11:22:25+08:00",
+      "fetched_at": "2026-05-29T11:33:44+08:00",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "預告修正「食品中植物性成分檢驗方法－芒果之定性檢驗」",
@@ -828,7 +1363,7 @@
         "預告",
         "修正"
       ],
-      "fetched_at": "2026-05-29T11:22:26+08:00",
+      "fetched_at": "2026-05-29T11:33:45+08:00",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "預告修正「醫療器材回收處理辦法」第四條",
@@ -848,7 +1383,7 @@
         "預告法規",
         "預告"
       ],
-      "fetched_at": "2026-05-29T11:22:27+08:00",
+      "fetched_at": "2026-05-29T11:33:45+08:00",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "預告國際 ICH E9(R1) 統計指引：估計目標與敏感度分析",
@@ -867,7 +1402,7 @@
       "tags": [
         "EFSA"
       ],
-      "fetched_at": "2026-05-29T11:22:29+08:00",
+      "fetched_at": "2026-05-29T11:33:47+08:00",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "title_zh": "EFSA 新聞中心 — 互動式工具一覽"
     },
@@ -882,7 +1417,7 @@
       "tags": [
         "EFSA"
       ],
-      "fetched_at": "2026-05-29T11:22:29+08:00",
+      "fetched_at": "2026-05-29T11:33:47+08:00",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "title_zh": "EFSA 介紹影片：科學、安全食品、永續"
     },
