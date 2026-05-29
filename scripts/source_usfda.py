@@ -20,7 +20,7 @@ from datetime import datetime
 from common import clean_text, make_item, DEFAULT_HEADERS
 
 API_URL = "https://api.fda.gov/food/enforcement.json"
-LIMIT = 100  # 近 1 年資料約 1000+ 筆，每次 API 最多 1000，我們抓 100 最近的
+LIMIT = 1000  # openFDA 單次最多 1000；近 1 年食品召回約 800-1200 筆
 RECALL_DEEP_LINK = "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts"
 
 _ctx = ssl.create_default_context()
@@ -112,9 +112,13 @@ def yyyymmdd_to_iso(s: str) -> str | None:
 
 
 def fetch_api(limit: int) -> list[dict]:
-    url = f"{API_URL}?limit={limit}&sort=report_date:desc"
+    from datetime import datetime, timedelta
+    # 過濾近 1 年的召回（report_date >= 1 年前）
+    one_year_ago = (datetime.now() - timedelta(days=365)).strftime("%Y%m%d")
+    today = datetime.now().strftime("%Y%m%d")
+    url = f"{API_URL}?search=report_date:[{one_year_ago}+TO+{today}]&limit={limit}&sort=report_date:desc"
     req = urllib.request.Request(url, headers=DEFAULT_HEADERS)
-    with urllib.request.urlopen(req, timeout=25, context=_ctx) as r:
+    with urllib.request.urlopen(req, timeout=30, context=_ctx) as r:
         return json.loads(r.read().decode("utf-8")).get("results", [])
 
 

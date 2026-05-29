@@ -8,7 +8,7 @@ from common import fetch, clean_text, strip_tags, normalize_date, make_item
 
 BASE = "https://www.efsa.europa.eu"
 LIST_URL = f"{BASE}/en/news"
-PAGES_TO_FETCH = 5  # 5 頁 × ~14 = ~70 筆，覆蓋約 1 年
+PAGES_TO_FETCH = 18  # EFSA 新聞約每週 1-3 篇，18 頁 × ~14 = ~250，覆蓋 1 年+
 
 
 def crawl() -> list[dict]:
@@ -40,7 +40,7 @@ def crawl() -> list[dict]:
             re.DOTALL | re.IGNORECASE,
         )
 
-    for block in blocks[:80]:
+    for block in blocks[:300]:
         # 標題與連結
         link_m = re.search(r'<a\s+href="([^"]+)"[^>]*>([^<]{10,300})</a>', block, re.DOTALL)
         if not link_m:

@@ -13,6 +13,7 @@ from datetime import datetime
 
 BASE = "https://www.fsc.go.jp"
 LIST_URL = f"{BASE}/iken-bosyu/index.html"
+ARCHIVE_URL = f"{BASE}/iken-bosyu/iken-kekka/kekka.html"  # 過去意見徵詢結果
 
 
 # 日文→中文簡易對應，協助標題翻譯
@@ -69,20 +70,28 @@ def translate_title_basic(jp: str) -> str:
 
 def crawl() -> list[dict]:
     items: list[dict] = []
-    try:
-        html = fetch(LIST_URL)
-    except Exception as e:
-        print(f"  [JP FSC] 抓取失敗: {e}")
-        return items
+    seen_urls: set[str] = set()
+    all_rows = []
+    for u in [LIST_URL, ARCHIVE_URL]:
+        try:
+            html = fetch(u)
+            rows = re.findall(r'<tr[^>]*>(.*?)</tr>', html, re.DOTALL | re.IGNORECASE)
+            all_rows.extend(rows)
+        except Exception as e:
+            print(f"  [JP FSC] {u} 失敗: {e}")
 
-    # 表格 row 結構：<tr>...<td>日期</td>...<td>標題與連結</td></tr>
-    rows = re.findall(r'<tr[^>]*>(.*?)</tr>', html, re.DOTALL | re.IGNORECASE)
-    for row in rows:
-        # 第一個 td 是日期
+    for row in all_rows:
+        # 第一個 td 是日期，可能是 YYYY/MM/DD 或 令和N年M月D日
         date_m = re.search(r'<td[^>]*>\s*(\d{4}/\d{1,2}/\d{1,2})', row)
-        if not date_m:
-            continue
-        date = parse_date_jp(date_m.group(1))
+        if date_m:
+            date = parse_date_jp(date_m.group(1))
+        else:
+            # 嘗試令和年份格式
+            reiwa_m = re.search(r'令和(\d+)年(\d{1,2})月(\d{1,2})', row)
+            if reiwa_m:
+                date = parse_date_jp(f"令和{reiwa_m.group(1)}年{reiwa_m.group(2)}月{reiwa_m.group(3)}日")
+            else:
+                continue
 
         # anchor + 標題
         a_m = re.search(r'<a\s+href="([^"]+)"[^>]*>([^<]+)</a>', row, re.DOTALL)
@@ -105,6 +114,9 @@ def crawl() -> list[dict]:
 
         if not title or len(title) < 5:
             continue
+        if url in seen_urls:
+            continue
+        seen_urls.add(url)
 
         # 中文翻譯標題
         title_zh = translate_title_basic(title)

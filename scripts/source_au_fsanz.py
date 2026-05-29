@@ -12,7 +12,7 @@ from common import fetch, clean_text, strip_tags, normalize_date, make_item
 
 BASE = "https://www.foodstandards.gov.au"
 LIST_URL = f"{BASE}/food-recalls/recalls"
-PAGES_TO_FETCH = 4  # 4 頁 × 25 = 100 筆，覆蓋約 1 年
+PAGES_TO_FETCH = 12  # AU 召回每週約 5-10 筆，12 頁 × 25 = 300 筆，覆蓋 1 年+
 
 
 def crawl() -> list[dict]:
@@ -41,7 +41,7 @@ def crawl() -> list[dict]:
             re.DOTALL | re.IGNORECASE,
         )
 
-    for block in blocks[:100]:
+    for block in blocks[:300]:
         # 標題與連結
         title_m = re.search(
             r'<h2>\s*<a\s+href="([^"]+)"[^>]*>([^<]+)</a>\s*</h2>',

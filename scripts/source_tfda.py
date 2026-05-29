@@ -13,6 +13,9 @@ CATEGORIES = [
     {"cid": 5072, "label": "預告法規", "color": "red"},
 ]
 
+# 每分類抓的頁數（每頁 10 筆）— 50 頁 = 500 筆 ~ 1 年
+PAGES_PER_CATEGORY = 50
+
 
 def parse_list_page(html: str, cid: int) -> list[dict]:
     """從食藥署列表頁面解出每筆公告
@@ -101,19 +104,37 @@ def fetch_detail_summary(url: str) -> str:
 def crawl() -> list[dict]:
     all_items: list[dict] = []
     for cat in CATEGORIES:
-        url = f"{BASE}/TC/news.aspx?cid={cat['cid']}"
-        try:
-            html = fetch(url)
-        except Exception as e:
-            print(f"  [TFDA cid={cat['cid']}] 抓取失敗: {e}")
-            continue
+        cat_rows: list[dict] = []
+        seen_urls: set[str] = set()
+        # 分頁抓取
+        for pn in range(1, PAGES_PER_CATEGORY + 1):
+            url = f"{BASE}/TC/news.aspx?cid={cat['cid']}&pn={pn}"
+            try:
+                html = fetch(url)
+            except Exception as e:
+                print(f"  [TFDA cid={cat['cid']} pn={pn}] 抓取失敗: {e}")
+                break
+            rows = parse_list_page(html, cat["cid"])
+            if not rows:
+                break
+            new_count = 0
+            for row in rows:
+                if row.get("url") and row["url"] not in seen_urls:
+                    seen_urls.add(row["url"])
+                    cat_rows.append(row)
+                    new_count += 1
+            if new_count == 0:
+                # 沒新項目，跳出（達到歷史頁面）
+                break
 
-        rows = parse_list_page(html, cat["cid"])
-        print(f"  [TFDA {cat['label']}] 找到 {len(rows)} 筆")
+        print(f"  [TFDA {cat['label']}] 共 {len(cat_rows)} 筆（{PAGES_PER_CATEGORY} 頁內）")
 
-        # 限制只取最新 15 筆並抓內文摘要（避免過多請求）
-        for row in rows[:15]:
-            summary = fetch_detail_summary(row["url"]) if row.get("url") else ""
+        # 只對前 30 筆抓內文摘要（避免太多請求）；其他用標題當摘要
+        for i, row in enumerate(cat_rows):
+            if i < 30:
+                summary = fetch_detail_summary(row["url"]) if row.get("url") else ""
+            else:
+                summary = ""
             tags = [cat["label"]]
             # 自動標籤化
             t = row["title"] or ""
