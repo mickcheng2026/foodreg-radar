@@ -20,7 +20,7 @@ from datetime import datetime
 from common import clean_text, make_item, DEFAULT_HEADERS
 
 API_URL = "https://api.fda.gov/food/enforcement.json"
-LIMIT = 20
+LIMIT = 100  # 近 1 年資料約 1000+ 筆，每次 API 最多 1000，我們抓 100 最近的
 RECALL_DEEP_LINK = "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts"
 
 _ctx = ssl.create_default_context()

@@ -18,18 +18,23 @@ import source_codex
 import source_hk_cfs
 import source_au_fsanz
 import source_jp_fsc
+import source_my_kkm
+import source_import_export
+import source_haccp
 
 # 來源 → 國家對應（顯示於前端國家篩選器）
 SOURCE_COUNTRY = {
-    "tfda":     "台灣",
-    "tfda_law": "台灣",
-    "usfda":    "美國",
-    "efsa":     "歐盟",
-    "iso":      "國際",
-    "codex":    "國際",
-    "hk_cfs":   "香港",
-    "au_fsanz": "澳洲",
-    "jp_fsc":   "日本",
+    "tfda":          "台灣",
+    "tfda_law":      "台灣",
+    "usfda":         "美國",
+    "efsa":          "歐盟",
+    "iso":           "國際",
+    "codex":         "國際",
+    "hk_cfs":        "香港",
+    "au_fsanz":      "澳洲",
+    "jp_fsc":        "日本",
+    "my_kkm":        "馬來西亞",
+    # 進出口 / HACCP item 在 item 自己的 country 欄位上會自帶
 }
 
 TPE = timezone(timedelta(hours=8))
@@ -57,6 +62,9 @@ def main():
         ("香港 CFS", source_hk_cfs.crawl),
         ("澳洲 FSANZ", source_au_fsanz.crawl),
         ("日本 FSC", source_jp_fsc.crawl),
+        ("馬來西亞 KKM", source_my_kkm.crawl),
+        ("進出口規範", source_import_export.crawl),
+        ("HACCP 認證", source_haccp.crawl),
     ]
 
     for name, fn in sources:

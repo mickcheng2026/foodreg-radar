@@ -12,22 +12,27 @@ from common import fetch, clean_text, strip_tags, normalize_date, make_item
 
 BASE = "https://www.foodstandards.gov.au"
 LIST_URL = f"{BASE}/food-recalls/recalls"
+PAGES_TO_FETCH = 4  # 4 頁 × 25 = 100 筆，覆蓋約 1 年
 
 
 def crawl() -> list[dict]:
     items: list[dict] = []
-    try:
-        html = fetch(LIST_URL)
-    except Exception as e:
-        print(f"  [AU FSANZ] 抓取失敗: {e}")
-        return items
-
-    # 每筆召回都包在 <div class="food-recall-wrapper">
-    blocks = re.findall(
-        r'<div class="food-recall-wrapper">(.*?)</div>\s*</span>',
-        html,
-        re.DOTALL | re.IGNORECASE,
-    )
+    seen_urls: set[str] = set()
+    blocks: list[str] = []
+    for p in range(0, PAGES_TO_FETCH):
+        url = LIST_URL if p == 0 else f"{LIST_URL}?page={p}"
+        try:
+            html = fetch(url)
+        except Exception as e:
+            print(f"  [AU FSANZ] page {p} 失敗: {e}")
+            continue
+        # 每筆召回都包在 <div class="food-recall-wrapper">
+        page_blocks = re.findall(
+            r'<div class="food-recall-wrapper">(.*?)</div>\s*</span>',
+            html,
+            re.DOTALL | re.IGNORECASE,
+        )
+        blocks.extend(page_blocks)
     if not blocks:
         # Fallback: parse via anchor pattern
         blocks = re.findall(
@@ -36,7 +41,7 @@ def crawl() -> list[dict]:
             re.DOTALL | re.IGNORECASE,
         )
 
-    for block in blocks[:25]:
+    for block in blocks[:100]:
         # 標題與連結
         title_m = re.search(
             r'<h2>\s*<a\s+href="([^"]+)"[^>]*>([^<]+)</a>\s*</h2>',
@@ -50,6 +55,9 @@ def crawl() -> list[dict]:
         if not title:
             continue
         url = BASE + href if href.startswith("/") else href
+        if url in seen_urls:
+            continue
+        seen_urls.add(url)
 
         # 描述：<p>...</p> 在 h2 之後
         desc_m = re.search(r'<h2>.*?</h2>\s*<p>(.*?)</p>', block, re.DOTALL)

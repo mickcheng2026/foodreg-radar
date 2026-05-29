@@ -13,7 +13,12 @@ from datetime import datetime
 from common import fetch, clean_text, make_item
 
 BASE = "https://www.cfs.gov.hk"
-LIST_URL = f"{BASE}/tc_chi/whatsnew/whatsnew_fa/whatsnew_fa.html"
+# 多年度 archive：當年 + 近 1-2 年
+LIST_URLS = [
+    f"{BASE}/tc_chi/whatsnew/whatsnew_fa/whatsnew_fa.html",          # 當年
+    f"{BASE}/tc_chi/whatsnew/whatsnew_fa/whatsnew_fa_2025.html",     # 2025
+    f"{BASE}/tc_chi/whatsnew/whatsnew_fa/whatsnew_fa_2024.html",     # 2024
+]
 
 
 def parse_date_hk(s: str) -> str | None:
@@ -29,20 +34,21 @@ def parse_date_hk(s: str) -> str | None:
 
 def crawl() -> list[dict]:
     items: list[dict] = []
-    try:
-        html = fetch(LIST_URL)
-    except Exception as e:
-        print(f"  [HK CFS] 抓取失敗: {e}")
-        return items
+    seen_urls: set[str] = set()
+    rows: list[str] = []
 
-    # 找 tbody
-    tbody_m = re.search(r"<tbody>(.*?)</tbody>", html, re.DOTALL | re.IGNORECASE)
-    if not tbody_m:
-        print("  [HK CFS] 找不到 tbody")
-        return items
-    tbody = tbody_m.group(1)
-
-    rows = re.findall(r'<tr\s+class="datarow"[^>]*>(.*?)</tr>', tbody, re.DOTALL | re.IGNORECASE)
+    # 抓多個年份的 archive
+    for list_url in LIST_URLS:
+        try:
+            html = fetch(list_url)
+        except Exception as e:
+            print(f"  [HK CFS] {list_url} 抓取失敗: {e}")
+            continue
+        tbody_m = re.search(r"<tbody>(.*?)</tbody>", html, re.DOTALL | re.IGNORECASE)
+        if not tbody_m:
+            continue
+        year_rows = re.findall(r'<tr\s+class="datarow"[^>]*>(.*?)</tr>', tbody_m.group(1), re.DOTALL | re.IGNORECASE)
+        rows.extend(year_rows)
     for row in rows:
         # 日期
         date_m = re.search(r"<td[^>]*class=\"subHeader\"[^>]*>(\d{1,2}\.\d{1,2}\.\d{4})", row)
@@ -66,6 +72,10 @@ def crawl() -> list[dict]:
             url = href
         else:
             url = BASE + "/" + href.lstrip("/")
+
+        if url in seen_urls:
+            continue
+        seen_urls.add(url)
 
         # 標籤
         tags = ["警報"]

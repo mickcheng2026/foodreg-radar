@@ -8,14 +8,22 @@ from common import fetch, clean_text, strip_tags, normalize_date, make_item
 
 BASE = "https://www.efsa.europa.eu"
 LIST_URL = f"{BASE}/en/news"
+PAGES_TO_FETCH = 5  # 5 頁 × ~14 = ~70 筆，覆蓋約 1 年
 
 
 def crawl() -> list[dict]:
     items: list[dict] = []
-    try:
-        html = fetch(LIST_URL)
-    except Exception as e:
-        print(f"  [EFSA] 抓取失敗: {e}")
+    seen_urls: set[str] = set()
+    htmls: list[str] = []
+    for p in range(0, PAGES_TO_FETCH):
+        url = LIST_URL if p == 0 else f"{LIST_URL}?page={p}"
+        try:
+            htmls.append(fetch(url))
+        except Exception as e:
+            print(f"  [EFSA] page {p} 失敗: {e}")
+
+    html = "\n".join(htmls)
+    if not html:
         return items
 
     # Drupal views-row 或 article 區塊
@@ -32,7 +40,7 @@ def crawl() -> list[dict]:
             re.DOTALL | re.IGNORECASE,
         )
 
-    for block in blocks[:20]:
+    for block in blocks[:80]:
         # 標題與連結
         link_m = re.search(r'<a\s+href="([^"]+)"[^>]*>([^<]{10,300})</a>', block, re.DOTALL)
         if not link_m:
@@ -42,6 +50,9 @@ def crawl() -> list[dict]:
             href = BASE + href
         elif not href.startswith("http"):
             continue
+        if href in seen_urls:
+            continue
+        seen_urls.add(href)
 
         title = clean_text(link_m.group(2))
         if not title or len(title) < 10:
