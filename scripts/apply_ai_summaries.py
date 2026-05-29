@@ -40,10 +40,45 @@ ZH_TITLES = {
         "EFSA 新聞中心 — 互動式工具一覽",
     "https://www.youtube.com/watch?v=pWH3et1Y26U":
         "EFSA 介紹影片：科學、安全食品、永續",
+    # 日本 FSC
+    "https://www.fsc.go.jp/iken-bosyu/pc1_idensi_soy_260527.html":
+        "耐除草劑（嘉磷塞、固殺草）基改大豆 DBN9004 食品健康影響評估 — 公開徵詢",
+    "https://www.fsc.go.jp/iken-bosyu/pc_1_no_florylpicoxamid_260520.html":
+        "殺菌劑 Florylpicoxamid 食品健康影響評估審議草案 — 公開徵詢",
+    "https://www.fsc.go.jp/iken-bosyu/pc_1_no_cycloxydim_260520.html":
+        "除草劑 Cycloxydim（環苯草酮）食品健康影響評估審議草案 — 公開徵詢",
+    "https://www.fsc.go.jp/iken-bosyu/pc_1_no_ethiprole_260520.html":
+        "殺蟲劑 Ethiprole（乙蟲腈）食品健康影響評估審議草案 — 公開徵詢",
 }
 
 
 SUMMARIES = {
+  # 日本 FSC 公開徵詢
+  "https://www.fsc.go.jp/iken-bosyu/pc1_idensi_soy_260527.html": [
+    "標的：耐除草劑（嘉磷塞 + 固殺草）基改大豆品系 DBN9004",
+    "用途：除草劑耐性大豆，可同時抗 Glyphosate 與 Glufosinate",
+    "階段：日本食品安全委員會公開徵詢意見（等同台灣預告法規）",
+    "影響：未來日本進口豆製品可能涉及此基改品系",
+    "意見徵詢期至公告後 30 日內",
+  ],
+  "https://www.fsc.go.jp/iken-bosyu/pc_1_no_florylpicoxamid_260520.html": [
+    "標的：殺菌劑 Florylpicoxamid",
+    "用途：新型農用殺菌劑，可能用於穀物、水果、蔬菜",
+    "階段：食品健康影響評估審議草案",
+    "影響：日本將訂定該殺菌劑於各類食品中的殘留容許量",
+  ],
+  "https://www.fsc.go.jp/iken-bosyu/pc_1_no_cycloxydim_260520.html": [
+    "標的：除草劑 Cycloxydim（環苯草酮）",
+    "用途：選擇性禾本科除草劑，常用於大豆、棉花、油菜",
+    "階段：食品健康影響評估審議草案",
+    "影響：相關農產品輸日時的殘留容許量規範可能變動",
+  ],
+  "https://www.fsc.go.jp/iken-bosyu/pc_1_no_ethiprole_260520.html": [
+    "標的：殺蟲劑 Ethiprole（乙蟲腈）",
+    "用途：苯吡唑類殺蟲劑，用於水稻、棉花防治稻飛蝨等害蟲",
+    "階段：食品健康影響評估審議草案",
+    "影響：水稻、棉籽油等輸日時殘留容許量規範可能變動",
+  ],
   "https://www.fda.gov.tw/TC/newsContent.aspx?cid=5072&id=31554": [
     "預告修正「藥事法偏遠地區列表」附表一、二、五、十、十四、十五（健保西醫巡迴地點）",
     "依藥事法第 102 條第 2 項辦理，由衛生福利部主管",
