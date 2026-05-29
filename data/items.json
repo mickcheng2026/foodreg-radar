@@ -1,13 +1,16 @@
 {
-  "updated_at": "2026-05-29T23:29:40+08:00",
+  "updated_at": "2026-05-29T23:52:45+08:00",
   "stats": {
-    "total": 84,
+    "total": 121,
     "by_source": {
       "食藥署": 32,
+      "日本 FSC": 4,
       "EFSA": 14,
       "US FDA": 21,
+      "澳洲 FSANZ": 25,
       "食藥署法規": 10,
-      "香港 CFS": 7
+      "香港 CFS": 7,
+      "ISO 標準": 8
     }
   },
   "items": [
@@ -24,7 +27,7 @@
         "預告",
         "修正"
       ],
-      "fetched_at": "2026-05-29T23:29:22+08:00",
+      "fetched_at": "2026-05-29T23:52:25+08:00",
       "country": "台灣",
       "first_seen": "2026-05-29T11:22:31+08:00",
       "ai_summary": [
@@ -47,7 +50,7 @@
         "預告",
         "修正"
       ],
-      "fetched_at": "2026-05-29T23:29:23+08:00",
+      "fetched_at": "2026-05-29T23:52:26+08:00",
       "country": "台灣",
       "first_seen": "2026-05-29T11:22:31+08:00",
       "ai_summary": [
@@ -56,6 +59,33 @@
         "影響：藥師執業地點劃分、調劑作業認定",
         "意見徵詢期 60 日"
       ]
+    },
+    {
+      "source": "jp_fsc",
+      "source_label": "日本 FSC",
+      "source_color": "rose",
+      "title": "除草剤グリホサート及びグルホシネート耐性ダイズDBN9004系統に係る食品健康影響評価に関する審議結果（案）についての意見・情報の募集について",
+      "url": "https://www.fsc.go.jp/iken-bosyu/pc1_idensi_soy_260527.html",
+      "date": "2026-05-27",
+      "summary": "除草剤グリホサート及びグルホシネート耐性ダイズDBN9004系統に係る食品健康影響評価に関する審議結果（案）についての意見・情報の募集について",
+      "tags": [
+        "公開徵詢",
+        "食品健康影響評估",
+        "農藥殘留",
+        "基改作物",
+        "基因改造"
+      ],
+      "fetched_at": "2026-05-29T23:52:45+08:00",
+      "title_zh": "除草劑グリホサート及びグルホシネート耐性大豆DBN9004系統相關食品健康影響評估に関する審議結果(草案)の公開徵詢意見",
+      "ai_summary": [
+        "日本食品安全委員會公開徵詢意見",
+        "事項：除草劑グリホサート及びグルホシネート耐性大豆DBN9004系統相關食品健康影響評估に関する審議結果(草案)の公開徵詢意見",
+        "公告日期：2026-05-27",
+        "等同食藥署的「預告法規」階段 — 開放意見徵詢",
+        "來源：日本食品安全委員會 (FSC)"
+      ],
+      "country": "日本",
+      "first_seen": "2026-05-29T23:52:45+08:00"
     },
     {
       "source": "tfda",
@@ -70,7 +100,7 @@
         "預告",
         "修正"
       ],
-      "fetched_at": "2026-05-29T23:29:23+08:00",
+      "fetched_at": "2026-05-29T23:52:26+08:00",
       "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
@@ -91,7 +121,7 @@
       "tags": [
         "新聞"
       ],
-      "fetched_at": "2026-05-29T23:29:26+08:00",
+      "fetched_at": "2026-05-29T23:52:29+08:00",
       "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00"
     },
@@ -108,7 +138,7 @@
         "預告",
         "修正"
       ],
-      "fetched_at": "2026-05-29T23:29:23+08:00",
+      "fetched_at": "2026-05-29T23:52:26+08:00",
       "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
@@ -129,7 +159,7 @@
         "公告",
         "公告"
       ],
-      "fetched_at": "2026-05-29T23:29:24+08:00",
+      "fetched_at": "2026-05-29T23:52:27+08:00",
       "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
@@ -150,7 +180,7 @@
       "tags": [
         "EFSA"
       ],
-      "fetched_at": "2026-05-29T23:29:37+08:00",
+      "fetched_at": "2026-05-29T23:52:40+08:00",
       "country": "歐盟",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
@@ -158,7 +188,80 @@
         "家豬感染案件較 2024 年增加 76%、野豬則增加 44%",
         "EFSA 年度流行病學報告示警，加強生物安全管制",
         "影響：輸歐豬肉與相關製品業者需注意檢疫升級可能"
-      ]
+      ],
+      "title_zh": "歐盟非洲豬瘟疫情擴大 — 豬隻與野豬感染雙升"
+    },
+    {
+      "source": "jp_fsc",
+      "source_label": "日本 FSC",
+      "source_color": "rose",
+      "title": "フロリルピコキサミドに係る食品健康影響評価に関する審議結果（案）についての意見・情報の募集について",
+      "url": "https://www.fsc.go.jp/iken-bosyu/pc_1_no_florylpicoxamid_260520.html",
+      "date": "2026-05-20",
+      "summary": "フロリルピコキサミドに係る食品健康影響評価に関する審議結果（案）についての意見・情報の募集について",
+      "tags": [
+        "公開徵詢",
+        "食品健康影響評估"
+      ],
+      "fetched_at": "2026-05-29T23:52:45+08:00",
+      "title_zh": "フロリルピコキサミド相關食品健康影響評估に関する審議結果(草案)の公開徵詢意見",
+      "ai_summary": [
+        "日本食品安全委員會公開徵詢意見",
+        "事項：フロリルピコキサミド相關食品健康影響評估に関する審議結果(草案)の公開徵詢意見",
+        "公告日期：2026-05-20",
+        "等同食藥署的「預告法規」階段 — 開放意見徵詢",
+        "來源：日本食品安全委員會 (FSC)"
+      ],
+      "country": "日本",
+      "first_seen": "2026-05-29T23:52:45+08:00"
+    },
+    {
+      "source": "jp_fsc",
+      "source_label": "日本 FSC",
+      "source_color": "rose",
+      "title": "シクロキシジムに係る食品健康影響評価に関する審議結果（案）についての意見・情報の募集について",
+      "url": "https://www.fsc.go.jp/iken-bosyu/pc_1_no_cycloxydim_260520.html",
+      "date": "2026-05-20",
+      "summary": "シクロキシジムに係る食品健康影響評価に関する審議結果（案）についての意見・情報の募集について",
+      "tags": [
+        "公開徵詢",
+        "食品健康影響評估"
+      ],
+      "fetched_at": "2026-05-29T23:52:45+08:00",
+      "title_zh": "シクロキシジム相關食品健康影響評估に関する審議結果(草案)の公開徵詢意見",
+      "ai_summary": [
+        "日本食品安全委員會公開徵詢意見",
+        "事項：シクロキシジム相關食品健康影響評估に関する審議結果(草案)の公開徵詢意見",
+        "公告日期：2026-05-20",
+        "等同食藥署的「預告法規」階段 — 開放意見徵詢",
+        "來源：日本食品安全委員會 (FSC)"
+      ],
+      "country": "日本",
+      "first_seen": "2026-05-29T23:52:45+08:00"
+    },
+    {
+      "source": "jp_fsc",
+      "source_label": "日本 FSC",
+      "source_color": "rose",
+      "title": "エチプロールに係る食品健康影響評価に関する審議結果（案）についての意見・情報の募集について",
+      "url": "https://www.fsc.go.jp/iken-bosyu/pc_1_no_ethiprole_260520.html",
+      "date": "2026-05-20",
+      "summary": "エチプロールに係る食品健康影響評価に関する審議結果（案）についての意見・情報の募集について",
+      "tags": [
+        "公開徵詢",
+        "食品健康影響評估"
+      ],
+      "fetched_at": "2026-05-29T23:52:45+08:00",
+      "title_zh": "エチプロール相關食品健康影響評估に関する審議結果(草案)の公開徵詢意見",
+      "ai_summary": [
+        "日本食品安全委員會公開徵詢意見",
+        "事項：エチプロール相關食品健康影響評估に関する審議結果(草案)の公開徵詢意見",
+        "公告日期：2026-05-20",
+        "等同食藥署的「預告法規」階段 — 開放意見徵詢",
+        "來源：日本食品安全委員會 (FSC)"
+      ],
+      "country": "日本",
+      "first_seen": "2026-05-29T23:52:45+08:00"
     },
     {
       "source": "usfda",
@@ -175,7 +278,7 @@
         "進行中",
         "異物"
       ],
-      "fetched_at": "2026-05-29T23:29:38+08:00",
+      "fetched_at": "2026-05-29T23:52:42+08:00",
       "title_zh": "Dakota Honey Company 召回 — 異物（金屬、玻璃、塑膠等）、塑膠",
       "ai_summary": [
         "召回廠商：Dakota Honey Company（Winner, SD）",
@@ -203,7 +306,7 @@
         "進行中",
         "異物"
       ],
-      "fetched_at": "2026-05-29T23:29:38+08:00",
+      "fetched_at": "2026-05-29T23:52:42+08:00",
       "title_zh": "FINESALER LLC 召回 — 異物（金屬、玻璃、塑膠等）、玻璃",
       "ai_summary": [
         "召回廠商：FINESALER LLC（Mamaroneck, NY）",
@@ -231,7 +334,7 @@
         "進行中",
         "過敏原"
       ],
-      "fetched_at": "2026-05-29T23:29:38+08:00",
+      "fetched_at": "2026-05-29T23:52:42+08:00",
       "title_zh": "WE R NUTS 召回 — 未標示過敏原、牛奶過敏原、大豆過敏原、腰果過敏原",
       "ai_summary": [
         "召回廠商：WE R NUTS（Port Washington, NY）",
@@ -260,7 +363,7 @@
         "進行中",
         "異物"
       ],
-      "fetched_at": "2026-05-29T23:29:38+08:00",
+      "fetched_at": "2026-05-29T23:52:42+08:00",
       "title_zh": "Dakota Honey Company 召回 — 異物（金屬、玻璃、塑膠等）、塑膠",
       "ai_summary": [
         "召回廠商：Dakota Honey Company（Winner, SD）",
@@ -287,7 +390,7 @@
         "Not Yet Classified",
         "微生物"
       ],
-      "fetched_at": "2026-05-29T23:29:38+08:00",
+      "fetched_at": "2026-05-29T23:52:42+08:00",
       "title_zh": "Pure Ground Ingredients, Inc. 召回 — 沙門氏菌污染",
       "ai_summary": [
         "召回廠商：Pure Ground Ingredients, Inc.（Minden, NV）",
@@ -315,7 +418,7 @@
         "進行中",
         "異物"
       ],
-      "fetched_at": "2026-05-29T23:29:38+08:00",
+      "fetched_at": "2026-05-29T23:52:42+08:00",
       "title_zh": "Dakota Honey Company 召回 — 異物（金屬、玻璃、塑膠等）、塑膠",
       "ai_summary": [
         "召回廠商：Dakota Honey Company（Winner, SD）",
@@ -342,7 +445,7 @@
         "Class II",
         "進行中"
       ],
-      "fetched_at": "2026-05-29T23:29:38+08:00",
+      "fetched_at": "2026-05-29T23:52:42+08:00",
       "title_zh": "Raja Foods and Vegetables Inc. 召回 — Contains undeclared Blue 1",
       "ai_summary": [
         "召回廠商：Raja Foods and Vegetables Inc.（Maspeth, NY）",
@@ -369,7 +472,7 @@
         "進行中",
         "過敏原"
       ],
-      "fetched_at": "2026-05-29T23:29:38+08:00",
+      "fetched_at": "2026-05-29T23:52:42+08:00",
       "title_zh": "Ferris Coffee and Nut Company, Inc. 召回 — 未標示過敏原、大豆過敏原、小麥過敏原",
       "ai_summary": [
         "召回廠商：Ferris Coffee and Nut Company, Inc.（Grand Rapids, MI）",
@@ -398,7 +501,7 @@
         "過敏原",
         "微生物"
       ],
-      "fetched_at": "2026-05-29T23:29:38+08:00",
+      "fetched_at": "2026-05-29T23:52:42+08:00",
       "title_zh": "Sugar Foods LLC 召回 — 沙門氏菌污染、牛奶過敏原",
       "ai_summary": [
         "召回廠商：Sugar Foods LLC（Villa Rica, GA）",
@@ -426,7 +529,7 @@
         "進行中",
         "過敏原"
       ],
-      "fetched_at": "2026-05-29T23:29:38+08:00",
+      "fetched_at": "2026-05-29T23:52:42+08:00",
       "title_zh": "Prospector Popcorn, LLC 召回 — 大豆過敏原",
       "ai_summary": [
         "召回廠商：Prospector Popcorn, LLC（Ridgefield, CT）",
@@ -455,7 +558,7 @@
         "進行中",
         "異物"
       ],
-      "fetched_at": "2026-05-29T23:29:38+08:00",
+      "fetched_at": "2026-05-29T23:52:42+08:00",
       "title_zh": "Dakota Honey Company 召回 — 異物（金屬、玻璃、塑膠等）、塑膠",
       "ai_summary": [
         "召回廠商：Dakota Honey Company（Winner, SD）",
@@ -482,7 +585,7 @@
         "Class II",
         "進行中"
       ],
-      "fetched_at": "2026-05-29T23:29:38+08:00",
+      "fetched_at": "2026-05-29T23:52:42+08:00",
       "title_zh": "Raja Foods and Vegetables Inc. 召回 — Contains undeclared FD&C Yellow 6",
       "ai_summary": [
         "召回廠商：Raja Foods and Vegetables Inc.（Maspeth, NY）",
@@ -509,7 +612,7 @@
         "進行中",
         "過敏原"
       ],
-      "fetched_at": "2026-05-29T23:29:38+08:00",
+      "fetched_at": "2026-05-29T23:52:42+08:00",
       "title_zh": "Ocinet, Inc. 召回 — 未標示過敏原、魚類過敏原",
       "ai_summary": [
         "召回廠商：Ocinet, Inc.（Downey, CA）",
@@ -538,7 +641,7 @@
         "進行中",
         "異物"
       ],
-      "fetched_at": "2026-05-29T23:29:38+08:00",
+      "fetched_at": "2026-05-29T23:52:42+08:00",
       "title_zh": "Dakota Honey Company 召回 — 異物（金屬、玻璃、塑膠等）、塑膠",
       "ai_summary": [
         "召回廠商：Dakota Honey Company（Winner, SD）",
@@ -553,6 +656,34 @@
       "first_seen": "2026-05-29T11:33:49+08:00"
     },
     {
+      "source": "au_fsanz",
+      "source_label": "澳洲 FSANZ",
+      "source_color": "amber",
+      "title": "Global Seafood Distributors (Australia) Pty Ltd - Seafood Marinara Mix - 500g",
+      "url": "https://www.foodstandards.gov.au/food-recalls/recall-alert/global-seafood-distributors-australia-pty-ltd-seafood-marinara-mix-500g",
+      "date": "2026-05-19",
+      "summary": "The recall is due to the presence of foreign matter (mussel shell fragments with product) | WA, NSW, QLD, VIC and SA",
+      "tags": [
+        "召回",
+        "異物",
+        "NSW",
+        "VIC",
+        "QLD",
+        "WA",
+        "SA"
+      ],
+      "fetched_at": "2026-05-29T23:52:45+08:00",
+      "title_zh": "澳洲召回 — Global Seafood Distributors (Australia) Pty Ltd - Seafood Ma",
+      "ai_summary": [
+        "召回事件：Global Seafood Distributors (Australia) Pty Ltd - Seafood Marinara Mix - 500g",
+        "原因 / 影響：The recall is due to the presence of foreign matter (mussel shell fragments with product) | WA, NSW, QLD, VIC and SA",
+        "公告日期：2026-05-19",
+        "來源：澳紐食品標準局 (FSANZ)"
+      ],
+      "country": "澳洲",
+      "first_seen": "2026-05-29T23:52:45+08:00"
+    },
+    {
       "source": "tfda",
       "source_label": "食藥署",
       "source_color": "emerald",
@@ -565,7 +696,7 @@
         "預告",
         "修正"
       ],
-      "fetched_at": "2026-05-29T23:29:24+08:00",
+      "fetched_at": "2026-05-29T23:52:27+08:00",
       "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
@@ -587,7 +718,7 @@
         "公告",
         "公告"
       ],
-      "fetched_at": "2026-05-29T23:29:24+08:00",
+      "fetched_at": "2026-05-29T23:52:27+08:00",
       "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
@@ -609,9 +740,34 @@
         "公告",
         "公告"
       ],
-      "fetched_at": "2026-05-29T23:29:25+08:00",
+      "fetched_at": "2026-05-29T23:52:28+08:00",
       "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00"
+    },
+    {
+      "source": "au_fsanz",
+      "source_label": "澳洲 FSANZ",
+      "source_color": "amber",
+      "title": "Murray River Smokehouse - Turkey Bacon - 150g",
+      "url": "https://www.foodstandards.gov.au/food-recalls/recall-alert/murray-river-smokehouse-turkey-bacon-150g",
+      "date": "2026-05-13",
+      "summary": "The recall is due to the presence of an undeclared allergen (milk) | NSW and VIC",
+      "tags": [
+        "召回",
+        "過敏原",
+        "NSW",
+        "VIC"
+      ],
+      "fetched_at": "2026-05-29T23:52:45+08:00",
+      "title_zh": "澳洲召回 — Murray River Smokehouse - Turkey Bacon - 150g",
+      "ai_summary": [
+        "召回事件：Murray River Smokehouse - Turkey Bacon - 150g",
+        "原因 / 影響：The recall is due to the presence of an undeclared allergen (milk) | NSW and VIC",
+        "公告日期：2026-05-13",
+        "來源：澳紐食品標準局 (FSANZ)"
+      ],
+      "country": "澳洲",
+      "first_seen": "2026-05-29T23:52:45+08:00"
     },
     {
       "source": "usfda",
@@ -626,7 +782,7 @@
         "Class II",
         "進行中"
       ],
-      "fetched_at": "2026-05-29T23:29:38+08:00",
+      "fetched_at": "2026-05-29T23:52:42+08:00",
       "title_zh": "Silver Moon LP dba Loard's Ice Cream 召回 — Undeclared Yellow #5",
       "ai_summary": [
         "召回廠商：Silver Moon LP dba Loard's Ice Cream（San Leandro, CA）",
@@ -653,7 +809,7 @@
         "進行中",
         "過敏原"
       ],
-      "fetched_at": "2026-05-29T23:29:38+08:00",
+      "fetched_at": "2026-05-29T23:52:42+08:00",
       "title_zh": "Silver Moon LP dba Loard's Ice Cream 召回 — 牛奶過敏原、大豆過敏原",
       "ai_summary": [
         "召回廠商：Silver Moon LP dba Loard's Ice Cream（San Leandro, CA）",
@@ -681,7 +837,7 @@
         "進行中",
         "微生物"
       ],
-      "fetched_at": "2026-05-29T23:29:38+08:00",
+      "fetched_at": "2026-05-29T23:52:42+08:00",
       "title_zh": "California Dairies Inc. 召回 — 沙門氏菌污染",
       "ai_summary": [
         "召回廠商：California Dairies Inc.（Visalia, CA）",
@@ -709,7 +865,7 @@
         "進行中",
         "微生物"
       ],
-      "fetched_at": "2026-05-29T23:29:38+08:00",
+      "fetched_at": "2026-05-29T23:52:42+08:00",
       "title_zh": "Raw Farm LLC 召回 — 大腸桿菌污染",
       "ai_summary": [
         "召回廠商：Raw Farm LLC（Fresno, CA）",
@@ -735,7 +891,7 @@
         "召回",
         "Class II"
       ],
-      "fetched_at": "2026-05-29T23:29:38+08:00",
+      "fetched_at": "2026-05-29T23:52:42+08:00",
       "title_zh": "Horizon Organic Dairy, LLC 召回 — Package integrity compromised.",
       "ai_summary": [
         "召回廠商：Horizon Organic Dairy, LLC（Broomfield, CO）",
@@ -762,7 +918,7 @@
         "進行中",
         "異物"
       ],
-      "fetched_at": "2026-05-29T23:29:38+08:00",
+      "fetched_at": "2026-05-29T23:52:42+08:00",
       "title_zh": "Wehah Farms 召回 — 異物",
       "ai_summary": [
         "召回廠商：Wehah Farms（Richvale, CA）",
@@ -788,14 +944,15 @@
         "EFSA",
         "Podcast"
       ],
-      "fetched_at": "2026-05-29T23:29:37+08:00",
+      "fetched_at": "2026-05-29T23:52:40+08:00",
       "country": "歐盟",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "EFSA Podcast 第 40 集，主題：科學溝通與打擊不實訊息",
         "討論食安疑慮、假新聞、昆蟲食物、微塑膠等議題的溝通方式",
         "適合食品業者了解國際食安傳播趨勢"
-      ]
+      ],
+      "title_zh": "EFSA Podcast 第 40 集：科學溝通 — 把假訊息趕出菜單"
     },
     {
       "source": "tfda",
@@ -809,7 +966,7 @@
         "公告",
         "預告"
       ],
-      "fetched_at": "2026-05-29T23:29:25+08:00",
+      "fetched_at": "2026-05-29T23:52:28+08:00",
       "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
@@ -831,7 +988,7 @@
         "預告",
         "公告"
       ],
-      "fetched_at": "2026-05-29T23:29:25+08:00",
+      "fetched_at": "2026-05-29T23:52:28+08:00",
       "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
@@ -895,14 +1052,38 @@
       "tags": [
         "EFSA"
       ],
-      "fetched_at": "2026-05-29T23:29:37+08:00",
+      "fetched_at": "2026-05-29T23:52:40+08:00",
       "country": "歐盟",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "EFSA 推動「Plant Health 4 Life」植物健康倡議第 4 年（最終年）",
         "與歐盟執委會及 33 個國家合作推廣保護植物的簡易行動",
         "對國內輸歐農產品業者具有檢疫趨勢參考價值"
-      ]
+      ],
+      "title_zh": "EFSA 推動「Plant Health 4 Life」植物健康倡議第 4 年"
+    },
+    {
+      "source": "au_fsanz",
+      "source_label": "澳洲 FSANZ",
+      "source_color": "amber",
+      "title": "Han Yang Import & Export Pty Ltd T/A ByAsia Food - The Han Kitchen Topokki Cup Original - 140g",
+      "url": "https://www.foodstandards.gov.au/food-recalls/recall-alert/han-yang-import-export-pty-ltd-ta-byasia-food-han-kitchen-topokki-cup",
+      "date": "2026-05-05",
+      "summary": "This recall is due to the presence of microbial (mould) contamination | Nationally and online",
+      "tags": [
+        "召回",
+        "全澳洲"
+      ],
+      "fetched_at": "2026-05-29T23:52:45+08:00",
+      "title_zh": "澳洲召回 — Han Yang Import & Export Pty Ltd T/A ByAsia Food - The Han K",
+      "ai_summary": [
+        "召回事件：Han Yang Import & Export Pty Ltd T/A ByAsia Food - The Han Kitchen Topokki Cup Original - 140g",
+        "原因 / 影響：This recall is due to the presence of microbial (mould) contamination | Nationally and online",
+        "公告日期：2026-05-05",
+        "來源：澳紐食品標準局 (FSANZ)"
+      ],
+      "country": "澳洲",
+      "first_seen": "2026-05-29T23:52:45+08:00"
     },
     {
       "source": "tfda",
@@ -916,7 +1097,7 @@
         "新聞",
         "修正"
       ],
-      "fetched_at": "2026-05-29T23:29:26+08:00",
+      "fetched_at": "2026-05-29T23:52:29+08:00",
       "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00"
     },
@@ -932,9 +1113,10 @@
         "EFSA",
         "農藥殘留"
       ],
-      "fetched_at": "2026-05-29T23:29:37+08:00",
+      "fetched_at": "2026-05-29T23:52:40+08:00",
       "country": "歐盟",
-      "first_seen": "2026-05-28T00:35:05+08:00"
+      "first_seen": "2026-05-28T00:35:05+08:00",
+      "title_zh": "2024 歐盟農藥殘留報告（互動式視覺化）"
     },
     {
       "source": "efsa",
@@ -948,14 +1130,65 @@
         "EFSA",
         "農藥殘留"
       ],
-      "fetched_at": "2026-05-29T23:29:37+08:00",
+      "fetched_at": "2026-05-29T23:52:40+08:00",
       "country": "歐盟",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "EFSA 公布最新歐盟農藥殘留檢測結果",
         "基於跨歐盟逾 125,000 份食品樣本，整體符合 EU 限值比例維持高水準",
         "影響輸歐農產品業者，可作為自主檢驗的對標基準"
-      ]
+      ],
+      "title_zh": "EFSA 公布最新歐盟農藥殘留檢測資料"
+    },
+    {
+      "source": "au_fsanz",
+      "source_label": "澳洲 FSANZ",
+      "source_color": "amber",
+      "title": "Planet Organic Garlic Powder 50g – Certified Organic",
+      "url": "https://www.foodstandards.gov.au/food-recalls/recall-alert/planet-organic-garlic-powder-50g-certified-organic",
+      "date": "2026-05-01",
+      "summary": "The recall is due to the presence of an undeclared allergen (Peanut) | Online Nationally",
+      "tags": [
+        "召回",
+        "過敏原",
+        "全澳洲"
+      ],
+      "fetched_at": "2026-05-29T23:52:45+08:00",
+      "title_zh": "澳洲召回 — Planet Organic Garlic Powder 50g – Certified Organic",
+      "ai_summary": [
+        "召回事件：Planet Organic Garlic Powder 50g – Certified Organic",
+        "原因 / 影響：The recall is due to the presence of an undeclared allergen (Peanut) | Online Nationally",
+        "公告日期：2026-05-01",
+        "來源：澳紐食品標準局 (FSANZ)"
+      ],
+      "country": "澳洲",
+      "first_seen": "2026-05-29T23:52:45+08:00"
+    },
+    {
+      "source": "au_fsanz",
+      "source_label": "澳洲 FSANZ",
+      "source_color": "amber",
+      "title": "Concordia Traders (Aust) Pty Ltd - Enoki Mushroom 350g",
+      "url": "https://www.foodstandards.gov.au/food-recalls/recall-alert/concordia-traders-aust-pty-ltd-enoki-mushroom-350g",
+      "date": "2026-04-30",
+      "summary": "The recall is due to the presence of Microbial (Listeria monocytogenes) contamination | VIC, NSW and SA",
+      "tags": [
+        "召回",
+        "李斯特菌",
+        "NSW",
+        "VIC",
+        "SA"
+      ],
+      "fetched_at": "2026-05-29T23:52:45+08:00",
+      "title_zh": "澳洲召回 — Concordia Traders (Aust) Pty Ltd - Enoki Mushroom 350g",
+      "ai_summary": [
+        "召回事件：Concordia Traders (Aust) Pty Ltd - Enoki Mushroom 350g",
+        "原因 / 影響：The recall is due to the presence of Microbial (Listeria monocytogenes) contamination | VIC, NSW and SA",
+        "公告日期：2026-04-30",
+        "來源：澳紐食品標準局 (FSANZ)"
+      ],
+      "country": "澳洲",
+      "first_seen": "2026-05-29T23:52:45+08:00"
     },
     {
       "source": "efsa",
@@ -968,14 +1201,15 @@
       "tags": [
         "EFSA"
       ],
-      "fetched_at": "2026-05-29T23:29:37+08:00",
+      "fetched_at": "2026-05-29T23:52:40+08:00",
       "country": "歐盟",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "EU‑ANSA（歐盟科學諮詢機構網絡）重申科學研究在政策制定中的核心角色",
         "強調將科學知識轉化為實證導向政策的重要性",
         "屬政策性聲明，對台灣業者直接影響有限"
-      ]
+      ],
+      "title_zh": "歐盟機構強調研究在有效政策制定中的角色"
     },
     {
       "source": "tfda",
@@ -990,7 +1224,7 @@
         "預告",
         "修正"
       ],
-      "fetched_at": "2026-05-29T23:29:30+08:00",
+      "fetched_at": "2026-05-29T23:52:33+08:00",
       "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
@@ -999,6 +1233,59 @@
         "依管制藥品管理條例第 3 條第 2 項辦理",
         "醫療院所、藥商需注意新增品項的管理規範"
       ]
+    },
+    {
+      "source": "au_fsanz",
+      "source_label": "澳洲 FSANZ",
+      "source_color": "amber",
+      "title": "Gold Coast Baking Company-King Henrys Bakehouse Rye Bread - 900g",
+      "url": "https://www.foodstandards.gov.au/food-recalls/recall-alert/gold-coast-baking-company-king-henrys-bakehouse-rye-bread-900g",
+      "date": "2026-04-24",
+      "summary": "The recall is due the presence of an undeclared allergen (soy) | QLD",
+      "tags": [
+        "召回",
+        "過敏原",
+        "QLD"
+      ],
+      "fetched_at": "2026-05-29T23:52:45+08:00",
+      "title_zh": "澳洲召回 — Gold Coast Baking Company-King Henrys Bakehouse Rye Bread - ",
+      "ai_summary": [
+        "召回事件：Gold Coast Baking Company-King Henrys Bakehouse Rye Bread - 900g",
+        "原因 / 影響：The recall is due the presence of an undeclared allergen (soy) | QLD",
+        "公告日期：2026-04-24",
+        "來源：澳紐食品標準局 (FSANZ)"
+      ],
+      "country": "澳洲",
+      "first_seen": "2026-05-29T23:52:45+08:00"
+    },
+    {
+      "source": "au_fsanz",
+      "source_label": "澳洲 FSANZ",
+      "source_color": "amber",
+      "title": "Greenstorm Foods t/a Austral Herbs- Certified Organic Garlic Powder- 250g, 500g, 1kg, 5kg, 10kg",
+      "url": "https://www.foodstandards.gov.au/food-recalls/recall-alert/greenstorm-foods-ta-austral-herbs-certified-organic-garlic-powder-250g",
+      "date": "2026-04-21",
+      "summary": "The recall is due to the presence of an undeclared allergen (peanut) | NSW, QLD, VIC, TAS, SA and online nationally",
+      "tags": [
+        "召回",
+        "過敏原",
+        "NSW",
+        "VIC",
+        "QLD",
+        "SA",
+        "TAS",
+        "全澳洲"
+      ],
+      "fetched_at": "2026-05-29T23:52:45+08:00",
+      "title_zh": "澳洲召回 — Greenstorm Foods t/a Austral Herbs- Certified Organic Garlic",
+      "ai_summary": [
+        "召回事件：Greenstorm Foods t/a Austral Herbs- Certified Organic Garlic Powder- 250g, 500g, 1kg, 5kg, 10kg",
+        "原因 / 影響：The recall is due to the presence of an undeclared allergen (peanut) | NSW, QLD, VIC, TAS, SA and online nationally",
+        "公告日期：2026-04-21",
+        "來源：澳紐食品標準局 (FSANZ)"
+      ],
+      "country": "澳洲",
+      "first_seen": "2026-05-29T23:52:45+08:00"
     },
     {
       "source": "tfda_law",
@@ -1013,7 +1300,7 @@
         "農藥殘留",
         "殘留"
       ],
-      "fetched_at": "2026-05-29T23:29:33+08:00",
+      "fetched_at": "2026-05-29T23:52:37+08:00",
       "ai_summary": [
         "最近修正日期：2026-04-21",
         "食品類現行有效法規",
@@ -1022,6 +1309,32 @@
       ],
       "country": "台灣",
       "first_seen": "2026-05-29T11:37:08+08:00"
+    },
+    {
+      "source": "au_fsanz",
+      "source_label": "澳洲 FSANZ",
+      "source_color": "amber",
+      "title": "Ministry of Chocolate Pty Ltd – NEW YORK INSPIRED - 195g",
+      "url": "https://www.foodstandards.gov.au/food-recalls/recall-alert/ministry-chocolate-pty-ltd-new-york-inspired-195g",
+      "date": "2026-04-20",
+      "summary": "The recall is due to the presence of an undeclared allergen (Gluten) | VIC, NSW, WA",
+      "tags": [
+        "召回",
+        "過敏原",
+        "NSW",
+        "VIC",
+        "WA"
+      ],
+      "fetched_at": "2026-05-29T23:52:45+08:00",
+      "title_zh": "澳洲召回 — Ministry of Chocolate Pty Ltd – NEW YORK INSPIRED - 195g",
+      "ai_summary": [
+        "召回事件：Ministry of Chocolate Pty Ltd – NEW YORK INSPIRED - 195g",
+        "原因 / 影響：The recall is due to the presence of an undeclared allergen (Gluten) | VIC, NSW, WA",
+        "公告日期：2026-04-20",
+        "來源：澳紐食品標準局 (FSANZ)"
+      ],
+      "country": "澳洲",
+      "first_seen": "2026-05-29T23:52:45+08:00"
     },
     {
       "source": "hk_cfs",
@@ -1036,7 +1349,7 @@
         "致敏物警報",
         "過敏原"
       ],
-      "fetched_at": "2026-05-29T23:29:40+08:00",
+      "fetched_at": "2026-05-29T23:52:45+08:00",
       "ai_summary": [
         "警報類別：致敏物警報",
         "事件：進口預先包裝乳酪產品疑含未標示致敏物（麩質）",
@@ -1057,7 +1370,7 @@
       "tags": [
         "新聞"
       ],
-      "fetched_at": "2026-05-29T23:29:27+08:00",
+      "fetched_at": "2026-05-29T23:52:30+08:00",
       "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00"
     },
@@ -1072,7 +1385,7 @@
       "tags": [
         "新聞"
       ],
-      "fetched_at": "2026-05-29T23:29:27+08:00",
+      "fetched_at": "2026-05-29T23:52:30+08:00",
       "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00"
     },
@@ -1089,7 +1402,7 @@
         "食物警報",
         "異物"
       ],
-      "fetched_at": "2026-05-29T23:29:40+08:00",
+      "fetched_at": "2026-05-29T23:52:45+08:00",
       "ai_summary": [
         "警報類別：食物警報",
         "事件：不要食用一款可能含有玻璃碎片的瓶裝金針菇產品",
@@ -1110,14 +1423,15 @@
       "tags": [
         "EFSA"
       ],
-      "fetched_at": "2026-05-29T23:29:37+08:00",
+      "fetched_at": "2026-05-29T23:52:40+08:00",
       "country": "歐盟",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "EFSA 旗艦倡議「Safe2Eat」邁入第 6 年",
         "以科學為基礎，將食安知識轉譯為一般民眾易懂的日常指引",
         "可參考其衛教傳播設計，作為國內食安溝通借鏡"
-      ]
+      ],
+      "title_zh": "Safe2Eat 2026 — 為全歐洲提供以科學為基礎的食安指引"
     },
     {
       "source": "tfda",
@@ -1130,7 +1444,7 @@
       "tags": [
         "新聞"
       ],
-      "fetched_at": "2026-05-29T23:29:27+08:00",
+      "fetched_at": "2026-05-29T23:52:30+08:00",
       "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
@@ -1151,14 +1465,15 @@
       "tags": [
         "EFSA"
       ],
-      "fetched_at": "2026-05-29T23:29:37+08:00",
+      "fetched_at": "2026-05-29T23:52:40+08:00",
       "country": "歐盟",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "EFSA 更新指引文件分類，分為 5 類：目的、內容、適用性、強制程度、對象",
         "強化跨領域與專案領域之區分，提升使用者便利度",
         "風險評估從業者可參考新的文件分類體系"
-      ]
+      ],
+      "title_zh": "EFSA 指引文件分類更新 — 提升可近性與易用性"
     },
     {
       "source": "efsa",
@@ -1172,13 +1487,14 @@
         "EFSA",
         "Podcast"
       ],
-      "fetched_at": "2026-05-29T23:29:37+08:00",
+      "fetched_at": "2026-05-29T23:52:40+08:00",
       "country": "歐盟",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "EFSA Podcast 第 39 集：歐盟食安實習生計畫介紹",
         "屬機構招募宣傳，對業者直接影響低"
-      ]
+      ],
+      "title_zh": "EFSA Podcast 第 39 集：EU 實習計畫 — EFSA 正在找您"
     },
     {
       "source": "tfda",
@@ -1191,9 +1507,34 @@
       "tags": [
         "新聞"
       ],
-      "fetched_at": "2026-05-29T23:29:28+08:00",
+      "fetched_at": "2026-05-29T23:52:31+08:00",
       "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00"
+    },
+    {
+      "source": "au_fsanz",
+      "source_label": "澳洲 FSANZ",
+      "source_color": "amber",
+      "title": "Coffee Works - Various Chocolate Products",
+      "url": "https://www.foodstandards.gov.au/food-recalls/recall-alert/coffee-works-various-chocolate-products",
+      "date": "2026-04-02",
+      "summary": "The recall is due to the presence of and undeclared allergen (milk) | QLD and online nationally",
+      "tags": [
+        "召回",
+        "過敏原",
+        "QLD",
+        "全澳洲"
+      ],
+      "fetched_at": "2026-05-29T23:52:45+08:00",
+      "title_zh": "澳洲召回 — Coffee Works - Various Chocolate Products",
+      "ai_summary": [
+        "召回事件：Coffee Works - Various Chocolate Products",
+        "原因 / 影響：The recall is due to the presence of and undeclared allergen (milk) | QLD and online nationally",
+        "公告日期：2026-04-02",
+        "來源：澳紐食品標準局 (FSANZ)"
+      ],
+      "country": "澳洲",
+      "first_seen": "2026-05-29T23:52:45+08:00"
     },
     {
       "source": "tfda",
@@ -1206,9 +1547,60 @@
       "tags": [
         "新聞"
       ],
-      "fetched_at": "2026-05-29T23:29:28+08:00",
+      "fetched_at": "2026-05-29T23:52:31+08:00",
       "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00"
+    },
+    {
+      "source": "au_fsanz",
+      "source_label": "澳洲 FSANZ",
+      "source_color": "amber",
+      "title": "Natural Raw C Pty Ltd - Raw C Easter Coconut Water - 1L",
+      "url": "https://www.foodstandards.gov.au/food-recalls/recall-alert/natural-raw-c-pty-ltd-raw-c-easter-coconut-water-1l",
+      "date": "2026-03-31",
+      "summary": "The recall is due to the presence of an undeclared allergen (milk) | Nationally and online",
+      "tags": [
+        "召回",
+        "過敏原",
+        "全澳洲"
+      ],
+      "fetched_at": "2026-05-29T23:52:45+08:00",
+      "title_zh": "澳洲召回 — Natural Raw C Pty Ltd - Raw C Easter Coconut Water - 1L",
+      "ai_summary": [
+        "召回事件：Natural Raw C Pty Ltd - Raw C Easter Coconut Water - 1L",
+        "原因 / 影響：The recall is due to the presence of an undeclared allergen (milk) | Nationally and online",
+        "公告日期：2026-03-31",
+        "來源：澳紐食品標準局 (FSANZ)"
+      ],
+      "country": "澳洲",
+      "first_seen": "2026-05-29T23:52:45+08:00"
+    },
+    {
+      "source": "au_fsanz",
+      "source_label": "澳洲 FSANZ",
+      "source_color": "amber",
+      "title": "Loco Love Pty Ltd - Classic Chewy Caramel 5 Pack - 175g",
+      "url": "https://www.foodstandards.gov.au/food-recalls/recall-alert/loco-love-pty-ltd-classic-chewy-caramel-5-pack-175g",
+      "date": "2026-03-26",
+      "summary": "The recall is due to the presence of an undeclared allergen (peanut) | NSW, ACT, QLD and VIC",
+      "tags": [
+        "召回",
+        "過敏原",
+        "NSW",
+        "VIC",
+        "QLD",
+        "ACT"
+      ],
+      "fetched_at": "2026-05-29T23:52:45+08:00",
+      "title_zh": "澳洲召回 — Loco Love Pty Ltd - Classic Chewy Caramel 5 Pack - 175g",
+      "ai_summary": [
+        "召回事件：Loco Love Pty Ltd - Classic Chewy Caramel 5 Pack - 175g",
+        "原因 / 影響：The recall is due to the presence of an undeclared allergen (peanut) | NSW, ACT, QLD and VIC",
+        "公告日期：2026-03-26",
+        "來源：澳紐食品標準局 (FSANZ)"
+      ],
+      "country": "澳洲",
+      "first_seen": "2026-05-29T23:52:45+08:00"
     },
     {
       "source": "hk_cfs",
@@ -1222,7 +1614,7 @@
         "警報",
         "食物警報"
       ],
-      "fetched_at": "2026-05-29T23:29:40+08:00",
+      "fetched_at": "2026-05-29T23:52:45+08:00",
       "ai_summary": [
         "警報類別：食物警報",
         "事件：不要飲用一批棒曲霉素濃度超出法例上限的瓶裝蘋果汁飲品",
@@ -1231,6 +1623,31 @@
       ],
       "country": "香港",
       "first_seen": "2026-05-29T23:29:40+08:00"
+    },
+    {
+      "source": "au_fsanz",
+      "source_label": "澳洲 FSANZ",
+      "source_color": "amber",
+      "title": "Barkly Smokehouse Pty Ltd - Lux Ham 1.9 kg",
+      "url": "https://www.foodstandards.gov.au/food-recalls/recall-alert/barkly-smokehouse-pty-ltd-lux-ham-19-kg",
+      "date": "2026-03-24",
+      "summary": "The recall is due to the presence of microbial (Listeria monocytogenes) contamination | VIC and NSW",
+      "tags": [
+        "召回",
+        "李斯特菌",
+        "NSW",
+        "VIC"
+      ],
+      "fetched_at": "2026-05-29T23:52:45+08:00",
+      "title_zh": "澳洲召回 — Barkly Smokehouse Pty Ltd - Lux Ham 1.9 kg",
+      "ai_summary": [
+        "召回事件：Barkly Smokehouse Pty Ltd - Lux Ham 1.9 kg",
+        "原因 / 影響：The recall is due to the presence of microbial (Listeria monocytogenes) contamination | VIC and NSW",
+        "公告日期：2026-03-24",
+        "來源：澳紐食品標準局 (FSANZ)"
+      ],
+      "country": "澳洲",
+      "first_seen": "2026-05-29T23:52:45+08:00"
     },
     {
       "source": "tfda",
@@ -1245,7 +1662,7 @@
         "預告",
         "修正"
       ],
-      "fetched_at": "2026-05-29T23:29:30+08:00",
+      "fetched_at": "2026-05-29T23:52:33+08:00",
       "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
@@ -1268,7 +1685,7 @@
         "預告",
         "修正"
       ],
-      "fetched_at": "2026-05-29T23:29:31+08:00",
+      "fetched_at": "2026-05-29T23:52:34+08:00",
       "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
@@ -1276,6 +1693,78 @@
         "B6 常見於營養強化食品，CO₂ 常用於碳酸飲料與食品保鮮包裝",
         "影響範圍：保健食品、飲料、加工食品業者"
       ]
+    },
+    {
+      "source": "au_fsanz",
+      "source_label": "澳洲 FSANZ",
+      "source_color": "amber",
+      "title": "Taralinga Estate - Dukkah - 50g",
+      "url": "https://www.foodstandards.gov.au/food-recalls/recall-alert/taralinga-estate-dukkah-50g",
+      "date": "2026-03-20",
+      "summary": "The recall is due to the presence of undeclared allergen (cashew) | VIC",
+      "tags": [
+        "召回",
+        "過敏原",
+        "VIC"
+      ],
+      "fetched_at": "2026-05-29T23:52:45+08:00",
+      "title_zh": "澳洲召回 — Taralinga Estate - Dukkah - 50g",
+      "ai_summary": [
+        "召回事件：Taralinga Estate - Dukkah - 50g",
+        "原因 / 影響：The recall is due to the presence of undeclared allergen (cashew) | VIC",
+        "公告日期：2026-03-20",
+        "來源：澳紐食品標準局 (FSANZ)"
+      ],
+      "country": "澳洲",
+      "first_seen": "2026-05-29T23:52:45+08:00"
+    },
+    {
+      "source": "au_fsanz",
+      "source_label": "澳洲 FSANZ",
+      "source_color": "amber",
+      "title": "Fed Group Pty Ltd t/a Get Fed-Chipotle Pulled Pork Bowl - 359g",
+      "url": "https://www.foodstandards.gov.au/food-recalls/recall-alert/fed-group-pty-ltd-ta-get-fed-chipotle-pulled-pork-bowl-359g",
+      "date": "2026-03-20",
+      "summary": "The recall is due to the presence of an undeclared allergen (egg) | VIC",
+      "tags": [
+        "召回",
+        "過敏原",
+        "VIC"
+      ],
+      "fetched_at": "2026-05-29T23:52:45+08:00",
+      "title_zh": "澳洲召回 — Fed Group Pty Ltd t/a Get Fed-Chipotle Pulled Pork Bowl - 35",
+      "ai_summary": [
+        "召回事件：Fed Group Pty Ltd t/a Get Fed-Chipotle Pulled Pork Bowl - 359g",
+        "原因 / 影響：The recall is due to the presence of an undeclared allergen (egg) | VIC",
+        "公告日期：2026-03-20",
+        "來源：澳紐食品標準局 (FSANZ)"
+      ],
+      "country": "澳洲",
+      "first_seen": "2026-05-29T23:52:45+08:00"
+    },
+    {
+      "source": "au_fsanz",
+      "source_label": "澳洲 FSANZ",
+      "source_color": "amber",
+      "title": "Biocheese Pty Ltd - BioCheese Cheddar Shred 200g",
+      "url": "https://www.foodstandards.gov.au/food-recalls/recall-alert/biocheese-pty-ltd-biocheese-cheddar-shred-200g",
+      "date": "2026-03-18",
+      "summary": "The recall is due to the presence of an undeclared allergen (Milk) | National",
+      "tags": [
+        "召回",
+        "過敏原",
+        "全澳洲"
+      ],
+      "fetched_at": "2026-05-29T23:52:45+08:00",
+      "title_zh": "澳洲召回 — Biocheese Pty Ltd - BioCheese Cheddar Shred 200g",
+      "ai_summary": [
+        "召回事件：Biocheese Pty Ltd - BioCheese Cheddar Shred 200g",
+        "原因 / 影響：The recall is due to the presence of an undeclared allergen (Milk) | National",
+        "公告日期：2026-03-18",
+        "來源：澳紐食品標準局 (FSANZ)"
+      ],
+      "country": "澳洲",
+      "first_seen": "2026-05-29T23:52:45+08:00"
     },
     {
       "source": "tfda",
@@ -1290,7 +1779,7 @@
         "預告",
         "修正"
       ],
-      "fetched_at": "2026-05-29T23:29:31+08:00",
+      "fetched_at": "2026-05-29T23:52:34+08:00",
       "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
@@ -1311,7 +1800,7 @@
         "預告法規",
         "預告"
       ],
-      "fetched_at": "2026-05-29T23:29:31+08:00",
+      "fetched_at": "2026-05-29T23:52:34+08:00",
       "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
@@ -1336,7 +1825,7 @@
         "低酸性",
         "酸化食品"
       ],
-      "fetched_at": "2026-05-29T23:29:33+08:00",
+      "fetched_at": "2026-05-29T23:52:37+08:00",
       "ai_summary": [
         "最近修正日期：2026-03-17",
         "食品類現行有效法規",
@@ -1359,7 +1848,7 @@
         "HACCP",
         "水產"
       ],
-      "fetched_at": "2026-05-29T23:29:33+08:00",
+      "fetched_at": "2026-05-29T23:52:37+08:00",
       "ai_summary": [
         "最近修正日期：2026-03-17",
         "食品類現行有效法規",
@@ -1382,7 +1871,7 @@
         "HACCP",
         "乳品"
       ],
-      "fetched_at": "2026-05-29T23:29:33+08:00",
+      "fetched_at": "2026-05-29T23:52:37+08:00",
       "ai_summary": [
         "最近修正日期：2026-03-17",
         "食品類現行有效法規",
@@ -1405,7 +1894,7 @@
         "HACCP",
         "肉類"
       ],
-      "fetched_at": "2026-05-29T23:29:33+08:00",
+      "fetched_at": "2026-05-29T23:52:37+08:00",
       "ai_summary": [
         "最近修正日期：2026-03-17",
         "食品類現行有效法規",
@@ -1426,14 +1915,62 @@
       "tags": [
         "EFSA"
       ],
-      "fetched_at": "2026-05-29T23:29:37+08:00",
+      "fetched_at": "2026-05-29T23:52:40+08:00",
       "country": "歐盟",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "歐盟高病原性禽流感（HPAI）疫情在秋冬高峰後開始下降",
         "禽肉與蛋類輸歐業者可預期檢疫趨於穩定",
         "提醒：仍應持續監控國內生物安全防護"
-      ]
+      ],
+      "title_zh": "歐盟禽流感 — 鳥類檢出案件減少"
+    },
+    {
+      "source": "au_fsanz",
+      "source_label": "澳洲 FSANZ",
+      "source_color": "amber",
+      "title": "UPDATED 12.03.26 | Datah International (Aust) Pty Ltd - Vadilal Grated Coconut 312g",
+      "url": "https://www.foodstandards.gov.au/food-recalls/recall-alert/updated-120326-datah-international-aust-pty-ltd-vadilal-grated-coconut",
+      "date": "2026-03-11",
+      "summary": "This recall is due to the presence of a viral (Hepatitis A) contamination | WA",
+      "tags": [
+        "召回",
+        "WA"
+      ],
+      "fetched_at": "2026-05-29T23:52:45+08:00",
+      "title_zh": "澳洲召回 — UPDATED 12.03.26 | Datah International (Aust) Pty Ltd - Vadi",
+      "ai_summary": [
+        "召回事件：UPDATED 12.03.26 | Datah International (Aust) Pty Ltd - Vadilal Grated Coconut 312g",
+        "原因 / 影響：This recall is due to the presence of a viral (Hepatitis A) contamination | WA",
+        "公告日期：2026-03-11",
+        "來源：澳紐食品標準局 (FSANZ)"
+      ],
+      "country": "澳洲",
+      "first_seen": "2026-05-29T23:52:45+08:00"
+    },
+    {
+      "source": "au_fsanz",
+      "source_label": "澳洲 FSANZ",
+      "source_color": "amber",
+      "title": "Family Select Pty Ltd - Frozen Sorbet Mango 75g, Strawberry 75g and Lychee 75g",
+      "url": "https://www.foodstandards.gov.au/food-recalls/recall-alert/family-select-pty-ltd-frozen-sorbet-mango-75g-strawberry-75g-and-lychee",
+      "date": "2026-03-11",
+      "summary": "This recall is due to the presence of an undeclared allergen (milk) | WA",
+      "tags": [
+        "召回",
+        "過敏原",
+        "WA"
+      ],
+      "fetched_at": "2026-05-29T23:52:45+08:00",
+      "title_zh": "澳洲召回 — Family Select Pty Ltd - Frozen Sorbet Mango 75g, Strawberry ",
+      "ai_summary": [
+        "召回事件：Family Select Pty Ltd - Frozen Sorbet Mango 75g, Strawberry 75g and Lychee 75g",
+        "原因 / 影響：This recall is due to the presence of an undeclared allergen (milk) | WA",
+        "公告日期：2026-03-11",
+        "來源：澳紐食品標準局 (FSANZ)"
+      ],
+      "country": "澳洲",
+      "first_seen": "2026-05-29T23:52:45+08:00"
     },
     {
       "source": "efsa",
@@ -1447,14 +1984,67 @@
         "EFSA",
         "Podcast"
       ],
-      "fetched_at": "2026-05-29T23:29:37+08:00",
+      "fetched_at": "2026-05-29T23:52:40+08:00",
       "country": "歐盟",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "EFSA Podcast 第 38 集：食品風險評估的演進與創新",
         "EFSA 食品創新部門主管 Nik Kriz 分享如何加快風險評估時程",
         "對風險評估與法規從業人員具參考價值"
-      ]
+      ],
+      "title_zh": "EFSA Podcast 第 38 集：食品風險評估正如何加速演進"
+    },
+    {
+      "source": "au_fsanz",
+      "source_label": "澳洲 FSANZ",
+      "source_color": "amber",
+      "title": "Bajaria Global Pty Ltd T/a The Spice Merchants - Fresh 'N' Frozen Favour-ita Grated Coconut 400g",
+      "url": "https://www.foodstandards.gov.au/food-recalls/recall-alert/bajaria-global-pty-ltd-ta-spice-merchants-fresh-n-frozen-favour-ita",
+      "date": "2026-03-05",
+      "summary": "The recall is due to the presence of a viral (Hepatitis A) contamination | WA",
+      "tags": [
+        "召回",
+        "WA"
+      ],
+      "fetched_at": "2026-05-29T23:52:45+08:00",
+      "title_zh": "澳洲召回 — Bajaria Global Pty Ltd T/a The Spice Merchants - Fresh 'N' F",
+      "ai_summary": [
+        "召回事件：Bajaria Global Pty Ltd T/a The Spice Merchants - Fresh 'N' Frozen Favour-ita Grated Coconut 400g",
+        "原因 / 影響：The recall is due to the presence of a viral (Hepatitis A) contamination | WA",
+        "公告日期：2026-03-05",
+        "來源：澳紐食品標準局 (FSANZ)"
+      ],
+      "country": "澳洲",
+      "first_seen": "2026-05-29T23:52:45+08:00"
+    },
+    {
+      "source": "au_fsanz",
+      "source_label": "澳洲 FSANZ",
+      "source_color": "amber",
+      "title": "Aldi Stores- Hillcrest Bubble Bars Choc Rainbow, Birthday Cake and Choc Chip Flavours 132g",
+      "url": "https://www.foodstandards.gov.au/food-recalls/recall-alert/aldi-stores-hillcrest-bubble-bars-choc-rainbow-birthday-cake-and-choc",
+      "date": "2026-03-04",
+      "summary": "The recall is due to the presence of foreign matter (black rubber pieces) | NSW, ACT, QLD, VIC, SA and WA",
+      "tags": [
+        "召回",
+        "異物",
+        "NSW",
+        "VIC",
+        "QLD",
+        "WA",
+        "SA",
+        "ACT"
+      ],
+      "fetched_at": "2026-05-29T23:52:45+08:00",
+      "title_zh": "澳洲召回 — Aldi Stores- Hillcrest Bubble Bars Choc Rainbow, Birthday Ca",
+      "ai_summary": [
+        "召回事件：Aldi Stores- Hillcrest Bubble Bars Choc Rainbow, Birthday Cake and Choc Chip Flavours 132g",
+        "原因 / 影響：The recall is due to the presence of foreign matter (black rubber pieces) | NSW, ACT, QLD, VIC, SA and WA",
+        "公告日期：2026-03-04",
+        "來源：澳紐食品標準局 (FSANZ)"
+      ],
+      "country": "澳洲",
+      "first_seen": "2026-05-29T23:52:45+08:00"
     },
     {
       "source": "tfda",
@@ -1467,7 +2057,7 @@
       "tags": [
         "新聞"
       ],
-      "fetched_at": "2026-05-29T23:29:29+08:00",
+      "fetched_at": "2026-05-29T23:52:31+08:00",
       "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00"
     },
@@ -1482,14 +2072,40 @@
       "tags": [
         "EFSA"
       ],
-      "fetched_at": "2026-05-29T23:29:37+08:00",
+      "fetched_at": "2026-05-29T23:52:40+08:00",
       "country": "歐盟",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "EFSA 公開徵詢「Xylella fastidiosa（火傷病）」防治方法評估",
         "目前 EU 核准的合成活性物質效果最一致，多種生物性物質亦在評估中",
         "影響：橄欖、葡萄、柑橘等植物進出口檢疫"
-      ]
+      ],
+      "title_zh": "Xylella（火傷病）最新防治選項評估 — 公開徵詢意見"
+    },
+    {
+      "source": "au_fsanz",
+      "source_label": "澳洲 FSANZ",
+      "source_color": "amber",
+      "title": "Kagro NSW Pty Ltd- Pinkfong Seasoned Seaweed Flakes 40g",
+      "url": "https://www.foodstandards.gov.au/food-recalls/recall-alert/kagro-nsw-pty-ltd-pinkfong-seasoned-seaweed-flakes-40g",
+      "date": "2026-02-25",
+      "summary": "The recall is due to the presence of foreign matter (plastic) | NSW, ACT",
+      "tags": [
+        "召回",
+        "異物",
+        "NSW",
+        "ACT"
+      ],
+      "fetched_at": "2026-05-29T23:52:45+08:00",
+      "title_zh": "澳洲召回 — Kagro NSW Pty Ltd- Pinkfong Seasoned Seaweed Flakes 40g",
+      "ai_summary": [
+        "召回事件：Kagro NSW Pty Ltd- Pinkfong Seasoned Seaweed Flakes 40g",
+        "原因 / 影響：The recall is due to the presence of foreign matter (plastic) | NSW, ACT",
+        "公告日期：2026-02-25",
+        "來源：澳紐食品標準局 (FSANZ)"
+      ],
+      "country": "澳洲",
+      "first_seen": "2026-05-29T23:52:45+08:00"
     },
     {
       "source": "hk_cfs",
@@ -1503,7 +2119,7 @@
         "警報",
         "食物警報"
       ],
-      "fetched_at": "2026-05-29T23:29:40+08:00",
+      "fetched_at": "2026-05-29T23:52:45+08:00",
       "ai_summary": [
         "警報類別：食物警報",
         "事件：不要食用一批可能含有塑膠碎片的預先包裝朱古力產品",
@@ -1525,7 +2141,7 @@
         "預告法規",
         "預告"
       ],
-      "fetched_at": "2026-05-29T23:29:32+08:00",
+      "fetched_at": "2026-05-29T23:52:35+08:00",
       "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
@@ -1546,7 +2162,7 @@
       "tags": [
         "新聞"
       ],
-      "fetched_at": "2026-05-29T23:29:29+08:00",
+      "fetched_at": "2026-05-29T23:52:32+08:00",
       "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00"
     },
@@ -1561,9 +2177,87 @@
       "tags": [
         "新聞"
       ],
-      "fetched_at": "2026-05-29T23:29:29+08:00",
+      "fetched_at": "2026-05-29T23:52:32+08:00",
       "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00"
+    },
+    {
+      "source": "au_fsanz",
+      "source_label": "澳洲 FSANZ",
+      "source_color": "amber",
+      "title": "Nestle Australia Ltd. - MILO Dipped Snack bars 270g Box, 960g Box & 160g Box and MILO Original Snack Bars 210g Box",
+      "url": "https://www.foodstandards.gov.au/food-recalls/recall-alert/nestle-australia-ltd-milo-dipped-snack-bars-270g-box-960g-box-160g-box",
+      "date": "2026-02-14",
+      "summary": "The recall is due to the presence of foreign matter (black rubber) | NSW, QLD, VIC, TAS, SA, WA and Online",
+      "tags": [
+        "召回",
+        "異物",
+        "NSW",
+        "VIC",
+        "QLD",
+        "WA",
+        "SA",
+        "TAS"
+      ],
+      "fetched_at": "2026-05-29T23:52:45+08:00",
+      "title_zh": "澳洲召回 — Nestle Australia Ltd. - MILO Dipped Snack bars 270g Box, 960",
+      "ai_summary": [
+        "召回事件：Nestle Australia Ltd. - MILO Dipped Snack bars 270g Box, 960g Box & 160g Box and MILO Original Snack Bars 210g Box",
+        "原因 / 影響：The recall is due to the presence of foreign matter (black rubber) | NSW, QLD, VIC, TAS, SA, WA and Online",
+        "公告日期：2026-02-14",
+        "來源：澳紐食品標準局 (FSANZ)"
+      ],
+      "country": "澳洲",
+      "first_seen": "2026-05-29T23:52:45+08:00"
+    },
+    {
+      "source": "au_fsanz",
+      "source_label": "澳洲 FSANZ",
+      "source_color": "amber",
+      "title": "The Trustee for Mankuzhikari Family Trust- Malabar Treats Jackfruit Green 300g",
+      "url": "https://www.foodstandards.gov.au/food-recalls/recall-alert/trustee-mankuzhikari-family-trust-malabar-treats-jackfruit-green-300g",
+      "date": "2026-02-13",
+      "summary": "The recall is due to the presence of chemical (Monocrotophos) contamination | WA",
+      "tags": [
+        "召回",
+        "WA"
+      ],
+      "fetched_at": "2026-05-29T23:52:45+08:00",
+      "title_zh": "澳洲召回 — The Trustee for Mankuzhikari Family Trust- Malabar Treats Ja",
+      "ai_summary": [
+        "召回事件：The Trustee for Mankuzhikari Family Trust- Malabar Treats Jackfruit Green 300g",
+        "原因 / 影響：The recall is due to the presence of chemical (Monocrotophos) contamination | WA",
+        "公告日期：2026-02-13",
+        "來源：澳紐食品標準局 (FSANZ)"
+      ],
+      "country": "澳洲",
+      "first_seen": "2026-05-29T23:52:45+08:00"
+    },
+    {
+      "source": "au_fsanz",
+      "source_label": "澳洲 FSANZ",
+      "source_color": "amber",
+      "title": "La Vera Group Pty Ltd, trading as La Vera Cheese - La Vera Fresh Ricotta 500g",
+      "url": "https://www.foodstandards.gov.au/food-recalls/recall-alert/la-vera-group-pty-ltd-trading-la-vera-cheese-la-vera-fresh-ricotta-500g",
+      "date": "2026-02-12",
+      "summary": "The recall is due to the presence of potential microbial (E. coli) contamination | SA, VIC, NSW and WA",
+      "tags": [
+        "召回",
+        "NSW",
+        "VIC",
+        "WA",
+        "SA"
+      ],
+      "fetched_at": "2026-05-29T23:52:45+08:00",
+      "title_zh": "澳洲召回 — La Vera Group Pty Ltd, trading as La Vera Cheese - La Vera F",
+      "ai_summary": [
+        "召回事件：La Vera Group Pty Ltd, trading as La Vera Cheese - La Vera Fresh Ricotta 500g",
+        "原因 / 影響：The recall is due to the presence of potential microbial (E. coli) contamination | SA, VIC, NSW and WA",
+        "公告日期：2026-02-12",
+        "來源：澳紐食品標準局 (FSANZ)"
+      ],
+      "country": "澳洲",
+      "first_seen": "2026-05-29T23:52:45+08:00"
     },
     {
       "source": "hk_cfs",
@@ -1577,7 +2271,7 @@
         "警報",
         "食物警報"
       ],
-      "fetched_at": "2026-05-29T23:29:40+08:00",
+      "fetched_at": "2026-05-29T23:52:45+08:00",
       "ai_summary": [
         "警報類別：食物警報",
         "事件：不要食用一批鎘含量超出法例標準的預先包裝米",
@@ -1586,6 +2280,29 @@
       ],
       "country": "香港",
       "first_seen": "2026-05-29T23:29:40+08:00"
+    },
+    {
+      "source": "au_fsanz",
+      "source_label": "澳洲 FSANZ",
+      "source_color": "amber",
+      "title": "Harvest Road Oceans Pty Ltd. - Albany Rock Oysters - Various",
+      "url": "https://www.foodstandards.gov.au/food-recalls/recall-alert/harvest-road-oceans-pty-ltd-albany-rock-oysters-various",
+      "date": "2026-02-06",
+      "summary": "The recall is due to the presence of Microbial (E. coli) contamination | WA",
+      "tags": [
+        "召回",
+        "WA"
+      ],
+      "fetched_at": "2026-05-29T23:52:45+08:00",
+      "title_zh": "澳洲召回 — Harvest Road Oceans Pty Ltd. - Albany Rock Oysters - Various",
+      "ai_summary": [
+        "召回事件：Harvest Road Oceans Pty Ltd. - Albany Rock Oysters - Various",
+        "原因 / 影響：The recall is due to the presence of Microbial (E. coli) contamination | WA",
+        "公告日期：2026-02-06",
+        "來源：澳紐食品標準局 (FSANZ)"
+      ],
+      "country": "澳洲",
+      "first_seen": "2026-05-29T23:52:45+08:00"
     },
     {
       "source": "tfda",
@@ -1599,7 +2316,7 @@
         "預告法規",
         "預告"
       ],
-      "fetched_at": "2026-05-29T23:29:32+08:00",
+      "fetched_at": "2026-05-29T23:52:35+08:00",
       "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
@@ -1622,7 +2339,7 @@
         "預告",
         "修正"
       ],
-      "fetched_at": "2026-05-29T23:29:32+08:00",
+      "fetched_at": "2026-05-29T23:52:35+08:00",
       "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
@@ -1643,7 +2360,7 @@
         "警報",
         "食物警報"
       ],
-      "fetched_at": "2026-05-29T23:29:40+08:00",
+      "fetched_at": "2026-05-29T23:52:45+08:00",
       "ai_summary": [
         "警報類別：食物警報",
         "事件：不要食用一批嬰兒配方奶粉",
@@ -1665,7 +2382,7 @@
         "法規",
         "回收"
       ],
-      "fetched_at": "2026-05-29T23:29:33+08:00",
+      "fetched_at": "2026-05-29T23:52:37+08:00",
       "ai_summary": [
         "最近修正日期：2026-02-03",
         "食品類現行有效法規",
@@ -1674,6 +2391,30 @@
       ],
       "country": "台灣",
       "first_seen": "2026-05-29T11:37:08+08:00"
+    },
+    {
+      "source": "au_fsanz",
+      "source_label": "澳洲 FSANZ",
+      "source_color": "amber",
+      "title": "Lupasaurus Pty Ltd, Trading as Lupin Gold- Lupin Gold- 100% Lupin Protein Isolate 350g and 600g",
+      "url": "https://www.foodstandards.gov.au/food-recalls/recall-alert/lupasaurus-pty-ltd-trading-lupin-gold-lupin-gold-100-lupin-protein",
+      "date": "2026-01-30",
+      "summary": "The recall is due to the presence of an undeclared allergen (gluten) | Online Nationally",
+      "tags": [
+        "召回",
+        "過敏原",
+        "全澳洲"
+      ],
+      "fetched_at": "2026-05-29T23:52:45+08:00",
+      "title_zh": "澳洲召回 — Lupasaurus Pty Ltd, Trading as Lupin Gold- Lupin Gold- 100% ",
+      "ai_summary": [
+        "召回事件：Lupasaurus Pty Ltd, Trading as Lupin Gold- Lupin Gold- 100% Lupin Protein Isolate 350g and 600g",
+        "原因 / 影響：The recall is due to the presence of an undeclared allergen (gluten) | Online Nationally",
+        "公告日期：2026-01-30",
+        "來源：澳紐食品標準局 (FSANZ)"
+      ],
+      "country": "澳洲",
+      "first_seen": "2026-05-29T23:52:45+08:00"
     },
     {
       "source": "tfda",
@@ -1688,7 +2429,7 @@
         "預告",
         "修正"
       ],
-      "fetched_at": "2026-05-29T23:29:33+08:00",
+      "fetched_at": "2026-05-29T23:52:36+08:00",
       "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
@@ -1709,7 +2450,7 @@
         "預告法規",
         "預告"
       ],
-      "fetched_at": "2026-05-29T23:29:33+08:00",
+      "fetched_at": "2026-05-29T23:52:36+08:00",
       "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
@@ -1730,7 +2471,7 @@
         "警報",
         "食物警報"
       ],
-      "fetched_at": "2026-05-29T23:29:40+08:00",
+      "fetched_at": "2026-05-29T23:52:45+08:00",
       "ai_summary": [
         "警報類別：食物警報",
         "事件：不要食用個別批次的嬰幼兒配方奶粉",
@@ -1752,7 +2493,7 @@
         "法規",
         "業者登錄"
       ],
-      "fetched_at": "2026-05-29T23:29:33+08:00",
+      "fetched_at": "2026-05-29T23:52:37+08:00",
       "ai_summary": [
         "最近修正日期：2026-01-05",
         "食品類現行有效法規",
@@ -1775,7 +2516,7 @@
         "農藥殘留",
         "殘留"
       ],
-      "fetched_at": "2026-05-29T23:29:33+08:00",
+      "fetched_at": "2026-05-29T23:52:37+08:00",
       "ai_summary": [
         "最近修正日期：2025-11-26",
         "食品類現行有效法規",
@@ -1796,9 +2537,10 @@
       "tags": [
         "EFSA"
       ],
-      "fetched_at": "2026-05-29T23:29:36+08:00",
+      "fetched_at": "2026-05-29T23:52:40+08:00",
       "country": "歐盟",
-      "first_seen": "2026-05-28T00:35:05+08:00"
+      "first_seen": "2026-05-28T00:35:05+08:00",
+      "title_zh": "EFSA 新聞中心 — 互動式工具一覽"
     },
     {
       "source": "efsa",
@@ -1811,9 +2553,10 @@
       "tags": [
         "EFSA"
       ],
-      "fetched_at": "2026-05-29T23:29:36+08:00",
+      "fetched_at": "2026-05-29T23:52:40+08:00",
       "country": "歐盟",
-      "first_seen": "2026-05-28T00:35:05+08:00"
+      "first_seen": "2026-05-28T00:35:05+08:00",
+      "title_zh": "EFSA 介紹影片：科學、安全食品、永續"
     },
     {
       "source": "tfda_law",
@@ -1829,7 +2572,7 @@
         "標示",
         "食品添加物"
       ],
-      "fetched_at": "2026-05-29T23:29:33+08:00",
+      "fetched_at": "2026-05-29T23:52:37+08:00",
       "ai_summary": [
         "最近修正日期：2021-01-21",
         "此為查詢/解釋彙編入口，非單一法規條文",
@@ -1838,6 +2581,30 @@
       ],
       "country": "台灣",
       "first_seen": "2026-05-29T11:37:08+08:00"
+    },
+    {
+      "source": "iso",
+      "source_label": "ISO 標準",
+      "source_color": "indigo",
+      "title": "ISO 22000:2018 Food safety management systems — Requirements for any organization in the food chain",
+      "url": "https://www.iso.org/standard/65464.html",
+      "date": "2018-06-01",
+      "summary": "ISO 22000:2018：Food safety management systems — Requirements for any organization in the food chain",
+      "tags": [
+        "ISO",
+        "管理系統",
+        "HACCP"
+      ],
+      "fetched_at": "2026-05-29T23:52:42+08:00",
+      "title_zh": "ISO 22000:2018 — 食品鏈中任何組織之要求",
+      "ai_summary": [
+        "現行版本：2018 年發布（取代 ISO 22000:2005）",
+        "適用對象：食品鏈中任何組織（生產、加工、零售、餐飲、運輸）",
+        "整合 HACCP 原則與 ISO 9001 結構（Annex SL）",
+        "與 ISO/TS 22002-1（前提方案）配套使用"
+      ],
+      "country": "國際",
+      "first_seen": "2026-05-29T23:52:45+08:00"
     },
     {
       "source": "tfda_law",
@@ -1851,7 +2618,7 @@
         "法規",
         "查詢系統"
       ],
-      "fetched_at": "2026-05-29T23:29:33+08:00",
+      "fetched_at": "2026-05-29T23:52:37+08:00",
       "ai_summary": [
         "最近修正日期：2018-03-01",
         "此為查詢/解釋彙編入口，非單一法規條文",
@@ -1860,6 +2627,167 @@
       ],
       "country": "台灣",
       "first_seen": "2026-05-29T11:37:08+08:00"
+    },
+    {
+      "source": "iso",
+      "source_label": "ISO 標準",
+      "source_color": "indigo",
+      "title": "ISO 17025:2017 General requirements for the competence of testing and calibration laboratories",
+      "url": "https://www.iso.org/standard/66912.html",
+      "date": "2017-11-01",
+      "summary": "ISO 17025:2017：General requirements for the competence of testing and calibration laboratories",
+      "tags": [
+        "ISO",
+        "實驗室認證",
+        "實驗室"
+      ],
+      "fetched_at": "2026-05-29T23:52:42+08:00",
+      "title_zh": "ISO 17025:2017 — ISO 17025:2017 檢驗校正實驗室之通用能力要求",
+      "ai_summary": [
+        "食品檢驗實驗室必備認證標準",
+        "規範方法驗證、量測不確定度、品質保證",
+        "TFDA 委辦檢驗實驗室多依此認證"
+      ],
+      "country": "國際",
+      "first_seen": "2026-05-29T23:52:45+08:00"
+    },
+    {
+      "source": "iso",
+      "source_label": "ISO 標準",
+      "source_color": "indigo",
+      "title": "ISO 9001:2015 Quality management systems — Requirements",
+      "url": "https://www.iso.org/standard/62085.html",
+      "date": "2015-09-01",
+      "summary": "ISO 9001:2015：Quality management systems — Requirements",
+      "tags": [
+        "ISO",
+        "品質管理",
+        "HACCP",
+        "品質管理"
+      ],
+      "fetched_at": "2026-05-29T23:52:42+08:00",
+      "title_zh": "ISO 9001:2015 — 要求",
+      "ai_summary": [
+        "通用品質管理系統標準（非食品專屬，但食品業廣泛採用）",
+        "整合風險思維、領導承諾、過程管理",
+        "可與 ISO 22000 整合認證"
+      ],
+      "country": "國際",
+      "first_seen": "2026-05-29T23:52:45+08:00"
+    },
+    {
+      "source": "iso",
+      "source_label": "ISO 標準",
+      "source_color": "indigo",
+      "title": "ISO 22002-4:2013 Prerequisite programmes on food safety — Part 4: Food packaging manufacturing",
+      "url": "https://www.iso.org/standard/56678.html",
+      "date": "2013-11-01",
+      "summary": "ISO 22002-4:2013：Prerequisite programmes on food safety — Part 4: Food packaging manufacturing",
+      "tags": [
+        "ISO",
+        "前提方案 (PRP)",
+        "HACCP",
+        "包裝"
+      ],
+      "fetched_at": "2026-05-29T23:52:42+08:00",
+      "title_zh": "ISO 22002-4:2013 — 第4部分：食品包裝製造",
+      "ai_summary": [
+        "適用對象：食品包裝材料製造業（與食品直接接觸）",
+        "規範材料安全性、印刷油墨遷移、跨產線污染防範"
+      ],
+      "country": "國際",
+      "first_seen": "2026-05-29T23:52:45+08:00"
+    },
+    {
+      "source": "iso",
+      "source_label": "ISO 標準",
+      "source_color": "indigo",
+      "title": "ISO 22002-2:2013 Prerequisite programmes on food safety — Part 2: Catering",
+      "url": "https://www.iso.org/standard/56714.html",
+      "date": "2013-09-01",
+      "summary": "ISO 22002-2:2013：Prerequisite programmes on food safety — Part 2: Catering",
+      "tags": [
+        "ISO",
+        "前提方案 (PRP)",
+        "HACCP"
+      ],
+      "fetched_at": "2026-05-29T23:52:42+08:00",
+      "title_zh": "ISO 22002-2:2013 — 第2部分：餐飲業",
+      "ai_summary": [
+        "適用對象：餐飲業、團膳、學校與醫院供餐",
+        "規範餐飲場域之衛生管理、員工健康、過敏原管控"
+      ],
+      "country": "國際",
+      "first_seen": "2026-05-29T23:52:45+08:00"
+    },
+    {
+      "source": "iso",
+      "source_label": "ISO 標準",
+      "source_color": "indigo",
+      "title": "ISO 22002-3:2011 Prerequisite programmes on food safety — Part 3: Farming",
+      "url": "https://www.iso.org/standard/57389.html",
+      "date": "2011-12-01",
+      "summary": "ISO 22002-3:2011：Prerequisite programmes on food safety — Part 3: Farming",
+      "tags": [
+        "ISO",
+        "前提方案 (PRP)",
+        "HACCP"
+      ],
+      "fetched_at": "2026-05-29T23:52:42+08:00",
+      "title_zh": "ISO 22002-3:2011 — 第3部分：農作",
+      "ai_summary": [
+        "適用對象：農作物與畜牧生產（含水產養殖）",
+        "規範土壤、用水、肥料、動物福利、藥物使用"
+      ],
+      "country": "國際",
+      "first_seen": "2026-05-29T23:52:45+08:00"
+    },
+    {
+      "source": "iso",
+      "source_label": "ISO 標準",
+      "source_color": "indigo",
+      "title": "ISO/TS 22002-1:2009 Prerequisite programmes on food safety — Part 1: Food manufacturing",
+      "url": "https://www.iso.org/standard/44001.html",
+      "date": "2009-12-01",
+      "summary": "ISO/TS 22002-1:2009：Prerequisite programmes on food safety — Part 1: Food manufacturing",
+      "tags": [
+        "ISO",
+        "前提方案 (PRP)",
+        "HACCP"
+      ],
+      "fetched_at": "2026-05-29T23:52:42+08:00",
+      "title_zh": "ISO/TS 22002-1:2009 — 第1部分：食品製造",
+      "ai_summary": [
+        "現行版本：2009 年發布（已啟動修訂程序，新版預計近年發布）",
+        "適用對象：食品製造業（含包裝、運輸）",
+        "規範 18 項前提方案：建築、設備、清潔消毒、害蟲管制、人員衛生等",
+        "GFSI 認可的 FSSC 22000 驗證基礎之一"
+      ],
+      "country": "國際",
+      "first_seen": "2026-05-29T23:52:45+08:00"
+    },
+    {
+      "source": "iso",
+      "source_label": "ISO 標準",
+      "source_color": "indigo",
+      "title": "ISO 22005:2007 Traceability in the feed and food chain — General principles and basic requirements",
+      "url": "https://www.iso.org/standard/36297.html",
+      "date": "2007-07-01",
+      "summary": "ISO 22005:2007：Traceability in the feed and food chain — General principles and basic requirements",
+      "tags": [
+        "ISO",
+        "追溯",
+        "追溯"
+      ],
+      "fetched_at": "2026-05-29T23:52:42+08:00",
+      "title_zh": "ISO 22005:2007 — 一般原則與基本要求",
+      "ai_summary": [
+        "適用對象：所有食品鏈組織（含飼料）",
+        "規範可追溯系統的設計、實施、驗證",
+        "支援食品召回、產地證明、品牌保護"
+      ],
+      "country": "國際",
+      "first_seen": "2026-05-29T23:52:45+08:00"
     },
     {
       "source": "usfda",

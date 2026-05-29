@@ -16,6 +16,8 @@ import source_iso
 import source_usfda
 import source_codex
 import source_hk_cfs
+import source_au_fsanz
+import source_jp_fsc
 
 # 來源 → 國家對應（顯示於前端國家篩選器）
 SOURCE_COUNTRY = {
@@ -26,6 +28,8 @@ SOURCE_COUNTRY = {
     "iso":      "國際",
     "codex":    "國際",
     "hk_cfs":   "香港",
+    "au_fsanz": "澳洲",
+    "jp_fsc":   "日本",
 }
 
 TPE = timezone(timedelta(hours=8))
@@ -51,6 +55,8 @@ def main():
         ("ISO", source_iso.crawl),
         ("Codex", source_codex.crawl),
         ("香港 CFS", source_hk_cfs.crawl),
+        ("澳洲 FSANZ", source_au_fsanz.crawl),
+        ("日本 FSC", source_jp_fsc.crawl),
     ]
 
     for name, fn in sources:
