@@ -1,11 +1,47 @@
-"""把預先準備好的 AI 摘要寫進 items.json
+"""把預先準備好的 AI 摘要與中文標題翻譯寫進 items.json
 以 URL 為主鍵；未列在這裡的 item 不變動。
+
+- SUMMARIES: URL → list[str]，每筆 3-5 條繁中重點
+- ZH_TITLES: URL → str，英文來源的中文翻譯標題（中文來源不需要）
 """
 import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data" / "items.json"
+
+# 英文來源的中文翻譯標題
+ZH_TITLES = {
+    "https://www.efsa.europa.eu/en/news/african-swine-fever-outbreaks-increase-pigs-and-wild-boar-across-eu":
+        "歐盟非洲豬瘟疫情擴大 — 豬隻與野豬感染雙升",
+    "https://www.efsa.europa.eu/en/podcast/episode-40-science-communication-taking-misinformation-menu":
+        "EFSA Podcast 第 40 集：科學溝通 — 把假訊息趕出菜單",
+    "https://www.efsa.europa.eu/en/news/plant-health-4-life-reinforcing-simple-actions-protect-plants":
+        "EFSA 推動「Plant Health 4 Life」植物健康倡議第 4 年",
+    "https://multimedia.efsa.europa.eu/pesticides-report-2024/index.html":
+        "2024 歐盟農藥殘留報告（互動式視覺化）",
+    "https://www.efsa.europa.eu/en/news/pesticide-residues-food-latest-data-released":
+        "EFSA 公布最新歐盟農藥殘留檢測資料",
+    "https://www.efsa.europa.eu/en/news/eu-agencies-highlight-role-research-effective-policy-making":
+        "歐盟機構強調研究在有效政策制定中的角色",
+    "https://www.efsa.europa.eu/en/news/safe2eat-2026-science-backed-guidance-all-europeans":
+        "Safe2Eat 2026 — 為全歐洲提供以科學為基礎的食安指引",
+    "https://www.efsa.europa.eu/en/news/efsa-guidance-documents-new-catalogue-improve-access-and-use":
+        "EFSA 指引文件分類更新 — 提升可近性與易用性",
+    "https://www.efsa.europa.eu/en/podcast/episode-39-eu-career-boost-efsa-looking-you":
+        "EFSA Podcast 第 39 集：EU 實習計畫 — EFSA 正在找您",
+    "https://www.efsa.europa.eu/en/news/avian-influenza-detections-birds-decline-across-eu":
+        "歐盟禽流感 — 鳥類檢出案件減少",
+    "https://www.efsa.europa.eu/en/podcast/episode-38-speed-how-food-risk-assessment-changing":
+        "EFSA Podcast 第 38 集：食品風險評估正如何加速演進",
+    "https://www.efsa.europa.eu/en/news/latest-xylella-control-options-reviewed-have-your-say":
+        "Xylella（火傷病）最新防治選項評估 — 公開徵詢意見",
+    "https://www.efsa.europa.eu/en/news/presscorner":
+        "EFSA 新聞中心 — 互動式工具一覽",
+    "https://www.youtube.com/watch?v=pWH3et1Y26U":
+        "EFSA 介紹影片：科學、安全食品、永續",
+}
+
 
 SUMMARIES = {
   "https://www.fda.gov.tw/TC/newsContent.aspx?cid=5072&id=31554": [
@@ -192,14 +228,19 @@ SUMMARIES = {
 
 def main():
     d = json.loads(DATA.read_text(encoding="utf-8"))
-    n_updated = 0
+    n_summary = 0
+    n_zh_title = 0
     for item in d["items"]:
         url = item.get("url")
         if url in SUMMARIES:
             item["ai_summary"] = SUMMARIES[url]
-            n_updated += 1
+            n_summary += 1
+        if url in ZH_TITLES:
+            item["title_zh"] = ZH_TITLES[url]
+            n_zh_title += 1
     DATA.write_text(json.dumps(d, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"更新 {n_updated} / {len(d['items'])} 筆 AI 摘要")
+    print(f"AI 摘要：{n_summary} / {len(d['items'])} 筆")
+    print(f"中文標題：{n_zh_title} 筆（國際來源）")
 
 
 if __name__ == "__main__":
