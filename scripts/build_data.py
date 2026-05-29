@@ -15,6 +15,18 @@ import source_efsa
 import source_iso
 import source_usfda
 import source_codex
+import source_hk_cfs
+
+# 來源 → 國家對應（顯示於前端國家篩選器）
+SOURCE_COUNTRY = {
+    "tfda":     "台灣",
+    "tfda_law": "台灣",
+    "usfda":    "美國",
+    "efsa":     "歐盟",
+    "iso":      "國際",
+    "codex":    "國際",
+    "hk_cfs":   "香港",
+}
 
 TPE = timezone(timedelta(hours=8))
 
@@ -38,12 +50,18 @@ def main():
         ("US FDA", source_usfda.crawl),
         ("ISO", source_iso.crawl),
         ("Codex", source_codex.crawl),
+        ("香港 CFS", source_hk_cfs.crawl),
     ]
 
     for name, fn in sources:
         print(f"\n--- 抓取 {name} ---")
         try:
             items = fn()
+            # 自動標記國家
+            for it in items:
+                src_code = it.get("source", "")
+                if src_code in SOURCE_COUNTRY:
+                    it["country"] = SOURCE_COUNTRY[src_code]
             all_items.extend(items)
         except Exception as e:
             print(f"  ! {name} 整個失敗，跳過：{e}")

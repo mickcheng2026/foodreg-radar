@@ -59,8 +59,18 @@
           class="w-full pl-12 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-sm" />
       </div>
 
-      <div id="source-chips" class="flex flex-wrap gap-2">
-        <!-- 由 JS 填入 -->
+      <div class="mb-3">
+        <div class="text-xs text-slate-500 mb-2">📍 國家 / 地區</div>
+        <div id="country-chips" class="flex flex-wrap gap-2">
+          <!-- 由 JS 填入 -->
+        </div>
+      </div>
+
+      <div>
+        <div class="text-xs text-slate-500 mb-2">📂 資料來源</div>
+        <div id="source-chips" class="flex flex-wrap gap-2">
+          <!-- 由 JS 填入 -->
+        </div>
       </div>
     </div>
   </section>
@@ -113,7 +123,22 @@
       "US FDA":  { color: "blue",    text: "text-blue-700",    bg: "bg-blue-50",     border: "border-blue-200",     accent: "text-blue-500" },
       "EFSA":    { color: "purple",  text: "text-purple-700",  bg: "bg-purple-50",   border: "border-purple-200",   accent: "text-purple-500" },
       "Codex":   { color: "rose",    text: "text-rose-700",    bg: "bg-rose-50",     border: "border-rose-200",     accent: "text-rose-500" },
+      "香港 CFS":{ color: "cyan",    text: "text-cyan-700",    bg: "bg-cyan-50",     border: "border-cyan-200",     accent: "text-cyan-500" },
     };
+
+    // 國家樣式（按鈕顏色）
+    const COUNTRY_STYLES = {
+      "台灣":     { emoji: "🇹🇼", bg: "bg-emerald-50",  text: "text-emerald-700", border: "border-emerald-200" },
+      "美國":     { emoji: "🇺🇸", bg: "bg-blue-50",     text: "text-blue-700",    border: "border-blue-200" },
+      "歐盟":     { emoji: "🇪🇺", bg: "bg-purple-50",   text: "text-purple-700",  border: "border-purple-200" },
+      "香港":     { emoji: "🇭🇰", bg: "bg-cyan-50",     text: "text-cyan-700",    border: "border-cyan-200" },
+      "日本":     { emoji: "🇯🇵", bg: "bg-rose-50",     text: "text-rose-700",    border: "border-rose-200" },
+      "澳洲":     { emoji: "🇦🇺", bg: "bg-amber-50",    text: "text-amber-700",   border: "border-amber-200" },
+      "馬來西亞":  { emoji: "🇲🇾", bg: "bg-yellow-50",   text: "text-yellow-700",  border: "border-yellow-200" },
+      "國際":     { emoji: "🌐", bg: "bg-slate-50",    text: "text-slate-700",   border: "border-slate-200" },
+    };
+    // 國家順序（呈現順序）+ 哪些已經有資料、哪些是占位
+    const COUNTRY_ORDER = ["台灣", "美國", "歐盟", "香港", "日本", "澳洲", "馬來西亞", "國際"];
 
     const TAG_HIGHLIGHT = {
       "預告":   { bg: "bg-red-50",    text: "text-red-700",    border: "border-red-200" },
@@ -123,6 +148,7 @@
     };
 
     let DATA = null;
+    let CURRENT_COUNTRY = "all";
     let CURRENT_SOURCE = "all";
     let CURRENT_QUERY = "";
     let PAGE_SIZE = 20;
@@ -180,22 +206,88 @@
       `).join("");
     }
 
-    function renderChips() {
-      const sources = Object.keys(DATA.stats?.by_source || {});
-      const chips = [{ key: "all", label: "全部來源" }]
-        .concat(sources.map(s => ({ key: s, label: s, count: DATA.stats.by_source[s] })));
+    function getCountryStats() {
+      const stats = {};
+      for (const it of DATA.items || []) {
+        const c = it.country || "未分類";
+        stats[c] = (stats[c] || 0) + 1;
+      }
+      return stats;
+    }
+
+    function getSourceStatsForCountry(country) {
+      const stats = {};
+      for (const it of DATA.items || []) {
+        if (country !== "all" && it.country !== country) continue;
+        const s = it.source_label;
+        stats[s] = (stats[s] || 0) + 1;
+      }
+      return stats;
+    }
+
+    function renderCountryChips() {
+      const stats = getCountryStats();
+      const allCount = (DATA.items || []).length;
+      const chips = [{ key: "all", label: "全部", count: allCount, isAll: true }];
+
+      // 有資料的國家依 COUNTRY_ORDER 順序
+      for (const c of COUNTRY_ORDER) {
+        if (stats[c]) {
+          chips.push({ key: c, label: c, count: stats[c] });
+        }
+      }
+      // 占位（無資料的）— 顯示但 disabled
+      for (const c of COUNTRY_ORDER) {
+        if (!stats[c]) {
+          chips.push({ key: c, label: c, count: 0, placeholder: true });
+        }
+      }
+
+      document.getElementById("country-chips").innerHTML = chips.map(c => {
+        const cs = COUNTRY_STYLES[c.key] || { emoji: "📍", bg: "bg-slate-50", text: "text-slate-700", border: "border-slate-200" };
+        let cls;
+        if (c.isAll) {
+          cls = "bg-slate-900 text-white";
+        } else if (c.placeholder) {
+          cls = "bg-slate-50 text-slate-300 border border-dashed border-slate-200 cursor-not-allowed";
+        } else {
+          cls = `${cs.bg} ${cs.text} border ${cs.border} hover:opacity-80`;
+        }
+        const cnt = c.placeholder
+          ? ` <span class="ml-1 text-[10px] italic">即將推出</span>`
+          : ` <span class="ml-1 opacity-60">${c.count}</span>`;
+        const disabled = c.placeholder ? "disabled" : "";
+        const emoji = c.isAll ? "📍" : (cs.emoji || "");
+        return `<button data-country="${c.key}" ${disabled}
+                  class="country-chip px-3 py-1.5 rounded-full text-xs font-medium transition ${cls}">
+                  ${emoji} ${c.label}${cnt}
+                </button>`;
+      }).join("");
+    }
+
+    function renderSourceChips() {
+      const stats = getSourceStatsForCountry(CURRENT_COUNTRY);
+      const sources = Object.keys(stats);
+      const totalCount = sources.reduce((sum, s) => sum + stats[s], 0);
+      const chips = [{ key: "all", label: "全部來源", count: totalCount }]
+        .concat(sources.map(s => ({ key: s, label: s, count: stats[s] })));
 
       document.getElementById("source-chips").innerHTML = chips.map(c => {
         const style = c.key === "all" ? null : SOURCE_STYLES[c.key];
         const cls = c.key === "all"
           ? "bg-slate-900 text-white"
           : `${style?.bg || "bg-slate-50"} ${style?.text || "text-slate-700"} border ${style?.border || "border-slate-200"} hover:opacity-80`;
-        const countText = c.count != null ? ` <span class="ml-1 opacity-60">${c.count}</span>` : "";
+        const countText = ` <span class="ml-1 opacity-60">${c.count}</span>`;
         return `<button data-source="${c.key}"
                   class="source-chip px-3 py-1.5 rounded-full text-xs font-medium transition ${cls}">
                   ${c.label}${countText}
                 </button>`;
       }).join("");
+    }
+
+    function renderChips() {
+      renderCountryChips();
+      renderSourceChips();
     }
 
     // 跳到官網搜尋（用 Google site: 比官網內部搜尋穩定）
@@ -345,20 +437,23 @@
 
     function filterItems() {
       let arr = DATA.items || [];
+      if (CURRENT_COUNTRY !== "all") {
+        arr = arr.filter(i => i.country === CURRENT_COUNTRY);
+      }
       if (CURRENT_SOURCE !== "all") {
         arr = arr.filter(i => i.source_label === CURRENT_SOURCE);
       }
       if (CURRENT_QUERY) {
         const q = CURRENT_QUERY.toLowerCase();
         arr = arr.filter(i => {
-          const blob = ((i.title || "") + " " + (i.summary || "") + " " + (i.tags || []).join(" ")).toLowerCase();
+          const blob = ((i.title || "") + " " + (i.title_zh || "") + " " + (i.summary || "") + " " + (i.tags || []).join(" ")).toLowerCase();
           return blob.includes(q);
         });
       }
       return arr;
     }
 
-    function attachInteractions() {
+    function attachSourceChipHandlers() {
       document.querySelectorAll(".source-chip").forEach(btn => {
         btn.addEventListener("click", () => {
           CURRENT_SOURCE = btn.dataset.source;
@@ -368,6 +463,23 @@
           renderFeed();
         });
       });
+    }
+
+    function attachInteractions() {
+      // 國家 chip
+      document.querySelectorAll(".country-chip:not([disabled])").forEach(btn => {
+        btn.addEventListener("click", () => {
+          CURRENT_COUNTRY = btn.dataset.country;
+          CURRENT_SOURCE = "all";
+          DISPLAY_COUNT = PAGE_SIZE;
+          document.querySelectorAll(".country-chip").forEach(b => b.classList.remove("chip-active"));
+          btn.classList.add("chip-active");
+          renderSourceChips();
+          attachSourceChipHandlers();
+          renderFeed();
+        });
+      });
+      attachSourceChipHandlers();
 
       const search = document.getElementById("search-input");
       let timer = null;
@@ -387,12 +499,18 @@
     }
 
     function clearFilters() {
+      CURRENT_COUNTRY = "all";
       CURRENT_SOURCE = "all";
       CURRENT_QUERY = "";
       document.getElementById("search-input").value = "";
+      document.querySelectorAll(".country-chip").forEach(b => b.classList.remove("chip-active"));
       document.querySelectorAll(".source-chip").forEach(b => b.classList.remove("chip-active"));
-      const allBtn = document.querySelector('[data-source="all"]');
-      if (allBtn) allBtn.classList.add("chip-active");
+      const countryAll = document.querySelector('.country-chip[data-country="all"]');
+      const sourceAll = document.querySelector('.source-chip[data-source="all"]');
+      if (countryAll) countryAll.classList.add("chip-active");
+      if (sourceAll) sourceAll.classList.add("chip-active");
+      renderSourceChips();
+      attachSourceChipHandlers();
       renderFeed();
     }
 

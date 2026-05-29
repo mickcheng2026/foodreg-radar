@@ -1,12 +1,13 @@
 {
-  "updated_at": "2026-05-29T11:37:08+08:00",
+  "updated_at": "2026-05-29T23:29:40+08:00",
   "stats": {
-    "total": 77,
+    "total": 84,
     "by_source": {
       "食藥署": 32,
       "EFSA": 14,
       "US FDA": 21,
-      "食藥署法規": 10
+      "食藥署法規": 10,
+      "香港 CFS": 7
     }
   },
   "items": [
@@ -23,7 +24,8 @@
         "預告",
         "修正"
       ],
-      "fetched_at": "2026-05-29T11:36:43+08:00",
+      "fetched_at": "2026-05-29T23:29:22+08:00",
+      "country": "台灣",
       "first_seen": "2026-05-29T11:22:31+08:00",
       "ai_summary": [
         "預告修正「藥事法偏遠地區列表」附表一、二、五、十、十四、十五（健保西醫巡迴地點）",
@@ -45,7 +47,8 @@
         "預告",
         "修正"
       ],
-      "fetched_at": "2026-05-29T11:36:43+08:00",
+      "fetched_at": "2026-05-29T23:29:23+08:00",
+      "country": "台灣",
       "first_seen": "2026-05-29T11:22:31+08:00",
       "ai_summary": [
         "預告修正「藥事法偏遠地區列表」附表六（非屬偏遠地區清單）",
@@ -67,7 +70,8 @@
         "預告",
         "修正"
       ],
-      "fetched_at": "2026-05-29T11:36:43+08:00",
+      "fetched_at": "2026-05-29T23:29:23+08:00",
+      "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "第二次預告修正「食品中動物用藥殘留量檢驗方法－Avermectin類抗生素」",
@@ -87,7 +91,8 @@
       "tags": [
         "新聞"
       ],
-      "fetched_at": "2026-05-29T11:36:49+08:00",
+      "fetched_at": "2026-05-29T23:29:26+08:00",
+      "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00"
     },
     {
@@ -103,7 +108,8 @@
         "預告",
         "修正"
       ],
-      "fetched_at": "2026-05-29T11:36:44+08:00",
+      "fetched_at": "2026-05-29T23:29:23+08:00",
+      "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "預告修正「生物相似性藥品查驗登記基準」",
@@ -123,7 +129,8 @@
         "公告",
         "公告"
       ],
-      "fetched_at": "2026-05-29T11:36:44+08:00",
+      "fetched_at": "2026-05-29T23:29:24+08:00",
+      "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "115 年度食品添加物查驗登記業務委託「台灣優良農產品發展協會」審查",
@@ -143,7 +150,8 @@
       "tags": [
         "EFSA"
       ],
-      "fetched_at": "2026-05-29T11:37:06+08:00",
+      "fetched_at": "2026-05-29T23:29:37+08:00",
+      "country": "歐盟",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "歐盟非洲豬瘟（ASF）2025 年疫情明顯上升",
@@ -167,7 +175,7 @@
         "進行中",
         "異物"
       ],
-      "fetched_at": "2026-05-29T11:37:06+08:00",
+      "fetched_at": "2026-05-29T23:29:38+08:00",
       "title_zh": "Dakota Honey Company 召回 — 異物（金屬、玻璃、塑膠等）、塑膠",
       "ai_summary": [
         "召回廠商：Dakota Honey Company（Winner, SD）",
@@ -178,6 +186,7 @@
         "流通範圍：Retail locations in FL, GA, and SD Internet sales Nationwide",
         "召回編號：H-0770-2026"
       ],
+      "country": "美國",
       "first_seen": "2026-05-29T11:33:49+08:00"
     },
     {
@@ -194,7 +203,7 @@
         "進行中",
         "異物"
       ],
-      "fetched_at": "2026-05-29T11:37:06+08:00",
+      "fetched_at": "2026-05-29T23:29:38+08:00",
       "title_zh": "FINESALER LLC 召回 — 異物（金屬、玻璃、塑膠等）、玻璃",
       "ai_summary": [
         "召回廠商：FINESALER LLC（Mamaroneck, NY）",
@@ -205,6 +214,7 @@
         "流通範圍：MA",
         "召回編號：H-0773-2026"
       ],
+      "country": "美國",
       "first_seen": "2026-05-29T11:33:49+08:00"
     },
     {
@@ -221,7 +231,7 @@
         "進行中",
         "過敏原"
       ],
-      "fetched_at": "2026-05-29T11:37:06+08:00",
+      "fetched_at": "2026-05-29T23:29:38+08:00",
       "title_zh": "WE R NUTS 召回 — 未標示過敏原、牛奶過敏原、大豆過敏原、腰果過敏原",
       "ai_summary": [
         "召回廠商：WE R NUTS（Port Washington, NY）",
@@ -232,6 +242,7 @@
         "流通範圍：NY, NJ",
         "召回編號：H-0775-2026"
       ],
+      "country": "美國",
       "first_seen": "2026-05-29T11:33:49+08:00"
     },
     {
@@ -249,7 +260,7 @@
         "進行中",
         "異物"
       ],
-      "fetched_at": "2026-05-29T11:37:06+08:00",
+      "fetched_at": "2026-05-29T23:29:38+08:00",
       "title_zh": "Dakota Honey Company 召回 — 異物（金屬、玻璃、塑膠等）、塑膠",
       "ai_summary": [
         "召回廠商：Dakota Honey Company（Winner, SD）",
@@ -260,6 +271,7 @@
         "流通範圍：Retail locations in FL, GA, and SD Internet sales Nationwide",
         "召回編號：H-0771-2026"
       ],
+      "country": "美國",
       "first_seen": "2026-05-29T11:33:49+08:00"
     },
     {
@@ -275,7 +287,7 @@
         "Not Yet Classified",
         "微生物"
       ],
-      "fetched_at": "2026-05-29T11:37:06+08:00",
+      "fetched_at": "2026-05-29T23:29:38+08:00",
       "title_zh": "Pure Ground Ingredients, Inc. 召回 — 沙門氏菌污染",
       "ai_summary": [
         "召回廠商：Pure Ground Ingredients, Inc.（Minden, NV）",
@@ -285,6 +297,7 @@
         "分級：尚未分級",
         "流通範圍：Distributed to CA."
       ],
+      "country": "美國",
       "first_seen": "2026-05-29T11:33:49+08:00"
     },
     {
@@ -302,7 +315,7 @@
         "進行中",
         "異物"
       ],
-      "fetched_at": "2026-05-29T11:37:06+08:00",
+      "fetched_at": "2026-05-29T23:29:38+08:00",
       "title_zh": "Dakota Honey Company 召回 — 異物（金屬、玻璃、塑膠等）、塑膠",
       "ai_summary": [
         "召回廠商：Dakota Honey Company（Winner, SD）",
@@ -313,6 +326,7 @@
         "流通範圍：Retail locations in FL, GA, and SD Internet sales Nationwide",
         "召回編號：H-0772-2026"
       ],
+      "country": "美國",
       "first_seen": "2026-05-29T11:33:49+08:00"
     },
     {
@@ -328,7 +342,7 @@
         "Class II",
         "進行中"
       ],
-      "fetched_at": "2026-05-29T11:37:06+08:00",
+      "fetched_at": "2026-05-29T23:29:38+08:00",
       "title_zh": "Raja Foods and Vegetables Inc. 召回 — Contains undeclared Blue 1",
       "ai_summary": [
         "召回廠商：Raja Foods and Vegetables Inc.（Maspeth, NY）",
@@ -338,6 +352,7 @@
         "流通範圍：NY, NJ, DE, MA, PA, MD, CT, CA, NH, VT,",
         "召回編號：H-0778-2026"
       ],
+      "country": "美國",
       "first_seen": "2026-05-29T11:33:49+08:00"
     },
     {
@@ -354,7 +369,7 @@
         "進行中",
         "過敏原"
       ],
-      "fetched_at": "2026-05-29T11:37:06+08:00",
+      "fetched_at": "2026-05-29T23:29:38+08:00",
       "title_zh": "Ferris Coffee and Nut Company, Inc. 召回 — 未標示過敏原、大豆過敏原、小麥過敏原",
       "ai_summary": [
         "召回廠商：Ferris Coffee and Nut Company, Inc.（Grand Rapids, MI）",
@@ -365,6 +380,7 @@
         "流通範圍：Distributed in IL, IN, KY, MI, OH, and WI.",
         "召回編號：H-0774-2026"
       ],
+      "country": "美國",
       "first_seen": "2026-05-29T11:33:49+08:00"
     },
     {
@@ -382,7 +398,7 @@
         "過敏原",
         "微生物"
       ],
-      "fetched_at": "2026-05-29T11:37:06+08:00",
+      "fetched_at": "2026-05-29T23:29:38+08:00",
       "title_zh": "Sugar Foods LLC 召回 — 沙門氏菌污染、牛奶過敏原",
       "ai_summary": [
         "召回廠商：Sugar Foods LLC（Villa Rica, GA）",
@@ -393,6 +409,7 @@
         "流通範圍：Product was shipped to distribution centers in the following states: IN, TN & WI.",
         "召回編號：H-0781-2026"
       ],
+      "country": "美國",
       "first_seen": "2026-05-29T11:33:49+08:00"
     },
     {
@@ -409,7 +426,7 @@
         "進行中",
         "過敏原"
       ],
-      "fetched_at": "2026-05-29T11:37:06+08:00",
+      "fetched_at": "2026-05-29T23:29:38+08:00",
       "title_zh": "Prospector Popcorn, LLC 召回 — 大豆過敏原",
       "ai_summary": [
         "召回廠商：Prospector Popcorn, LLC（Ridgefield, CT）",
@@ -420,6 +437,7 @@
         "流通範圍：CT and NY",
         "召回編號：H-0779-2026"
       ],
+      "country": "美國",
       "first_seen": "2026-05-29T11:33:49+08:00"
     },
     {
@@ -437,7 +455,7 @@
         "進行中",
         "異物"
       ],
-      "fetched_at": "2026-05-29T11:37:06+08:00",
+      "fetched_at": "2026-05-29T23:29:38+08:00",
       "title_zh": "Dakota Honey Company 召回 — 異物（金屬、玻璃、塑膠等）、塑膠",
       "ai_summary": [
         "召回廠商：Dakota Honey Company（Winner, SD）",
@@ -448,6 +466,7 @@
         "流通範圍：Retail locations in FL, GA, and SD Internet sales Nationwide",
         "召回編號：H-0769-2026"
       ],
+      "country": "美國",
       "first_seen": "2026-05-29T11:33:49+08:00"
     },
     {
@@ -463,7 +482,7 @@
         "Class II",
         "進行中"
       ],
-      "fetched_at": "2026-05-29T11:37:06+08:00",
+      "fetched_at": "2026-05-29T23:29:38+08:00",
       "title_zh": "Raja Foods and Vegetables Inc. 召回 — Contains undeclared FD&C Yellow 6",
       "ai_summary": [
         "召回廠商：Raja Foods and Vegetables Inc.（Maspeth, NY）",
@@ -473,6 +492,7 @@
         "流通範圍：NY, NJ, DE, MA, PA, MD, CT, CA, NH, VT,",
         "召回編號：H-0777-2026"
       ],
+      "country": "美國",
       "first_seen": "2026-05-29T11:33:49+08:00"
     },
     {
@@ -489,7 +509,7 @@
         "進行中",
         "過敏原"
       ],
-      "fetched_at": "2026-05-29T11:37:06+08:00",
+      "fetched_at": "2026-05-29T23:29:38+08:00",
       "title_zh": "Ocinet, Inc. 召回 — 未標示過敏原、魚類過敏原",
       "ai_summary": [
         "召回廠商：Ocinet, Inc.（Downey, CA）",
@@ -500,6 +520,7 @@
         "流通範圍：Product was distributed to locations in California, Texas and Georgia.",
         "召回編號：H-0780-2026"
       ],
+      "country": "美國",
       "first_seen": "2026-05-29T11:33:49+08:00"
     },
     {
@@ -517,7 +538,7 @@
         "進行中",
         "異物"
       ],
-      "fetched_at": "2026-05-29T11:37:06+08:00",
+      "fetched_at": "2026-05-29T23:29:38+08:00",
       "title_zh": "Dakota Honey Company 召回 — 異物（金屬、玻璃、塑膠等）、塑膠",
       "ai_summary": [
         "召回廠商：Dakota Honey Company（Winner, SD）",
@@ -528,6 +549,7 @@
         "流通範圍：Retail locations in FL, GA, and SD Internet sales Nationwide",
         "召回編號：H-0768-2026"
       ],
+      "country": "美國",
       "first_seen": "2026-05-29T11:33:49+08:00"
     },
     {
@@ -543,7 +565,8 @@
         "預告",
         "修正"
       ],
-      "fetched_at": "2026-05-29T11:36:45+08:00",
+      "fetched_at": "2026-05-29T23:29:24+08:00",
+      "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "預告修正「輸入醫療器材邊境抽查檢驗辦法」第六條附表二",
@@ -564,7 +587,8 @@
         "公告",
         "公告"
       ],
-      "fetched_at": "2026-05-29T11:36:45+08:00",
+      "fetched_at": "2026-05-29T23:29:24+08:00",
+      "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "新訂「食品廣告合規輔導指引」協助業者釐清廣告合規界線",
@@ -585,7 +609,8 @@
         "公告",
         "公告"
       ],
-      "fetched_at": "2026-05-29T11:36:46+08:00",
+      "fetched_at": "2026-05-29T23:29:25+08:00",
+      "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00"
     },
     {
@@ -601,7 +626,7 @@
         "Class II",
         "進行中"
       ],
-      "fetched_at": "2026-05-29T11:37:06+08:00",
+      "fetched_at": "2026-05-29T23:29:38+08:00",
       "title_zh": "Silver Moon LP dba Loard's Ice Cream 召回 — Undeclared Yellow #5",
       "ai_summary": [
         "召回廠商：Silver Moon LP dba Loard's Ice Cream（San Leandro, CA）",
@@ -611,6 +636,7 @@
         "流通範圍：Loard's brand distributed to Loard's Ice Cream parlors located in Northern California. Private labels distributed to grocery stores located in Norther",
         "召回編號：H-0756-2026"
       ],
+      "country": "美國",
       "first_seen": "2026-05-29T11:33:49+08:00"
     },
     {
@@ -627,7 +653,7 @@
         "進行中",
         "過敏原"
       ],
-      "fetched_at": "2026-05-29T11:37:06+08:00",
+      "fetched_at": "2026-05-29T23:29:38+08:00",
       "title_zh": "Silver Moon LP dba Loard's Ice Cream 召回 — 牛奶過敏原、大豆過敏原",
       "ai_summary": [
         "召回廠商：Silver Moon LP dba Loard's Ice Cream（San Leandro, CA）",
@@ -638,6 +664,7 @@
         "流通範圍：Loard's brand distributed to Loard's Ice Cream parlors located in Northern California. Private labels distributed to grocery stores located in Norther",
         "召回編號：H-0745-2026"
       ],
+      "country": "美國",
       "first_seen": "2026-05-29T11:33:49+08:00"
     },
     {
@@ -654,7 +681,7 @@
         "進行中",
         "微生物"
       ],
-      "fetched_at": "2026-05-29T11:37:06+08:00",
+      "fetched_at": "2026-05-29T23:29:38+08:00",
       "title_zh": "California Dairies Inc. 召回 — 沙門氏菌污染",
       "ai_summary": [
         "召回廠商：California Dairies Inc.（Visalia, CA）",
@@ -665,6 +692,7 @@
         "流通範圍：U.S. Distribution: Unknown and to be determined during RAC assignment. Domestic consignees pick-up product from CDI. Foreign Distribution: Mexico, Phi",
         "召回編號：H-0699-2026"
       ],
+      "country": "美國",
       "first_seen": "2026-05-29T11:33:49+08:00"
     },
     {
@@ -681,7 +709,7 @@
         "進行中",
         "微生物"
       ],
-      "fetched_at": "2026-05-29T11:37:06+08:00",
+      "fetched_at": "2026-05-29T23:29:38+08:00",
       "title_zh": "Raw Farm LLC 召回 — 大腸桿菌污染",
       "ai_summary": [
         "召回廠商：Raw Farm LLC（Fresno, CA）",
@@ -692,6 +720,7 @@
         "流通範圍：U.S. distribution: AZ, CA, CO, FL, GA, IL, IN, MD, NV, TX. Foreign distribution: None.",
         "召回編號：H-0764-2026"
       ],
+      "country": "美國",
       "first_seen": "2026-05-29T11:33:49+08:00"
     },
     {
@@ -706,7 +735,7 @@
         "召回",
         "Class II"
       ],
-      "fetched_at": "2026-05-29T11:37:06+08:00",
+      "fetched_at": "2026-05-29T23:29:38+08:00",
       "title_zh": "Horizon Organic Dairy, LLC 召回 — Package integrity compromised.",
       "ai_summary": [
         "召回廠商：Horizon Organic Dairy, LLC（Broomfield, CO）",
@@ -716,6 +745,7 @@
         "流通範圍：Distributed to the following states: AZ, CA, NV, OR.",
         "召回編號：H-0711-2026"
       ],
+      "country": "美國",
       "first_seen": "2026-05-29T11:33:49+08:00"
     },
     {
@@ -732,7 +762,7 @@
         "進行中",
         "異物"
       ],
-      "fetched_at": "2026-05-29T11:37:06+08:00",
+      "fetched_at": "2026-05-29T23:29:38+08:00",
       "title_zh": "Wehah Farms 召回 — 異物",
       "ai_summary": [
         "召回廠商：Wehah Farms（Richvale, CA）",
@@ -743,6 +773,7 @@
         "流通範圍：U.S. States: CA, CT, FL, IL, NC, NH, NY, PA, TN, VT, WA, WI. Foreign distribution: None",
         "召回編號：H-0767-2026"
       ],
+      "country": "美國",
       "first_seen": "2026-05-29T11:33:49+08:00"
     },
     {
@@ -757,7 +788,8 @@
         "EFSA",
         "Podcast"
       ],
-      "fetched_at": "2026-05-29T11:37:06+08:00",
+      "fetched_at": "2026-05-29T23:29:37+08:00",
+      "country": "歐盟",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "EFSA Podcast 第 40 集，主題：科學溝通與打擊不實訊息",
@@ -777,7 +809,8 @@
         "公告",
         "預告"
       ],
-      "fetched_at": "2026-05-29T11:36:46+08:00",
+      "fetched_at": "2026-05-29T23:29:25+08:00",
+      "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "預告訂定「西藥非處方藥仿單與外盒刊載應遵行事項」草案",
@@ -798,7 +831,8 @@
         "預告",
         "公告"
       ],
-      "fetched_at": "2026-05-29T11:36:47+08:00",
+      "fetched_at": "2026-05-29T23:29:25+08:00",
+      "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "預告廢止 105 年「西藥非處方藥仿單外盒格式及規範」",
@@ -826,7 +860,8 @@
         "新增 CCC2924.29.90.32-9「含全氟己烷磺酸酯之環醯胺化合物」等 5 項貨品號列",
         "屬食品或食品添加物用途者，須向食藥署申請輸入查驗",
         "影響進口食品、食品添加物（含香料）業者"
-      ]
+      ],
+      "country": "台灣"
     },
     {
       "source": "tfda",
@@ -846,7 +881,8 @@
         "涵蓋 4 個子方案：新藥、信賴審查、原料藥/學名藥加速、原料藥/製劑垂直整合",
         "目標：縮短查驗登記審查時程，提升藥品可近性",
         "試辦期至 116 年 12 月 31 日，屆時視成效決定續辦"
-      ]
+      ],
+      "country": "台灣"
     },
     {
       "source": "efsa",
@@ -859,7 +895,8 @@
       "tags": [
         "EFSA"
       ],
-      "fetched_at": "2026-05-29T11:37:06+08:00",
+      "fetched_at": "2026-05-29T23:29:37+08:00",
+      "country": "歐盟",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "EFSA 推動「Plant Health 4 Life」植物健康倡議第 4 年（最終年）",
@@ -879,7 +916,8 @@
         "新聞",
         "修正"
       ],
-      "fetched_at": "2026-05-29T11:36:49+08:00",
+      "fetched_at": "2026-05-29T23:29:26+08:00",
+      "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00"
     },
     {
@@ -894,7 +932,8 @@
         "EFSA",
         "農藥殘留"
       ],
-      "fetched_at": "2026-05-29T11:37:06+08:00",
+      "fetched_at": "2026-05-29T23:29:37+08:00",
+      "country": "歐盟",
       "first_seen": "2026-05-28T00:35:05+08:00"
     },
     {
@@ -909,7 +948,8 @@
         "EFSA",
         "農藥殘留"
       ],
-      "fetched_at": "2026-05-29T11:37:06+08:00",
+      "fetched_at": "2026-05-29T23:29:37+08:00",
+      "country": "歐盟",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "EFSA 公布最新歐盟農藥殘留檢測結果",
@@ -928,7 +968,8 @@
       "tags": [
         "EFSA"
       ],
-      "fetched_at": "2026-05-29T11:37:06+08:00",
+      "fetched_at": "2026-05-29T23:29:37+08:00",
+      "country": "歐盟",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "EU‑ANSA（歐盟科學諮詢機構網絡）重申科學研究在政策制定中的核心角色",
@@ -949,7 +990,8 @@
         "預告",
         "修正"
       ],
-      "fetched_at": "2026-05-29T11:36:57+08:00",
+      "fetched_at": "2026-05-29T23:29:30+08:00",
+      "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "預告修正「管制藥品分級及品項」",
@@ -971,14 +1013,38 @@
         "農藥殘留",
         "殘留"
       ],
-      "fetched_at": "2026-05-29T11:37:04+08:00",
+      "fetched_at": "2026-05-29T23:29:33+08:00",
       "ai_summary": [
         "最近修正日期：2026-04-21",
         "食品類現行有效法規",
         "分類：農藥殘留、殘留",
         "點「查看原文」前往條文全文（多為衛福部法規檢索系統外部連結）"
       ],
+      "country": "台灣",
       "first_seen": "2026-05-29T11:37:08+08:00"
+    },
+    {
+      "source": "hk_cfs",
+      "source_label": "香港 CFS",
+      "source_color": "cyan",
+      "title": "進口預先包裝乳酪產品疑含未標示致敏物（麩質）",
+      "url": "https://www.cfs.gov.hk/tc_chi/whatsnew/whatsnew_fa/2026_616.html",
+      "date": "2026-04-20",
+      "summary": "[致敏物警報] 進口預先包裝乳酪產品疑含未標示致敏物（麩質）",
+      "tags": [
+        "警報",
+        "致敏物警報",
+        "過敏原"
+      ],
+      "fetched_at": "2026-05-29T23:29:40+08:00",
+      "ai_summary": [
+        "警報類別：致敏物警報",
+        "事件：進口預先包裝乳酪產品疑含未標示致敏物（麩質）",
+        "公告日期：2026-04-20",
+        "來源：香港食物安全中心 (CFS)"
+      ],
+      "country": "香港",
+      "first_seen": "2026-05-29T23:29:40+08:00"
     },
     {
       "source": "tfda",
@@ -991,7 +1057,8 @@
       "tags": [
         "新聞"
       ],
-      "fetched_at": "2026-05-29T11:36:50+08:00",
+      "fetched_at": "2026-05-29T23:29:27+08:00",
+      "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00"
     },
     {
@@ -1005,8 +1072,32 @@
       "tags": [
         "新聞"
       ],
-      "fetched_at": "2026-05-29T11:36:51+08:00",
+      "fetched_at": "2026-05-29T23:29:27+08:00",
+      "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00"
+    },
+    {
+      "source": "hk_cfs",
+      "source_label": "香港 CFS",
+      "source_color": "cyan",
+      "title": "不要食用一款可能含有玻璃碎片的瓶裝金針菇產品",
+      "url": "https://www.cfs.gov.hk/tc_chi/whatsnew/whatsnew_fa/2026_615.html",
+      "date": "2026-04-16",
+      "summary": "[食物警報] 不要食用一款可能含有玻璃碎片的瓶裝金針菇產品",
+      "tags": [
+        "警報",
+        "食物警報",
+        "異物"
+      ],
+      "fetched_at": "2026-05-29T23:29:40+08:00",
+      "ai_summary": [
+        "警報類別：食物警報",
+        "事件：不要食用一款可能含有玻璃碎片的瓶裝金針菇產品",
+        "公告日期：2026-04-16",
+        "來源：香港食物安全中心 (CFS)"
+      ],
+      "country": "香港",
+      "first_seen": "2026-05-29T23:29:40+08:00"
     },
     {
       "source": "efsa",
@@ -1019,7 +1110,8 @@
       "tags": [
         "EFSA"
       ],
-      "fetched_at": "2026-05-29T11:37:06+08:00",
+      "fetched_at": "2026-05-29T23:29:37+08:00",
+      "country": "歐盟",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "EFSA 旗艦倡議「Safe2Eat」邁入第 6 年",
@@ -1038,7 +1130,8 @@
       "tags": [
         "新聞"
       ],
-      "fetched_at": "2026-05-29T11:36:51+08:00",
+      "fetched_at": "2026-05-29T23:29:27+08:00",
+      "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "食藥署與國健署合作推動「食品紅黃綠」正面營養標示制度",
@@ -1058,7 +1151,8 @@
       "tags": [
         "EFSA"
       ],
-      "fetched_at": "2026-05-29T11:37:06+08:00",
+      "fetched_at": "2026-05-29T23:29:37+08:00",
+      "country": "歐盟",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "EFSA 更新指引文件分類，分為 5 類：目的、內容、適用性、強制程度、對象",
@@ -1078,7 +1172,8 @@
         "EFSA",
         "Podcast"
       ],
-      "fetched_at": "2026-05-29T11:37:06+08:00",
+      "fetched_at": "2026-05-29T23:29:37+08:00",
+      "country": "歐盟",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "EFSA Podcast 第 39 集：歐盟食安實習生計畫介紹",
@@ -1096,7 +1191,8 @@
       "tags": [
         "新聞"
       ],
-      "fetched_at": "2026-05-29T11:36:52+08:00",
+      "fetched_at": "2026-05-29T23:29:28+08:00",
+      "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00"
     },
     {
@@ -1110,8 +1206,31 @@
       "tags": [
         "新聞"
       ],
-      "fetched_at": "2026-05-29T11:36:53+08:00",
+      "fetched_at": "2026-05-29T23:29:28+08:00",
+      "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00"
+    },
+    {
+      "source": "hk_cfs",
+      "source_label": "香港 CFS",
+      "source_color": "cyan",
+      "title": "不要飲用一批棒曲霉素濃度超出法例上限的瓶裝蘋果汁飲品",
+      "url": "https://www.cfs.gov.hk/tc_chi/whatsnew/whatsnew_fa/2026_614.html",
+      "date": "2026-03-26",
+      "summary": "[食物警報] 不要飲用一批棒曲霉素濃度超出法例上限的瓶裝蘋果汁飲品",
+      "tags": [
+        "警報",
+        "食物警報"
+      ],
+      "fetched_at": "2026-05-29T23:29:40+08:00",
+      "ai_summary": [
+        "警報類別：食物警報",
+        "事件：不要飲用一批棒曲霉素濃度超出法例上限的瓶裝蘋果汁飲品",
+        "公告日期：2026-03-26",
+        "來源：香港食物安全中心 (CFS)"
+      ],
+      "country": "香港",
+      "first_seen": "2026-05-29T23:29:40+08:00"
     },
     {
       "source": "tfda",
@@ -1126,7 +1245,8 @@
         "預告",
         "修正"
       ],
-      "fetched_at": "2026-05-29T11:36:57+08:00",
+      "fetched_at": "2026-05-29T23:29:30+08:00",
+      "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "預告修正「食品添加物規格檢驗方法－二氧化鈦」",
@@ -1148,7 +1268,8 @@
         "預告",
         "修正"
       ],
-      "fetched_at": "2026-05-29T11:36:58+08:00",
+      "fetched_at": "2026-05-29T23:29:31+08:00",
+      "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "同時預告修正「鹽酸吡哆辛（維生素 B6）」與「二氧化碳」兩項添加物的規格檢驗方法",
@@ -1169,7 +1290,8 @@
         "預告",
         "修正"
       ],
-      "fetched_at": "2026-05-29T11:36:59+08:00",
+      "fetched_at": "2026-05-29T23:29:31+08:00",
+      "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "預告修正「食品添加物規格檢驗方法－食用紅色七號鋁麗基」",
@@ -1189,7 +1311,8 @@
         "預告法規",
         "預告"
       ],
-      "fetched_at": "2026-05-29T11:36:59+08:00",
+      "fetched_at": "2026-05-29T23:29:31+08:00",
+      "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "預告廢止「歐來金得」舊版動物用藥檢驗方法",
@@ -1213,13 +1336,14 @@
         "低酸性",
         "酸化食品"
       ],
-      "fetched_at": "2026-05-29T11:37:04+08:00",
+      "fetched_at": "2026-05-29T23:29:33+08:00",
       "ai_summary": [
         "最近修正日期：2026-03-17",
         "食品類現行有效法規",
         "分類：HACCP、熱加工、低酸性、酸化食品",
         "點「查看原文」前往條文全文（多為衛福部法規檢索系統外部連結）"
       ],
+      "country": "台灣",
       "first_seen": "2026-05-29T11:37:08+08:00"
     },
     {
@@ -1235,13 +1359,14 @@
         "HACCP",
         "水產"
       ],
-      "fetched_at": "2026-05-29T11:37:04+08:00",
+      "fetched_at": "2026-05-29T23:29:33+08:00",
       "ai_summary": [
         "最近修正日期：2026-03-17",
         "食品類現行有效法規",
         "分類：HACCP、水產",
         "點「查看原文」前往條文全文（多為衛福部法規檢索系統外部連結）"
       ],
+      "country": "台灣",
       "first_seen": "2026-05-29T11:37:08+08:00"
     },
     {
@@ -1257,13 +1382,14 @@
         "HACCP",
         "乳品"
       ],
-      "fetched_at": "2026-05-29T11:37:04+08:00",
+      "fetched_at": "2026-05-29T23:29:33+08:00",
       "ai_summary": [
         "最近修正日期：2026-03-17",
         "食品類現行有效法規",
         "分類：HACCP、乳品",
         "點「查看原文」前往條文全文（多為衛福部法規檢索系統外部連結）"
       ],
+      "country": "台灣",
       "first_seen": "2026-05-29T11:37:08+08:00"
     },
     {
@@ -1279,13 +1405,14 @@
         "HACCP",
         "肉類"
       ],
-      "fetched_at": "2026-05-29T11:37:04+08:00",
+      "fetched_at": "2026-05-29T23:29:33+08:00",
       "ai_summary": [
         "最近修正日期：2026-03-17",
         "食品類現行有效法規",
         "分類：HACCP、肉類",
         "點「查看原文」前往條文全文（多為衛福部法規檢索系統外部連結）"
       ],
+      "country": "台灣",
       "first_seen": "2026-05-29T11:37:08+08:00"
     },
     {
@@ -1299,7 +1426,8 @@
       "tags": [
         "EFSA"
       ],
-      "fetched_at": "2026-05-29T11:37:06+08:00",
+      "fetched_at": "2026-05-29T23:29:37+08:00",
+      "country": "歐盟",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "歐盟高病原性禽流感（HPAI）疫情在秋冬高峰後開始下降",
@@ -1319,7 +1447,8 @@
         "EFSA",
         "Podcast"
       ],
-      "fetched_at": "2026-05-29T11:37:06+08:00",
+      "fetched_at": "2026-05-29T23:29:37+08:00",
+      "country": "歐盟",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "EFSA Podcast 第 38 集：食品風險評估的演進與創新",
@@ -1338,7 +1467,8 @@
       "tags": [
         "新聞"
       ],
-      "fetched_at": "2026-05-29T11:36:54+08:00",
+      "fetched_at": "2026-05-29T23:29:29+08:00",
+      "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00"
     },
     {
@@ -1352,13 +1482,36 @@
       "tags": [
         "EFSA"
       ],
-      "fetched_at": "2026-05-29T11:37:06+08:00",
+      "fetched_at": "2026-05-29T23:29:37+08:00",
+      "country": "歐盟",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "EFSA 公開徵詢「Xylella fastidiosa（火傷病）」防治方法評估",
         "目前 EU 核准的合成活性物質效果最一致，多種生物性物質亦在評估中",
         "影響：橄欖、葡萄、柑橘等植物進出口檢疫"
       ]
+    },
+    {
+      "source": "hk_cfs",
+      "source_label": "香港 CFS",
+      "source_color": "cyan",
+      "title": "不要食用一批可能含有塑膠碎片的預先包裝朱古力產品",
+      "url": "https://www.cfs.gov.hk/tc_chi/whatsnew/whatsnew_fa/2026_613.html",
+      "date": "2026-02-24",
+      "summary": "[食物警報] 不要食用一批可能含有塑膠碎片的預先包裝朱古力產品",
+      "tags": [
+        "警報",
+        "食物警報"
+      ],
+      "fetched_at": "2026-05-29T23:29:40+08:00",
+      "ai_summary": [
+        "警報類別：食物警報",
+        "事件：不要食用一批可能含有塑膠碎片的預先包裝朱古力產品",
+        "公告日期：2026-02-24",
+        "來源：香港食物安全中心 (CFS)"
+      ],
+      "country": "香港",
+      "first_seen": "2026-05-29T23:29:40+08:00"
     },
     {
       "source": "tfda",
@@ -1372,7 +1525,8 @@
         "預告法規",
         "預告"
       ],
-      "fetched_at": "2026-05-29T11:37:00+08:00",
+      "fetched_at": "2026-05-29T23:29:32+08:00",
+      "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "預告修訂「藥品優良臨床試驗作業指引」",
@@ -1392,7 +1546,8 @@
       "tags": [
         "新聞"
       ],
-      "fetched_at": "2026-05-29T11:36:55+08:00",
+      "fetched_at": "2026-05-29T23:29:29+08:00",
+      "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00"
     },
     {
@@ -1406,8 +1561,31 @@
       "tags": [
         "新聞"
       ],
-      "fetched_at": "2026-05-29T11:36:56+08:00",
+      "fetched_at": "2026-05-29T23:29:29+08:00",
+      "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00"
+    },
+    {
+      "source": "hk_cfs",
+      "source_label": "香港 CFS",
+      "source_color": "cyan",
+      "title": "不要食用一批鎘含量超出法例標準的預先包裝米",
+      "url": "https://www.cfs.gov.hk/tc_chi/whatsnew/whatsnew_fa/2026_612.html",
+      "date": "2026-02-12",
+      "summary": "[食物警報] 不要食用一批鎘含量超出法例標準的預先包裝米",
+      "tags": [
+        "警報",
+        "食物警報"
+      ],
+      "fetched_at": "2026-05-29T23:29:40+08:00",
+      "ai_summary": [
+        "警報類別：食物警報",
+        "事件：不要食用一批鎘含量超出法例標準的預先包裝米",
+        "公告日期：2026-02-12",
+        "來源：香港食物安全中心 (CFS)"
+      ],
+      "country": "香港",
+      "first_seen": "2026-05-29T23:29:40+08:00"
     },
     {
       "source": "tfda",
@@ -1421,7 +1599,8 @@
         "預告法規",
         "預告"
       ],
-      "fetched_at": "2026-05-29T11:37:01+08:00",
+      "fetched_at": "2026-05-29T23:29:32+08:00",
+      "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "預告廢止「食品中殘留農藥檢驗方法－殺蟎劑三亞蟎」",
@@ -1443,13 +1622,36 @@
         "預告",
         "修正"
       ],
-      "fetched_at": "2026-05-29T11:37:02+08:00",
+      "fetched_at": "2026-05-29T23:29:32+08:00",
+      "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "預告修正「食品中植物性成分檢驗方法－芒果之定性檢驗」",
         "方法名稱由「芒果成分之定性檢驗」更名",
         "影響：食品摻偽鑑別、過敏原標示稽核"
       ]
+    },
+    {
+      "source": "hk_cfs",
+      "source_label": "香港 CFS",
+      "source_color": "cyan",
+      "title": "不要食用一批嬰兒配方奶粉",
+      "url": "https://www.cfs.gov.hk/tc_chi/whatsnew/whatsnew_fa/2026_611.html",
+      "date": "2026-02-03",
+      "summary": "[食物警報] 不要食用一批嬰兒配方奶粉",
+      "tags": [
+        "警報",
+        "食物警報"
+      ],
+      "fetched_at": "2026-05-29T23:29:40+08:00",
+      "ai_summary": [
+        "警報類別：食物警報",
+        "事件：不要食用一批嬰兒配方奶粉",
+        "公告日期：2026-02-03",
+        "來源：香港食物安全中心 (CFS)"
+      ],
+      "country": "香港",
+      "first_seen": "2026-05-29T23:29:40+08:00"
     },
     {
       "source": "tfda_law",
@@ -1463,13 +1665,14 @@
         "法規",
         "回收"
       ],
-      "fetched_at": "2026-05-29T11:37:04+08:00",
+      "fetched_at": "2026-05-29T23:29:33+08:00",
       "ai_summary": [
         "最近修正日期：2026-02-03",
         "食品類現行有效法規",
         "分類：回收",
         "點「查看原文」前往條文全文（多為衛福部法規檢索系統外部連結）"
       ],
+      "country": "台灣",
       "first_seen": "2026-05-29T11:37:08+08:00"
     },
     {
@@ -1485,7 +1688,8 @@
         "預告",
         "修正"
       ],
-      "fetched_at": "2026-05-29T11:37:03+08:00",
+      "fetched_at": "2026-05-29T23:29:33+08:00",
+      "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "預告修正「醫療器材回收處理辦法」第四條",
@@ -1505,13 +1709,36 @@
         "預告法規",
         "預告"
       ],
-      "fetched_at": "2026-05-29T11:37:03+08:00",
+      "fetched_at": "2026-05-29T23:29:33+08:00",
+      "country": "台灣",
       "first_seen": "2026-05-28T00:35:05+08:00",
       "ai_summary": [
         "預告國際 ICH E9(R1) 統計指引：估計目標與敏感度分析",
         "為國際醫藥法規協和會（ICH）之臨床試驗統計原則指引附錄",
         "影響：跨國臨床試驗設計、分析計畫書撰寫"
       ]
+    },
+    {
+      "source": "hk_cfs",
+      "source_label": "香港 CFS",
+      "source_color": "cyan",
+      "title": "不要食用個別批次的嬰幼兒配方奶粉",
+      "url": "https://www.cfs.gov.hk/tc_chi/whatsnew/whatsnew_fa/2026_610.html",
+      "date": "2026-01-06",
+      "summary": "[食物警報] 不要食用個別批次的嬰幼兒配方奶粉",
+      "tags": [
+        "警報",
+        "食物警報"
+      ],
+      "fetched_at": "2026-05-29T23:29:40+08:00",
+      "ai_summary": [
+        "警報類別：食物警報",
+        "事件：不要食用個別批次的嬰幼兒配方奶粉",
+        "公告日期：2026-01-06",
+        "來源：香港食物安全中心 (CFS)"
+      ],
+      "country": "香港",
+      "first_seen": "2026-05-29T23:29:40+08:00"
     },
     {
       "source": "tfda_law",
@@ -1525,13 +1752,14 @@
         "法規",
         "業者登錄"
       ],
-      "fetched_at": "2026-05-29T11:37:04+08:00",
+      "fetched_at": "2026-05-29T23:29:33+08:00",
       "ai_summary": [
         "最近修正日期：2026-01-05",
         "食品類現行有效法規",
         "分類：業者登錄",
         "點「查看原文」前往條文全文（多為衛福部法規檢索系統外部連結）"
       ],
+      "country": "台灣",
       "first_seen": "2026-05-29T11:37:08+08:00"
     },
     {
@@ -1547,13 +1775,14 @@
         "農藥殘留",
         "殘留"
       ],
-      "fetched_at": "2026-05-29T11:37:04+08:00",
+      "fetched_at": "2026-05-29T23:29:33+08:00",
       "ai_summary": [
         "最近修正日期：2025-11-26",
         "食品類現行有效法規",
         "分類：農藥殘留、殘留",
         "點「查看原文」前往條文全文（多為衛福部法規檢索系統外部連結）"
       ],
+      "country": "台灣",
       "first_seen": "2026-05-29T11:37:08+08:00"
     },
     {
@@ -1567,7 +1796,8 @@
       "tags": [
         "EFSA"
       ],
-      "fetched_at": "2026-05-29T11:37:06+08:00",
+      "fetched_at": "2026-05-29T23:29:36+08:00",
+      "country": "歐盟",
       "first_seen": "2026-05-28T00:35:05+08:00"
     },
     {
@@ -1581,7 +1811,8 @@
       "tags": [
         "EFSA"
       ],
-      "fetched_at": "2026-05-29T11:37:06+08:00",
+      "fetched_at": "2026-05-29T23:29:36+08:00",
+      "country": "歐盟",
       "first_seen": "2026-05-28T00:35:05+08:00"
     },
     {
@@ -1598,13 +1829,14 @@
         "標示",
         "食品添加物"
       ],
-      "fetched_at": "2026-05-29T11:37:04+08:00",
+      "fetched_at": "2026-05-29T23:29:33+08:00",
       "ai_summary": [
         "最近修正日期：2021-01-21",
         "此為查詢/解釋彙編入口，非單一法規條文",
         "分類：查詢系統、標示、食品添加物",
         "點「查看原文」前往條文全文（多為衛福部法規檢索系統外部連結）"
       ],
+      "country": "台灣",
       "first_seen": "2026-05-29T11:37:08+08:00"
     },
     {
@@ -1619,13 +1851,14 @@
         "法規",
         "查詢系統"
       ],
-      "fetched_at": "2026-05-29T11:37:04+08:00",
+      "fetched_at": "2026-05-29T23:29:33+08:00",
       "ai_summary": [
         "最近修正日期：2018-03-01",
         "此為查詢/解釋彙編入口，非單一法規條文",
         "分類：查詢系統",
         "點「查看原文」前往條文全文（多為衛福部法規檢索系統外部連結）"
       ],
+      "country": "台灣",
       "first_seen": "2026-05-29T11:37:08+08:00"
     },
     {
@@ -1641,7 +1874,8 @@
         "召回"
       ],
       "fetched_at": "2026-05-29T11:22:29+08:00",
-      "first_seen": "2026-05-28T07:38:05+08:00"
+      "first_seen": "2026-05-28T07:38:05+08:00",
+      "country": "美國"
     }
   ]
 }
