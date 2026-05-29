@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.DS_Store
+.vscode/
+.idea/
+node_modules/
+prototype.html
+
+# 個人 / 機器專屬設定（不要進 repo）
+.claude/settings.local.json

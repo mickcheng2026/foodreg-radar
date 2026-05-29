@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(open *)",
+      "WebFetch(domain:www.fda.gov.tw)",
+      "WebFetch(domain:www.fda.gov)",
+      "WebFetch(domain:www.efsa.europa.eu)",
+      "WebFetch(domain:www.iso.org)",
+      "WebFetch(domain:www.fao.org)"
+    ]
+  }
+}
