@@ -30,7 +30,17 @@ jobs:
         run: |
           python build_data.py
 
-      - name: 補 AI 摘要與中文翻譯（若有設定 API key）
+      - name: 套用手選 AI 摘要與中文翻譯
+        working-directory: scripts
+        run: |
+          python apply_ai_summaries.py
+
+      - name: 對剩餘無摘要項目自動產生結構化重點
+        working-directory: scripts
+        run: |
+          python auto_summary.py
+
+      - name: 補 AI 摘要與標題翻譯（若有設定 ANTHROPIC_API_KEY）
         working-directory: scripts
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
