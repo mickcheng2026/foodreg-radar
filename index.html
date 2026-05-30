@@ -133,10 +133,6 @@
     </div>
   </footer>
 
-  <!-- Toast 提示 -->
-  <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 hidden
-       bg-slate-900 text-white text-xs px-4 py-2.5 rounded-lg shadow-lg max-w-xs text-center"></div>
-
   <script>
     // ============================================================
     // 食規雷達 前端邏輯
@@ -483,13 +479,7 @@
 
           ${summary}
 
-          <div class="flex items-center justify-between gap-3">
-            <button data-ai-url="${escapeAttr(item.url)}"
-               class="ai-btn inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-lg
-                      bg-purple-50 text-purple-700 border border-purple-200 hover:bg-purple-100 transition">
-              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M5 2a1 1 0 011 1v1h1a1 1 0 010 2H6v1a1 1 0 01-2 0V6H3a1 1 0 010-2h1V3a1 1 0 011-1zm0 10a1 1 0 011 1v1h1a1 1 0 110 2H6v1a1 1 0 11-2 0v-1H3a1 1 0 110-2h1v-1a1 1 0 011-1zM12 2a1 1 0 01.967.744L14.146 7.2 17.5 9.134a1 1 0 010 1.732l-3.354 1.935-1.18 4.455a1 1 0 01-1.933 0L9.854 12.8 6.5 10.866a1 1 0 010-1.732l3.354-1.935 1.18-4.455A1 1 0 0112 2z"/></svg>
-              用 AI 摘要
-            </button>
+          <div class="flex items-center justify-end">
             <a href="${escapeAttr(item.url)}" target="_blank" rel="noopener"
                class="inline-flex items-center gap-1 text-sm ${style.text} hover:opacity-80 font-medium">
               查看原文
@@ -583,12 +573,6 @@
         DISPLAY_COUNT += PAGE_SIZE;
         renderFeed();
       });
-
-      // 「用 AI 摘要」按鈕（事件委派：卡片會重繪，綁在固定的 feed 容器上）
-      document.getElementById("feed").addEventListener("click", e => {
-        const btn = e.target.closest(".ai-btn");
-        if (btn) aiSummarize(btn.dataset.aiUrl);
-      });
     }
 
     function clearFilters() {
@@ -607,46 +591,6 @@
       renderSourceChips();
       attachSourceChipHandlers();
       renderFeed();
-    }
-
-    // ── 用 AI 摘要：把提示詞丟到使用者自己的 Claude.ai（免費、免 API key）──
-    let TOAST_TIMER = null;
-    function toast(msg) {
-      const el = document.getElementById("toast");
-      el.textContent = msg;
-      el.classList.remove("hidden");
-      clearTimeout(TOAST_TIMER);
-      TOAST_TIMER = setTimeout(() => el.classList.add("hidden"), 3500);
-    }
-
-    function buildAiPrompt(item) {
-      const titleLine = item.title_zh
-        ? `${item.title_zh}（原文：${item.title || ""}）`
-        : (item.title || "");
-      const lines = [
-        "請幫我把下面這則食品法規／食安公告，整理成 3–5 條繁體中文重點。",
-        "聚焦「改了什麼／限值多少／何時生效／影響誰」，每行一條、純文字、不要 markdown、不要重複標題。",
-        "",
-        `標題：${titleLine}`,
-        `來源：${item.source_label || ""}${item.country ? "（" + item.country + "）" : ""}`,
-      ];
-      if (item.date) lines.push(`日期：${item.date}`);
-      if (item.url) lines.push(`原文連結：${item.url}`);
-      if (item.summary) lines.push("", "原文摘要：", item.summary);
-      return lines.join("\n");
-    }
-
-    function aiSummarize(url) {
-      const item = (DATA.items || []).find(i => i.url === url);
-      if (!item) return;
-      const prompt = buildAiPrompt(item);
-      // 先複製到剪貼簿（保底：萬一沒自動帶入也能直接貼）
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(prompt).catch(() => {});
-      }
-      // 開新分頁到 Claude.ai，並用 ?q= 嘗試自動帶入提示
-      window.open("https://claude.ai/new?q=" + encodeURIComponent(prompt), "_blank", "noopener");
-      toast("已開啟 Claude 並複製提示 — 若沒自動帶入，直接貼上（⌘V）按送出即可");
     }
 
     function escapeHtml(s) {
