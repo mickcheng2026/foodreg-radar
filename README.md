@@ -38,7 +38,13 @@ python3 -m http.server 8765
 ## Tailwind 樣式（正式版，免 Node）
 
 網頁樣式改用「預先編好的」`assets/app.css`（取代過去的 `cdn.tailwindcss.com`，
-正式環境較快、無 console 警告）。**只要動到 `index.html` 的 class，就要重新編譯一次。**
+正式環境較快、無 console 警告）。
+
+**重新編譯已全自動**：只要把 `index.html`、`tailwind.config.js` 或
+`assets/tailwind-input.css` 推上 `main`，GitHub Actions（`.github/workflows/build-css.yml`）
+就會自動重編 `app.css` 並 commit 回來——不必手動跑指令，也不會發生「改了 class 卻忘了重編」。
+
+需要在本機手動重編時（可選）：
 
 ```bash
 # 1. 下載 Tailwind 獨立版工具（只需第一次；macOS Apple Silicon）
