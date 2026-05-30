@@ -35,6 +35,27 @@ python3 -m http.server 8765
 # 開啟 http://127.0.0.1:8765
 ```
 
+## Tailwind 樣式（正式版，免 Node）
+
+網頁樣式改用「預先編好的」`assets/app.css`（取代過去的 `cdn.tailwindcss.com`，
+正式環境較快、無 console 警告）。**只要動到 `index.html` 的 class，就要重新編譯一次。**
+
+```bash
+# 1. 下載 Tailwind 獨立版工具（只需第一次；macOS Apple Silicon）
+mkdir -p .build
+curl -sL -o .build/tailwindcss \
+  https://github.com/tailwindlabs/tailwindcss/releases/download/v3.4.17/tailwindcss-macos-arm64
+chmod +x .build/tailwindcss
+
+# 2. 重新編譯 CSS
+.build/tailwindcss -c tailwind.config.js -i assets/tailwind-input.css -o assets/app.css --minify
+```
+
+- `tailwind.config.js`：掃描設定（含 safelist，保住 JS 動態組出的顏色 class）
+- `assets/tailwind-input.css`：自訂樣式（漸層、卡片 hover 等）
+- `assets/app.css`：編譯產物（**要 commit**，網站實際載入這支）
+- `.build/`：工具二進位，已被 `.gitignore` 忽略
+
 ## 加新資料來源
 
 1. 在 `scripts/` 新增 `source_xxx.py`，提供 `crawl()` 函式回傳 `list[dict]`

@@ -4,19 +4,34 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>食規雷達 — 食品法規最新動態</title>
-<meta name="description" content="自動匯整食藥署、HACCP、ISO、FDA、EFSA、Codex 食品法規與安全最新公告" />
-<script src="https://cdn.tailwindcss.com"></script>
+<meta name="description" content="自動匯整食藥署、HACCP、ISO、FDA、EFSA、Codex 食品法規與安全最新公告，每日更新、AI 重點摘要。" />
+<meta name="theme-color" content="#10b981" />
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+
+<!-- 社群分享預覽 (Open Graph / Twitter) -->
+<link rel="canonical" href="https://mickcheng2026.github.io/foodreg-radar/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="食規雷達 FoodReg Radar" />
+<meta property="og:title" content="食規雷達 — 食品法規最新動態" />
+<meta property="og:description" content="自動匯整食藥署、HACCP、ISO、FDA、EFSA、Codex 食品法規與安全最新公告，每日更新、AI 重點摘要。" />
+<meta property="og:url" content="https://mickcheng2026.github.io/foodreg-radar/" />
+<meta property="og:image" content="https://mickcheng2026.github.io/foodreg-radar/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content="zh_TW" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="食規雷達 — 食品法規最新動態" />
+<meta name="twitter:description" content="自動匯整食藥署、FDA、EFSA、Codex 食品法規與安全最新公告，每日更新。" />
+<meta name="twitter:image" content="https://mickcheng2026.github.io/foodreg-radar/assets/og-image.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-<style>
-  body { font-family: 'Noto Sans TC', system-ui, -apple-system, sans-serif; }
-  .gradient-bg { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); }
-  .card-hover { transition: all 0.2s ease; }
-  .card-hover:hover { transform: translateY(-2px); box-shadow: 0 12px 24px -8px rgba(0,0,0,0.08); }
-  .chip-active { background-color: #0f172a !important; color: white !important; border-color: #0f172a !important; }
-  .line-clamp-4 { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
-  .fade-in { animation: fadeIn 0.3s ease-out; }
-  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-</style>
+<link rel="stylesheet" href="assets/app.css" />
 </head>
 <body class="bg-slate-50 text-slate-800">
 
@@ -57,6 +72,13 @@
         </svg>
         <input id="search-input" type="text" placeholder="搜尋標題、摘要、關鍵字（如：食品添加物、HACCP、農藥殘留）"
           class="w-full pl-12 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-sm" />
+      </div>
+
+      <div class="mb-3">
+        <div class="text-xs text-slate-500 mb-2">📅 時間範圍</div>
+        <div id="range-chips" class="flex flex-wrap gap-2">
+          <!-- 由 JS 填入 -->
+        </div>
       </div>
 
       <div class="mb-3">
@@ -158,8 +180,18 @@
     let CURRENT_COUNTRY = "all";
     let CURRENT_SOURCE = "all";
     let CURRENT_QUERY = "";
+    let CURRENT_RANGE = "all";   // 時間範圍篩選（all=不限）
     let PAGE_SIZE = 20;
     let DISPLAY_COUNT = PAGE_SIZE;
+
+    // 時間範圍選項（依發布日期；無發布日期者用收錄日期）
+    const RANGE_OPTIONS = [
+      { key: "all", label: "全部時間", days: null },
+      { key: "7",   label: "近 7 天",  days: 7 },
+      { key: "30",  label: "近 30 天", days: 30 },
+      { key: "90",  label: "近 90 天", days: 90 },
+      { key: "365", label: "近一年",   days: 365 },
+    ];
 
     // 載入 items.json
     fetch("data/items.json", { cache: "no-cache" })
@@ -292,7 +324,22 @@
       }).join("");
     }
 
+    function renderRangeChips() {
+      const html = RANGE_OPTIONS.map(o => {
+        const active = o.key === CURRENT_RANGE;
+        const cls = active
+          ? "bg-slate-900 text-white"
+          : "bg-slate-50 text-slate-700 border border-slate-200 hover:opacity-80";
+        return `<button data-range="${o.key}"
+                  class="range-chip px-3 py-1.5 rounded-full text-xs font-medium transition ${cls}">
+                  ${o.label}
+                </button>`;
+      }).join("");
+      document.getElementById("range-chips").innerHTML = html;
+    }
+
     function renderChips() {
+      renderRangeChips();
       renderCountryChips();
       renderSourceChips();
     }
@@ -327,8 +374,9 @@
       const slice = items.slice(0, DISPLAY_COUNT);
       const hasQuery = CURRENT_QUERY.length > 0;
 
+      const isFiltered = CURRENT_QUERY || CURRENT_SOURCE !== "all" || CURRENT_COUNTRY !== "all" || CURRENT_RANGE !== "all";
       document.getElementById("result-count").textContent =
-        `共 ${items.length} 筆${CURRENT_QUERY || CURRENT_SOURCE !== "all" ? "（已篩選）" : ""}`;
+        `共 ${items.length} 筆${isFiltered ? "（已篩選）" : ""}`;
 
       if (items.length === 0) {
         const emptyBody = hasQuery
@@ -444,6 +492,18 @@
 
     function filterItems() {
       let arr = DATA.items || [];
+      if (CURRENT_RANGE !== "all") {
+        const opt = RANGE_OPTIONS.find(o => o.key === CURRENT_RANGE);
+        if (opt && opt.days) {
+          const cutoff = new Date(Date.now() - opt.days * 86400000);
+          arr = arr.filter(i => {
+            const ds = i.date || (i.fetched_at ? i.fetched_at.slice(0, 10) : "");
+            if (!ds) return false;
+            const d = new Date(ds);
+            return !isNaN(d) && d >= cutoff;
+          });
+        }
+      }
       if (CURRENT_COUNTRY !== "all") {
         arr = arr.filter(i => i.country === CURRENT_COUNTRY);
       }
@@ -473,6 +533,16 @@
     }
 
     function attachInteractions() {
+      // 時間範圍 chip
+      document.querySelectorAll(".range-chip").forEach(btn => {
+        btn.addEventListener("click", () => {
+          CURRENT_RANGE = btn.dataset.range;
+          DISPLAY_COUNT = PAGE_SIZE;
+          renderRangeChips();
+          renderFeed();
+        });
+      });
+
       // 國家 chip
       document.querySelectorAll(".country-chip:not([disabled])").forEach(btn => {
         btn.addEventListener("click", () => {
@@ -509,6 +579,8 @@
       CURRENT_COUNTRY = "all";
       CURRENT_SOURCE = "all";
       CURRENT_QUERY = "";
+      CURRENT_RANGE = "all";
+      renderRangeChips();
       document.getElementById("search-input").value = "";
       document.querySelectorAll(".country-chip").forEach(b => b.classList.remove("chip-active"));
       document.querySelectorAll(".source-chip").forEach(b => b.classList.remove("chip-active"));

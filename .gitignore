@@ -6,5 +6,8 @@ __pycache__/
 node_modules/
 prototype.html
 
+# Tailwind 獨立版編譯工具（二進位，不進 repo；需要時重新下載）
+.build/
+
 # 個人 / 機器專屬設定（不要進 repo）
 .claude/settings.local.json
