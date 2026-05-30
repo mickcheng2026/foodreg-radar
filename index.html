@@ -533,14 +533,14 @@
     }
 
     function attachInteractions() {
-      // 時間範圍 chip
-      document.querySelectorAll(".range-chip").forEach(btn => {
-        btn.addEventListener("click", () => {
-          CURRENT_RANGE = btn.dataset.range;
-          DISPLAY_COUNT = PAGE_SIZE;
-          renderRangeChips();
-          renderFeed();
-        });
+      // 時間範圍 chip（事件委派綁在容器上：chip 會被重畫，綁按鈕本身會失效）
+      document.getElementById("range-chips").addEventListener("click", e => {
+        const btn = e.target.closest(".range-chip");
+        if (!btn) return;
+        CURRENT_RANGE = btn.dataset.range;
+        DISPLAY_COUNT = PAGE_SIZE;
+        renderRangeChips();
+        renderFeed();
       });
 
       // 國家 chip
