@@ -133,6 +133,10 @@
     </div>
   </footer>
 
+  <!-- Toast 提示 -->
+  <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 hidden
+       bg-slate-900 text-white text-sm px-4 py-2.5 rounded-lg shadow-lg max-w-xs text-center"></div>
+
   <script>
     // ============================================================
     // 食規雷達 前端邏輯
@@ -416,10 +420,20 @@
       else moreBtn.classList.add("hidden");
     }
 
+    function isNewItem(item) {
+      const ds = item.date || (item.first_seen ? item.first_seen.slice(0, 10) : "");
+      if (!ds) return false;
+      const d = new Date(ds);
+      return !isNaN(d) && d >= new Date(Date.now() - 7 * 86400000);
+    }
+
     function renderCard(item) {
       const style = SOURCE_STYLES[item.source_label] || SOURCE_STYLES["食藥署"];
       const dateStr = item.date || (item.fetched_at ? item.fetched_at.slice(0, 10) : "");
       const dateLabel = item.date ? "發布" : "收錄";
+      const newBadge = isNewItem(item)
+        ? `<span class="px-2 py-1 rounded-md text-xs font-bold bg-red-500 text-white">新</span>`
+        : "";
       const tags = (item.tags || [])
         .filter(t => t !== item.source_label)
         .slice(0, 4)
@@ -457,6 +471,7 @@
         <article class="card-hover bg-white rounded-2xl border border-slate-200 p-6 shadow-sm fade-in">
           <div class="flex items-start justify-between gap-4 mb-3">
             <div class="flex items-center gap-2 flex-wrap">
+              ${newBadge}
               <span class="px-2.5 py-1 rounded-md ${style.bg} ${style.text} text-xs font-semibold border ${style.border}">${escapeHtml(item.source_label)}</span>
               ${tags}
             </div>
@@ -479,7 +494,19 @@
 
           ${summary}
 
-          <div class="flex items-center justify-end">
+          <div class="flex items-center justify-between gap-3 flex-wrap">
+            <div class="flex items-center gap-2">
+              <button data-copy-url="${escapeAttr(item.url)}"
+                 class="copy-btn inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1.5 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                複製重點
+              </button>
+              <button data-share-url="${escapeAttr(item.url)}"
+                 class="share-btn inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1.5 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg>
+                分享
+              </button>
+            </div>
             <a href="${escapeAttr(item.url)}" target="_blank" rel="noopener"
                class="inline-flex items-center gap-1 text-sm ${style.text} hover:opacity-80 font-medium">
               查看原文
@@ -513,7 +540,8 @@
       if (CURRENT_QUERY) {
         const q = CURRENT_QUERY.toLowerCase();
         arr = arr.filter(i => {
-          const blob = ((i.title || "") + " " + (i.title_zh || "") + " " + (i.summary || "") + " " + (i.tags || []).join(" ")).toLowerCase();
+          const aiText = Array.isArray(i.ai_summary) ? i.ai_summary.join(" ") : "";
+          const blob = ((i.title || "") + " " + (i.title_zh || "") + " " + (i.summary || "") + " " + aiText + " " + (i.tags || []).join(" ")).toLowerCase();
           return blob.includes(q);
         });
       }
@@ -573,6 +601,14 @@
         DISPLAY_COUNT += PAGE_SIZE;
         renderFeed();
       });
+
+      // 卡片內的複製/分享（事件委派：卡片會重畫，綁固定的 feed 容器）
+      document.getElementById("feed").addEventListener("click", e => {
+        const copyBtn = e.target.closest(".copy-btn");
+        if (copyBtn) { copyHighlights(copyBtn.dataset.copyUrl); return; }
+        const shareBtn = e.target.closest(".share-btn");
+        if (shareBtn) { shareItem(shareBtn.dataset.shareUrl); return; }
+      });
     }
 
     function clearFilters() {
@@ -591,6 +627,62 @@
       renderSourceChips();
       attachSourceChipHandlers();
       renderFeed();
+    }
+
+    // ── Toast 提示 ──
+    let TOAST_TIMER = null;
+    function toast(msg) {
+      const el = document.getElementById("toast");
+      el.textContent = msg;
+      el.classList.remove("hidden");
+      clearTimeout(TOAST_TIMER);
+      TOAST_TIMER = setTimeout(() => el.classList.add("hidden"), 2500);
+    }
+
+    async function copyText(text) {
+      try {
+        await navigator.clipboard.writeText(text);
+        return true;
+      } catch (e) {
+        // 後備：textarea + execCommand
+        try {
+          const ta = document.createElement("textarea");
+          ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+          document.body.appendChild(ta); ta.select();
+          const ok = document.execCommand("copy");
+          document.body.removeChild(ta);
+          return ok;
+        } catch (e2) { return false; }
+      }
+    }
+
+    // ── 複製重點：標題 + AI 重點 + 連結，方便貼進報告 ──
+    async function copyHighlights(url) {
+      const item = (DATA.items || []).find(i => i.url === url);
+      if (!item) return;
+      const title = item.title_zh || item.title || "";
+      const bullets = Array.isArray(item.ai_summary) ? item.ai_summary : [];
+      const lines = [
+        `【${item.source_label}】${title}`,
+        item.date ? `日期：${item.date}` : "",
+        ...bullets.map(b => `・${b}`),
+        `原文：${item.url}`,
+      ].filter(Boolean);
+      const ok = await copyText(lines.join("\n"));
+      toast(ok ? "已複製重點，可直接貼上 📋" : "複製失敗，請手動選取");
+    }
+
+    // ── 分享單則：手機用系統分享，桌機複製連結 ──
+    async function shareItem(url) {
+      const item = (DATA.items || []).find(i => i.url === url);
+      if (!item) return;
+      const title = `【食規雷達】${item.title_zh || item.title || ""}`;
+      if (navigator.share) {
+        try { await navigator.share({ title, url: item.url }); return; }
+        catch (e) { if (e && e.name === "AbortError") return; }
+      }
+      const ok = await copyText(`${title}\n${item.url}`);
+      toast(ok ? "已複製連結，可貼給同事 🔗" : "複製失敗，請手動複製網址");
     }
 
     function escapeHtml(s) {
