@@ -157,7 +157,21 @@
       "HACCP 認證":{color: "lime",   text: "text-lime-700",    bg: "bg-lime-50",     border: "border-lime-200",     accent: "text-lime-500" },
       "日本 法規目錄":{color:"rose", text: "text-rose-700",    bg: "bg-rose-50",     border: "border-rose-200",     accent: "text-rose-500" },
       "出口指南":{color: "indigo", text: "text-indigo-700",  bg: "bg-indigo-50",   border: "border-indigo-200",   accent: "text-indigo-500" },
+      "食安事件":{color: "red",    text: "text-red-700",     bg: "bg-red-50",      border: "border-red-200",      accent: "text-red-500" },
     };
+
+    // 跨來源「食安事件」分類：聚合各國回收/警報來源，且限近一年
+    const INCIDENT_KEY = "__incident__";
+    // 聚合「各國食安事件」：全球食安新聞 + 澳洲/香港回收警報。
+    // 不含 US FDA（其 openFDA 為每年逾千筆例行回收，會淹沒各國平衡；美國重大事件已由 Food Safety News 涵蓋）。
+    const INCIDENT_LABELS = new Set(["食安事件", "澳洲 FSANZ", "香港 CFS"]);
+    function isIncidentItem(i) {
+      if (!INCIDENT_LABELS.has(i.source_label)) return false;
+      const ds = i.date || (i.fetched_at ? i.fetched_at.slice(0, 10) : "");
+      if (!ds) return false;
+      const d = new Date(ds);
+      return !isNaN(d) && d >= new Date(Date.now() - 365 * 86400000);
+    }
 
     // 國家樣式（按鈕顏色）
     const COUNTRY_STYLES = {
@@ -168,10 +182,14 @@
       "日本":     { emoji: "🇯🇵", bg: "bg-rose-50",     text: "text-rose-700",    border: "border-rose-200" },
       "澳洲":     { emoji: "🇦🇺", bg: "bg-amber-50",    text: "text-amber-700",   border: "border-amber-200" },
       "馬來西亞":  { emoji: "🇲🇾", bg: "bg-yellow-50",   text: "text-yellow-700",  border: "border-yellow-200" },
+      "英國":     { emoji: "🇬🇧", bg: "bg-indigo-50",   text: "text-indigo-700",  border: "border-indigo-200" },
+      "加拿大":    { emoji: "🇨🇦", bg: "bg-red-50",      text: "text-red-700",     border: "border-red-200" },
+      "亞洲其他":  { emoji: "🌏", bg: "bg-teal-50",     text: "text-teal-700",    border: "border-teal-200" },
       "國際":     { emoji: "🌐", bg: "bg-slate-50",    text: "text-slate-700",   border: "border-slate-200" },
+      [INCIDENT_KEY]: { emoji: "⚠️", bg: "bg-red-50",  text: "text-red-700",     border: "border-red-300" },
     };
     // 國家順序（呈現順序）+ 哪些已經有資料、哪些是占位
-    const COUNTRY_ORDER = ["台灣", "美國", "歐盟", "香港", "日本", "澳洲", "馬來西亞", "國際"];
+    const COUNTRY_ORDER = ["台灣", "美國", "歐盟", "香港", "日本", "澳洲", "馬來西亞", "英國", "加拿大", "亞洲其他", "國際"];
 
     const TAG_HIGHLIGHT = {
       "預告":   { bg: "bg-red-50",    text: "text-red-700",    border: "border-red-200" },
@@ -261,7 +279,11 @@
     function getSourceStatsForCountry(country) {
       const stats = {};
       for (const it of DATA.items || []) {
-        if (country !== "all" && it.country !== country) continue;
+        if (country === INCIDENT_KEY) {
+          if (!isIncidentItem(it)) continue;
+        } else if (country !== "all" && it.country !== country) {
+          continue;
+        }
         const s = it.source_label;
         stats[s] = (stats[s] || 0) + 1;
       }
@@ -272,6 +294,12 @@
       const stats = getCountryStats();
       const allCount = (DATA.items || []).length;
       const chips = [{ key: "all", label: "全部", count: allCount, isAll: true }];
+
+      // 跨來源「食安事件」分類（近一年各國回收/警報/事件）
+      const incidentCount = (DATA.items || []).filter(isIncidentItem).length;
+      if (incidentCount) {
+        chips.push({ key: INCIDENT_KEY, label: "食安事件", count: incidentCount });
+      }
 
       // 有資料的國家依 COUNTRY_ORDER 順序
       for (const c of COUNTRY_ORDER) {
@@ -531,7 +559,9 @@
           });
         }
       }
-      if (CURRENT_COUNTRY !== "all") {
+      if (CURRENT_COUNTRY === INCIDENT_KEY) {
+        arr = arr.filter(isIncidentItem);
+      } else if (CURRENT_COUNTRY !== "all") {
         arr = arr.filter(i => i.country === CURRENT_COUNTRY);
       }
       if (CURRENT_SOURCE !== "all") {

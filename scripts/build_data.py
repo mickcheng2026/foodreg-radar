@@ -23,6 +23,7 @@ import source_import_export
 import source_haccp
 import source_jp_curated
 import source_export_guide
+import source_food_incidents
 
 # 來源 → 國家對應（顯示於前端國家篩選器）
 SOURCE_COUNTRY = {
@@ -69,6 +70,7 @@ def main():
         ("HACCP 認證", source_haccp.crawl),
         ("日本法規目錄", source_jp_curated.crawl),
         ("出口指南", source_export_guide.crawl),
+        ("食安事件", source_food_incidents.crawl),
     ]
 
     for name, fn in sources:
