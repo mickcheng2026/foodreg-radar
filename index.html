@@ -133,6 +133,12 @@
     </div>
   </footer>
 
+  <!-- 回到頂部 -->
+  <button id="back-to-top" aria-label="回到頂部" title="回到頂部"
+    class="fixed bottom-6 right-6 z-40 hidden w-12 h-12 rounded-full bg-emerald-600 text-white shadow-lg hover:bg-emerald-700 transition items-center justify-center">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>
+  </button>
+
   <!-- Toast 提示 -->
   <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 hidden
        bg-slate-900 text-white text-sm px-4 py-2.5 rounded-lg shadow-lg max-w-xs text-center"></div>
@@ -407,8 +413,10 @@
       const hasQuery = CURRENT_QUERY.length > 0;
 
       const isFiltered = CURRENT_QUERY || CURRENT_SOURCE !== "all" || CURRENT_COUNTRY !== "all" || CURRENT_RANGE !== "all";
-      document.getElementById("result-count").textContent =
-        `共 ${items.length} 筆${isFiltered ? "（已篩選）" : ""}`;
+      document.getElementById("result-count").innerHTML =
+        `共 ${items.length} 筆${isFiltered
+          ? ` · <button onclick="clearFilters()" class="text-emerald-600 hover:underline font-medium">清除篩選</button>`
+          : ""}`;
 
       if (items.length === 0) {
         const emptyBody = hasQuery
@@ -467,8 +475,8 @@
         .slice(0, 4)
         .map(t => {
           const h = TAG_HIGHLIGHT[t];
-          if (h) return `<span class="px-2 py-1 rounded-md text-xs font-medium ${h.bg} ${h.text} border ${h.border}">${escapeHtml(t)}</span>`;
-          return `<span class="px-2 py-1 rounded-md text-xs font-medium bg-slate-100 text-slate-600">${escapeHtml(t)}</span>`;
+          const cls = h ? `${h.bg} ${h.text} border ${h.border}` : "bg-slate-100 text-slate-600 hover:bg-slate-200";
+          return `<button data-tag="${escapeAttr(t)}" title="篩選「${escapeAttr(t)}」" class="px-2 py-1 rounded-md text-xs font-medium ${cls} transition cursor-pointer">${escapeHtml(t)}</button>`;
         }).join("");
 
       const aiBullets = Array.isArray(item.ai_summary) ? item.ai_summary : null;
@@ -632,12 +640,38 @@
         renderFeed();
       });
 
-      // 卡片內的複製/分享（事件委派：卡片會重畫，綁固定的 feed 容器）
+      // 卡片內的複製/分享/標籤（事件委派：卡片會重畫，綁固定的 feed 容器）
       document.getElementById("feed").addEventListener("click", e => {
         const copyBtn = e.target.closest(".copy-btn");
         if (copyBtn) { copyHighlights(copyBtn.dataset.copyUrl); return; }
         const shareBtn = e.target.closest(".share-btn");
         if (shareBtn) { shareItem(shareBtn.dataset.shareUrl); return; }
+        const tagBtn = e.target.closest("[data-tag]");
+        if (tagBtn) {
+          search.value = tagBtn.dataset.tag;
+          CURRENT_QUERY = tagBtn.dataset.tag;
+          DISPLAY_COUNT = PAGE_SIZE;
+          renderFeed();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+          return;
+        }
+      });
+
+      // 回到頂部
+      const backTop = document.getElementById("back-to-top");
+      window.addEventListener("scroll", () => {
+        backTop.classList.toggle("hidden", window.scrollY < 600);
+        backTop.classList.toggle("flex", window.scrollY >= 600);
+      });
+      backTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+      // 鍵盤快捷：「/」聚焦搜尋、Esc 清空
+      document.addEventListener("keydown", e => {
+        if (e.key === "/" && document.activeElement !== search) {
+          e.preventDefault(); search.focus();
+        } else if (e.key === "Escape" && document.activeElement === search) {
+          search.value = ""; CURRENT_QUERY = ""; DISPLAY_COUNT = PAGE_SIZE; renderFeed(); search.blur();
+        }
       });
     }
 
