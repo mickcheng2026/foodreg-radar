@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mickcheng2026.github.io/foodreg-radar/sitemap.xml

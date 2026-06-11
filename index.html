@@ -32,6 +32,32 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="assets/app.css" />
+
+<!-- 結構化資料 (SEO)：讓搜尋引擎理解這是食品法規/食安資訊網站 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "食規雷達 FoodReg Radar",
+  "alternateName": "FoodReg Radar",
+  "url": "https://mickcheng2026.github.io/foodreg-radar/",
+  "description": "自動匯整食藥署、HACCP、ISO、US FDA、EFSA、Codex 食品法規與各國食安事件最新動態，每日更新、AI 重點摘要。",
+  "inLanguage": "zh-TW",
+  "publisher": { "@type": "Organization", "name": "食規雷達 FoodReg Radar" }
+}
+</script>
+
+<!-- 深色模式：在繪製前套用，避免閃白 -->
+<script>
+  (function () {
+    try {
+      var m = localStorage.getItem("theme");
+      if (m === "dark" || (!m && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+        document.documentElement.classList.add("dark");
+      }
+    } catch (e) {}
+  })();
+</script>
 </head>
 <body class="bg-slate-50 text-slate-800">
 
@@ -47,9 +73,16 @@
           <p class="text-xs text-slate-500">FoodReg Radar · 食品法規最新動態</p>
         </div>
       </div>
-      <div class="flex items-center gap-2 text-xs text-slate-500">
-        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-        <span id="last-updated">載入中...</span>
+      <div class="flex items-center gap-3 text-xs text-slate-500">
+        <span class="hidden sm:flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span id="last-updated">載入中...</span>
+        </span>
+        <button id="theme-toggle" aria-label="切換深色模式" title="切換深色 / 淺色"
+          class="w-9 h-9 rounded-lg border border-slate-200 flex items-center justify-center hover:bg-slate-100 transition text-slate-600">
+          <svg id="icon-moon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+          <svg id="icon-sun" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+        </button>
       </div>
     </div>
   </header>
@@ -74,24 +107,31 @@
           class="w-full pl-12 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-sm" />
       </div>
 
-      <div class="mb-3">
-        <div class="text-xs text-slate-500 mb-2">📅 時間範圍</div>
-        <div id="range-chips" class="flex flex-wrap gap-2">
-          <!-- 由 JS 填入 -->
-        </div>
-      </div>
+      <button id="filter-toggle" class="md:hidden w-full mb-1 px-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-sm text-slate-600 flex items-center justify-between">
+        <span>篩選條件（時間 / 國家 / 來源）</span>
+        <svg id="filter-caret" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </button>
 
-      <div class="mb-3">
-        <div class="text-xs text-slate-500 mb-2">📍 國家 / 地區</div>
-        <div id="country-chips" class="flex flex-wrap gap-2">
-          <!-- 由 JS 填入 -->
+      <div id="filter-body" class="hidden md:block pt-2 md:pt-0">
+        <div class="mb-3">
+          <div class="text-xs text-slate-500 mb-2">📅 時間範圍</div>
+          <div id="range-chips" class="flex flex-wrap gap-2">
+            <!-- 由 JS 填入 -->
+          </div>
         </div>
-      </div>
 
-      <div>
-        <div class="text-xs text-slate-500 mb-2">📂 資料來源</div>
-        <div id="source-chips" class="flex flex-wrap gap-2">
-          <!-- 由 JS 填入 -->
+        <div class="mb-3">
+          <div class="text-xs text-slate-500 mb-2">📍 國家 / 地區</div>
+          <div id="country-chips" class="flex flex-wrap gap-2">
+            <!-- 由 JS 填入 -->
+          </div>
+        </div>
+
+        <div>
+          <div class="text-xs text-slate-500 mb-2">📂 資料來源</div>
+          <div id="source-chips" class="flex flex-wrap gap-2">
+            <!-- 由 JS 填入 -->
+          </div>
         </div>
       </div>
     </div>
@@ -99,9 +139,16 @@
 
   <!-- Feed -->
   <main class="max-w-6xl mx-auto px-6 py-8">
-    <div class="flex items-baseline justify-between mb-5">
+    <div class="flex items-center justify-between gap-3 mb-5 flex-wrap">
       <h2 class="text-lg font-bold text-slate-900">最新更新</h2>
-      <div class="text-xs text-slate-500" id="result-count">—</div>
+      <div class="flex items-center gap-3">
+        <button id="export-btn" title="把目前篩選結果匯出成 CSV（可用 Excel 開）"
+          class="text-xs px-2.5 py-1.5 rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-100 transition inline-flex items-center gap-1">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/></svg>
+          匯出 CSV
+        </button>
+        <div class="text-xs text-slate-500" id="result-count">—</div>
+      </div>
     </div>
 
     <div id="feed" class="space-y-4">
@@ -224,7 +271,7 @@
     // 載入 items.json
     fetch("data/items.json", { cache: "no-cache" })
       .then(r => r.ok ? r.json() : Promise.reject(r.status))
-      .then(d => { DATA = d; render(); })
+      .then(d => { DATA = d; applyUrlState(); render(); })
       .catch(err => {
         document.getElementById("feed").innerHTML =
           `<div class="text-center py-12">
@@ -333,6 +380,7 @@
         const cnt = c.placeholder
           ? ` <span class="ml-1 text-[10px] italic">即將推出</span>`
           : ` <span class="ml-1 opacity-60">${c.count}</span>`;
+        if (!c.placeholder && ((c.isAll && CURRENT_COUNTRY === "all") || c.key === CURRENT_COUNTRY)) cls += " chip-active";
         const disabled = c.placeholder ? "disabled" : "";
         const emoji = c.isAll ? "📍" : (cs.emoji || "");
         return `<button data-country="${c.key}" ${disabled}
@@ -351,9 +399,10 @@
 
       document.getElementById("source-chips").innerHTML = chips.map(c => {
         const style = c.key === "all" ? null : SOURCE_STYLES[c.key];
-        const cls = c.key === "all"
+        let cls = c.key === "all"
           ? "bg-slate-900 text-white"
           : `${style?.bg || "bg-slate-50"} ${style?.text || "text-slate-700"} border ${style?.border || "border-slate-200"} hover:opacity-80`;
+        if ((c.key === "all" && CURRENT_SOURCE === "all") || c.key === CURRENT_SOURCE) cls += " chip-active";
         const countText = ` <span class="ml-1 opacity-60">${c.count}</span>`;
         return `<button data-source="${c.key}"
                   class="source-chip px-3 py-1.5 rounded-full text-xs font-medium transition ${cls}">
@@ -408,6 +457,7 @@
     }
 
     function renderFeed() {
+      syncUrl();
       const items = filterItems();
       const slice = items.slice(0, DISPLAY_COUNT);
       const hasQuery = CURRENT_QUERY.length > 0;
@@ -673,6 +723,24 @@
           search.value = ""; CURRENT_QUERY = ""; DISPLAY_COUNT = PAGE_SIZE; renderFeed(); search.blur();
         }
       });
+
+      // 深色模式切換
+      applyThemeIcons();
+      document.getElementById("theme-toggle").addEventListener("click", () => {
+        const dark = document.documentElement.classList.toggle("dark");
+        try { localStorage.setItem("theme", dark ? "dark" : "light"); } catch (e) {}
+        applyThemeIcons();
+      });
+
+      // 手機篩選收合
+      document.getElementById("filter-toggle").addEventListener("click", () => {
+        const body = document.getElementById("filter-body");
+        const nowHidden = body.classList.toggle("hidden");
+        document.getElementById("filter-caret").style.transform = nowHidden ? "" : "rotate(180deg)";
+      });
+
+      // 匯出 CSV
+      document.getElementById("export-btn").addEventListener("click", exportCsv);
     }
 
     function clearFilters() {
@@ -691,6 +759,55 @@
       renderSourceChips();
       attachSourceChipHandlers();
       renderFeed();
+    }
+
+    // ── 可分享的篩選網址（把篩選狀態存進網址 #） ──
+    function syncUrl() {
+      const p = new URLSearchParams();
+      if (CURRENT_QUERY) p.set("q", CURRENT_QUERY);
+      if (CURRENT_COUNTRY !== "all") p.set("country", CURRENT_COUNTRY);
+      if (CURRENT_SOURCE !== "all") p.set("source", CURRENT_SOURCE);
+      if (CURRENT_RANGE !== "all") p.set("range", CURRENT_RANGE);
+      const s = p.toString();
+      try { history.replaceState(null, "", s ? "#" + s : location.pathname); } catch (e) {}
+    }
+    function applyUrlState() {
+      const h = (location.hash || "").replace(/^#/, "");
+      if (!h) return;
+      const p = new URLSearchParams(h);
+      if (p.get("q")) { CURRENT_QUERY = p.get("q"); const s = document.getElementById("search-input"); if (s) s.value = CURRENT_QUERY; }
+      if (p.get("country")) CURRENT_COUNTRY = p.get("country");
+      if (p.get("source")) CURRENT_SOURCE = p.get("source");
+      if (p.get("range")) CURRENT_RANGE = p.get("range");
+    }
+
+    // ── 匯出目前篩選結果為 CSV（Excel 可開）──
+    function exportCsv() {
+      const items = filterItems();
+      if (!items.length) { toast("目前沒有可匯出的資料"); return; }
+      const head = ["來源", "國家/地區", "標題", "原文標題", "發布日期", "AI 重點", "連結"];
+      const esc = v => `"${String(v ?? "").replace(/"/g, '""')}"`;
+      const rows = items.map(i => [
+        i.source_label, i.country || "",
+        i.title_zh || i.title || "", i.title_zh ? (i.title || "") : "",
+        i.date || "", Array.isArray(i.ai_summary) ? i.ai_summary.join(" / ") : "", i.url,
+      ]);
+      const csv = "﻿" + [head, ...rows].map(r => r.map(esc).join(",")).join("\r\n");
+      const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = `食規雷達_${new Date().toISOString().slice(0, 10)}.csv`;
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      URL.revokeObjectURL(a.href);
+      toast(`已匯出 ${items.length} 筆 CSV 📄`);
+    }
+
+    // ── 深色模式圖示切換 ──
+    function applyThemeIcons() {
+      const dark = document.documentElement.classList.contains("dark");
+      const m = document.getElementById("icon-moon"), s = document.getElementById("icon-sun");
+      if (m) m.classList.toggle("hidden", dark);
+      if (s) s.classList.toggle("hidden", !dark);
     }
 
     // ── Toast 提示 ──
