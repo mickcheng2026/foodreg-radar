@@ -35,6 +35,11 @@ jobs:
         run: |
           python apply_ai_summaries.py
 
+      - name: 自動翻譯外文標題（Google 翻譯免費端點，免金鑰）
+        working-directory: scripts
+        run: |
+          python translate_titles.py
+
       - name: 對剩餘無摘要項目自動產生結構化重點
         working-directory: scripts
         run: |
