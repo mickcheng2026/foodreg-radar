@@ -108,6 +108,8 @@ def main():
                     item["first_seen"] = old["first_seen"]
                 if old.get("ai_summary"):
                     item["ai_summary"] = old["ai_summary"]
+                if old.get("title_zh") and not item.get("title_zh"):
+                    item["title_zh"] = old["title_zh"]
             if not item.get("first_seen"):
                 item["first_seen"] = datetime.now(TPE).isoformat(timespec="seconds")
             merged[item["url"]] = item
