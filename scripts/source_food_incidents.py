@@ -19,19 +19,19 @@ from common import fetch, clean_text, make_item, normalize_date
 
 # 來源清單：kind=fsn 全收；kind=gnews 需通過食安關鍵字過濾
 FEEDS = [
-    # Food Safety News（全球專業站）
-    {"url": "https://www.foodsafetynews.com/feed/", "kind": "fsn", "default": "國際"},
-    {"url": "https://www.foodsafetynews.com/tag/2026-outbreaks/feed/", "kind": "fsn", "default": "國際"},
-    {"url": "https://www.foodsafetynews.com/tag/2025-outbreaks/feed/", "kind": "fsn", "default": "國際"},
-    {"url": "https://www.foodsafetynews.com/tag/recalls/feed/", "kind": "fsn", "default": "國際"},
-    {"url": "https://www.foodsafetynews.com/tag/salmonella/feed/", "kind": "fsn", "default": "國際"},
-    {"url": "https://www.foodsafetynews.com/tag/listeria/feed/", "kind": "fsn", "default": "國際"},
-    {"url": "https://www.foodsafetynews.com/tag/e-coli/feed/", "kind": "fsn", "default": "國際"},
-    # Google News — 英文全球食安事件
+    # Food Safety News（美國媒體；未偵測到他國時預設美國）
+    {"url": "https://www.foodsafetynews.com/feed/", "kind": "fsn", "default": "美國"},
+    {"url": "https://www.foodsafetynews.com/tag/2026-outbreaks/feed/", "kind": "fsn", "default": "美國"},
+    {"url": "https://www.foodsafetynews.com/tag/2025-outbreaks/feed/", "kind": "fsn", "default": "美國"},
+    {"url": "https://www.foodsafetynews.com/tag/recalls/feed/", "kind": "fsn", "default": "美國"},
+    {"url": "https://www.foodsafetynews.com/tag/salmonella/feed/", "kind": "fsn", "default": "美國"},
+    {"url": "https://www.foodsafetynews.com/tag/listeria/feed/", "kind": "fsn", "default": "美國"},
+    {"url": "https://www.foodsafetynews.com/tag/e-coli/feed/", "kind": "fsn", "default": "美國"},
+    # Google News — 英文（gl=US，未偵測到他國時預設美國）
     {"url": "https://news.google.com/rss/search?q=food%20safety%20outbreak%20OR%20recall%20OR%20contamination%20when:365d&hl=en-US&gl=US&ceid=US:en",
-     "kind": "gnews", "default": "國際"},
+     "kind": "gnews", "default": "美國"},
     {"url": "https://news.google.com/rss/search?q=salmonella%20OR%20listeria%20OR%20%22e.%20coli%22%20outbreak%20when:365d&hl=en-US&gl=US&ceid=US:en",
-     "kind": "gnews", "default": "國際"},
+     "kind": "gnews", "default": "美國"},
     # Google News — 中文（台灣／華語圈）食安事件
     {"url": "https://news.google.com/rss/search?q=%E9%A3%9F%E5%93%81%E4%B8%AD%E6%AF%92%20OR%20%E9%A3%9F%E5%AE%89%20OR%20%E9%A3%9F%E5%93%81%E5%9B%9E%E6%94%B6%20OR%20%E9%A3%9F%E5%93%81%E4%B8%8B%E6%9E%B6%20when:365d&hl=zh-TW&gl=TW&ceid=TW:zh-Hant",
      "kind": "gnews", "default": "台灣"},
@@ -48,6 +48,9 @@ COUNTRY_PATTERNS = [
     (r"Hong Kong|香港", "香港"),
     (r"Taiwan|Taiwanese|台灣|臺灣|台北|臺北|新北|桃園|台中|臺中|台南|臺南|高雄|新竹|彰化|宜蘭|花蓮|衛福部|食藥署|食藥署", "台灣"),
     (r"China|Chinese|中國|大陸|北京|上海|Korea|韓國|Vietnam|越南|Thailand|泰國|India|印度|Indonesia|Malaysia|馬來西亞|Singapore|新加坡|Philippines|菲律賓", "亞洲其他"),
+    # 全球性／其他地區 → 國際（須在預設美國之前攔下，避免誤判）
+    (r"\bWHO\b|World Health|\bFAO\b|United Nations|worldwide|globe|global(?:ly)?|multi-?country|multiple countries|several countries|cross-border|國際|全球|多國", "國際"),
+    (r"Paraguay|Brazil|Brazilian|Mexico|Mexican|Argentina|Chile|Peru|Colombia|Africa|Nigeria|Kenya|Egypt|Cape Verde|Russia|Ukraine|Saudi|\bUAE\b|Dubai|Israel|Turkey|巴西|墨西哥|阿根廷|非洲|中東", "國際"),
 ]
 
 HAZARD_PATTERNS = [
