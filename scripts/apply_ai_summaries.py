@@ -12,6 +12,8 @@ DATA = ROOT / "data" / "items.json"
 
 # 英文來源的中文翻譯標題
 ZH_TITLES = {
+    "https://www.efsa.europa.eu/en/plh4l":
+        "#PlantHealth4Life 歐盟植物健康宣導活動",
     "https://www.efsa.europa.eu/en/news/african-swine-fever-outbreaks-increase-pigs-and-wild-boar-across-eu":
         "歐盟非洲豬瘟疫情擴大 — 豬隻與野豬感染雙升",
     "https://www.efsa.europa.eu/en/podcast/episode-40-science-communication-taking-misinformation-menu":
