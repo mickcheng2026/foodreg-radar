@@ -114,6 +114,43 @@ def main():
                 item["first_seen"] = datetime.now(TPE).isoformat(timespec="seconds")
             merged[item["url"]] = item
 
+    # 食安事件清理（自癒，含既有資料）：
+    #  1) 濾掉意見專欄／週期性追蹤欄／彙整／回顧等「非具體事件」雜訊
+    #  2) 依正規化標題去重 — Google News 同一則新聞每天會給不同網址，
+    #     只靠 URL 去重會讓同標題累積成多筆，這裡保留 first_seen 最早的一筆
+    try:
+        from source_food_incidents import is_noise as _inc_is_noise, _norm_title as _inc_norm
+        removed_noise = 0
+        removed_dup = 0
+        inc_seen: dict[str, str] = {}  # 正規化標題 -> 已保留項目的 url
+        for url in list(merged.keys()):
+            it = merged[url]
+            if it.get("source") != "food_incidents":
+                continue
+            if _inc_is_noise(it.get("title", "")):
+                del merged[url]
+                removed_noise += 1
+                continue
+            key = _inc_norm(it.get("title", ""))
+            if not key:
+                continue
+            prev_url = inc_seen.get(key)
+            if prev_url is None:
+                inc_seen[key] = url
+            else:
+                prev = merged[prev_url]
+                # 保留 first_seen 較早者（原始那筆），刪掉較新的重複
+                if (it.get("first_seen") or "") < (prev.get("first_seen") or ""):
+                    del merged[prev_url]
+                    inc_seen[key] = url
+                else:
+                    del merged[url]
+                removed_dup += 1
+        if removed_noise or removed_dup:
+            print(f"  [食安事件清理] 移除雜訊 {removed_noise} 筆、重複標題 {removed_dup} 筆")
+    except Exception as e:
+        print(f"  ! 食安事件清理略過：{e}")
+
     # 排序：有日期者依日期新→舊；無日期者照 first_seen
     def sort_key(item: dict):
         d = item.get("date") or ""

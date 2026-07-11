@@ -71,6 +71,30 @@ HAZARD_PATTERNS = [
     (r"poisoning|illness|中毒|食物中毒|食品中毒", "食品中毒"),
 ]
 
+# 「非具體事件」雜訊：意見專欄、週期性追蹤欄、多主題彙整、年度回顧
+# 這些只是評論/新聞，沒有具體召回或疫情標的，使用者不需要（且常重複）
+NOISE_RE = re.compile(r"""
+      ^\s*publisher.?s\ platform        # 出版人意見專欄（Bill Marler）
+    | ^\s*opinion\s*[|:]                 # 意見文章
+    | ^\s*quick\ takes\b                 # 多主題新聞彙整
+    | investigation\ update\s*:          # 週期性追蹤專欄
+    | where\ people\ got\ sick           # 週期性追蹤專欄
+    | when\ people\ go[t]\ sick          # 週期性追蹤專欄（When People Got Sick）
+    | when\ people\ get\ sick
+    | year\ in\ review                   # 年度回顧
+    | review\ includes                   # 年度回顧
+    | letter\ from\ the\ editor
+""", re.I | re.X)
+
+
+def is_noise(title: str) -> bool:
+    """意見／專欄／彙整／回顧等『非具體事件』新聞 → True 表示應濾除。
+
+    供本爬蟲與 build_data 清理既有資料共用（自癒：舊雜訊下次跑也會被移除）。
+    """
+    return bool(NOISE_RE.search(title or ""))
+
+
 # Google News 相關性過濾：標題須命中食安事件關鍵字（濾掉政策/活動/標章等雜訊）
 INCIDENT_KW = re.compile(
     r"outbreak|recall|salmonell|listeri|e\.?\s*coli|botulism|contamin|poison|illness|"
@@ -126,6 +150,10 @@ def crawl() -> list[dict]:
 
             # Google News：相關性過濾
             if feed["kind"] == "gnews" and not INCIDENT_KW.search(raw_title):
+                continue
+
+            # 濾掉意見專欄／週期性追蹤欄／彙整／回顧（非具體事件）
+            if is_noise(raw_title) or is_noise(title):
                 continue
 
             nt = _norm_title(title)
