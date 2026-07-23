@@ -54,12 +54,45 @@ jobs:
 
       - name: 檢查是否有變動並 commit
         run: |
+          set -euo pipefail
           git config user.name "food-reg-bot"
           git config user.email "bot@users.noreply.github.com"
+
           git add data/items.json
           if git diff --staged --quiet; then
             echo "本次無新資料"
-          else
-            git commit -m "chore: 自動更新食規資料 $(date -u +'%Y-%m-%d')"
-            git push
+            exit 0
           fi
+
+          # 本次爬到的資料先存起來（下面對齊線上時工作目錄會被重設）
+          cp data/items.json /tmp/ours.json
+
+          # 推送最多重試 3 次：這個 job 要跑好幾分鐘，期間若有人（或別的 run）
+          # 推送到 main，直接 git push 會被拒絕而整個 workflow 失敗（2026-07-23 就發生過）。
+          # 失敗就重新對齊線上、把本次爬到的資料與線上資料「聯集」後再推，
+          # 兩邊的項目都不會掉（merge_data.py 依 url 合併並保留較早的 first_seen）。
+          # 註：聯集可能讓線上尚未清理的雜訊/重複短暫復活，但 build_data 的
+          #     食安事件清理是自癒的，下一次排程就會再清掉。
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git reset --hard FETCH_HEAD          # 取得線上最新（含他人推的程式碼變更）
+            cp data/items.json /tmp/theirs.json
+            python3 scripts/merge_data.py /tmp/ours.json /tmp/theirs.json data/items.json
+
+            git add data/items.json
+            if git diff --staged --quiet; then
+              echo "與線上合併後無差異，不需 commit"
+              exit 0
+            fi
+            git commit -m "chore: 自動更新食規資料 $(date -u +'%Y-%m-%d')"
+
+            if git push origin HEAD:main; then
+              echo "推送成功（第 $attempt 次嘗試）"
+              exit 0
+            fi
+            echo "推送被拒絕（線上有新版本），重試第 $((attempt + 1)) 次..."
+            sleep 5
+          done
+
+          echo "::error::重試 3 次仍無法推送，請檢查 main 是否有頻繁併發推送"
+          exit 1
