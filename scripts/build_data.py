@@ -115,7 +115,8 @@ def main():
             merged[item["url"]] = item
 
     # 食安事件清理（自癒，含既有資料）：
-    #  1) 濾掉意見專欄／週期性追蹤欄／彙整／回顧等「非具體事件」雜訊
+    #  1) 濾掉意見專欄／解釋文／調查報告／政策修法等「非具體事件」雜訊，
+    #     以及同一場疫情的「人數又增加」後續追蹤（一個事件只留一則）
     #  2) 依正規化標題去重 — Google News 同一則新聞每天會給不同網址，
     #     只靠 URL 去重會讓同標題累積成多筆，這裡保留 first_seen 最早的一筆
     #  3) 剝掉標題尾端的導讀子句／新聞分類標籤（「: What to Know」「| 生活」）——
@@ -123,6 +124,7 @@ def main():
     try:
         from source_food_incidents import (
             is_noise as _inc_is_noise,
+            is_count_update as _inc_is_count,
             _norm_title as _inc_norm,
             _same_event as _inc_same,
             strip_tail as _inc_strip,
@@ -136,7 +138,8 @@ def main():
         # (1) 雜訊 + (3) 標題剝尾
         for url in inc_urls:
             it = merged[url]
-            if _inc_is_noise(it.get("title", "")):
+            title = it.get("title", "")
+            if _inc_is_noise(title) or _inc_is_count(title):
                 del merged[url]
                 removed_noise += 1
                 continue

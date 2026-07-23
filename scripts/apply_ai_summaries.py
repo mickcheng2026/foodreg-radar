@@ -553,10 +553,38 @@ SUMMARIES = {
 }
 
 
+def _load_incident_titles() -> dict[str, str]:
+    """食安事件的人工精選中文標題（data/incident_titles.json，鍵為英文原標題）。
+
+    人工翻譯品質優於 translate_titles.py 的機器翻譯，故在它之前套用並取得優先權
+    （translate_titles.py 只補 title_zh 為空者）。以「剝尾正規化」比對，
+    這樣標題被媒體加上「: What to Know」「| 生活」等尾巴時仍對得上。
+    """
+    path = DATA.parent / "incident_titles.json"
+    if not path.exists():
+        return {}
+    try:
+        raw = json.loads(path.read_text(encoding="utf-8"))
+    except Exception as e:
+        print(f"  ! incident_titles.json 讀取失敗，略過：{e}")
+        return {}
+    try:
+        from source_food_incidents import _norm_title as norm
+    except Exception:
+        return {}
+    return {norm(k): v for k, v in raw.items() if k and v}
+
+
 def main():
     d = json.loads(DATA.read_text(encoding="utf-8"))
     n_summary = 0
     n_zh_title = 0
+    n_incident = 0
+
+    incident_titles = _load_incident_titles()
+    if incident_titles:
+        from source_food_incidents import _norm_title as norm
+
     for item in d["items"]:
         url = item.get("url")
         if url in SUMMARIES:
@@ -565,9 +593,16 @@ def main():
         if url in ZH_TITLES:
             item["title_zh"] = ZH_TITLES[url]
             n_zh_title += 1
+        elif incident_titles and item.get("source") == "food_incidents":
+            zh = incident_titles.get(norm(item.get("title", "")))
+            if zh:
+                item["title_zh"] = zh
+                n_incident += 1
+
     DATA.write_text(json.dumps(d, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"AI 摘要：{n_summary} / {len(d['items'])} 筆")
     print(f"中文標題：{n_zh_title} 筆（國際來源）")
+    print(f"食安事件人工標題：{n_incident} 筆（優先於機器翻譯）")
 
 
 if __name__ == "__main__":

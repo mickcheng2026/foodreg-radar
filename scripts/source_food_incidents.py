@@ -150,6 +150,11 @@ NOISE_RE = re.compile(r"""
     | raises?\ (?:new\ )?(?:concerns|questions)\b
     | \band\ politics\b
     | \blessons\ (?:from|learned)\b
+    | \bprompts?\ .{0,45}?\ to\ (?:rethink|reconsider)\b
+    | \bweigh(?:s|ing)?\ .{0,25}?(?:concerns|options|risks)\b
+    | \bhighlights?\ (?:value|importance|need)\ (?:of|for)\b
+    | \bstress(?:es)?\ food\ safety\b
+    | \brethink\ food\ safety\b
 """, re.I | re.X)
 
 # 中文：政策／修法／政治後續／衛教宣導（非具體事件）
@@ -173,6 +178,40 @@ def is_noise(title: str) -> bool:
     """
     t = strip_tail(title or "")
     return bool(NOISE_RE.search(t) or NOISE_ZH_RE.search(t))
+
+
+# 同一場疫情的「人數又增加了」追蹤報導。大型疫情（如環孢子蟲）每天都會出一則，
+# 但事件本身已經有一則了 → 只留最初那則，符合「一個事件一則」的原則。
+COUNT_UPDATE_RE = re.compile(r"""
+      \b(?:patient|case)\ count\b
+    | \bcount\ .{0,30}?(?:grows|grow|increase|increases|rises|rise|climbs|continue)
+    | \bmore\ (?:infections|cases|illnesses|people\ sick)\b
+    | \b(?:cases|infections|illnesses|patients|victims)\ .{0,20}?
+        (?:grows|grow|rises|rise|climbs|climb|increases|increase|tops|top|surpass\w*|jumps|jump)\b
+    | \b(?:outbreak|toll)\ (?:grows|widens|continues\ to\ (?:grow|spread|increase))\b
+    | \bnumber\ of\ (?:cases|patients|illnesses|people)\ .{0,15}?(?:grows|rises|climbs|increases)\b
+    | \bcontinues\ to\ (?:increase|grow|rise|climb)\b
+""", re.I | re.X)
+
+# 有「新進展」就不算單純人數更新 —— 死亡、住院、召回（含擴大）、找到污染源都要留。
+# 註：expand 也算 —— 「Swedish hepatitis A outbreak expands with 11 sick」這種是該疫情
+# 唯一一則報導，濾掉整場疫情就從網站消失了。
+ESCALATION_RE = re.compile(
+    r"\b(?:death|deaths|dead|deadly|died|dies|fatal|fatality|killed|kills)\b"
+    r"|\bhospitaliz\w*\b|\brecall\w*\b|\bexpand\w*\b"
+    r"|\bnamed\ as\ source\b|\bsource\ (?:identified|confirmed|found)\b"
+    r"|\bfirst\ (?:death|case)\b|\b1st\ death\b", re.I | re.X)
+
+
+def is_count_update(title: str) -> bool:
+    """純粹只是「人數又增加」的後續追蹤 → True 表示應濾除。
+
+    刻意做得保守：只認明確的人數／案例數增長措辭，且標題不得帶有新進展。
+    （曾試過用詞頻分群判斷「同一場疫情是否已有更早報導」，會把 expands、
+    identified 這類動詞誤當成專指詞而亂配，反而有刪掉整場疫情的風險，故不採用。）
+    """
+    t = strip_tail(title or "")
+    return bool(COUNT_UPDATE_RE.search(t)) and not ESCALATION_RE.search(t)
 
 
 # Google News 相關性過濾：標題須命中食安事件關鍵字（濾掉政策/活動/標章等雜訊）
@@ -254,6 +293,10 @@ def crawl() -> list[dict]:
 
             # 濾掉意見專欄／解釋文／彙整／政策後續（非具體事件）
             if is_noise(raw_title) or is_noise(title):
+                continue
+
+            # 濾掉同一場疫情的「人數又增加」後續追蹤
+            if is_count_update(title):
                 continue
 
             nt = _norm_title(title)
