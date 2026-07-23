@@ -8,8 +8,10 @@
 
 設計：
 - 每筆推斷國家/地區與病原標籤，產出結構化中文 ai_summary
-- 以 URL + 標題正規化去重（跨來源同篇只留一筆）
+- 以 URL + 標題正規化去重（跨來源同篇只留一筆；標題被追加子句也認得出來）
 - Google News 結果以食安關鍵字過濾，濾掉政策/活動等雜訊
+- 再以 is_noise() 濾掉意見專欄／解釋文／調查報告／政策修法等「非具體事件」，
+  只留有明確產品／廠商／病原的召回與疫情（同一事件只留一則）
 - build_data 以 URL 去重保留歷史 → 涵蓋隨每日 cron 累積
 """
 from __future__ import annotations
@@ -71,11 +73,44 @@ HAZARD_PATTERNS = [
     (r"poisoning|illness|中毒|食物中毒|食品中毒", "食品中毒"),
 ]
 
-# 「非具體事件」雜訊：意見專欄、週期性追蹤欄、多主題彙整、年度回顧
+# 標題尾巴：媒體常在具體事件標題後追加「導讀子句」或分類標籤，例如
+#   「FDA Announces Recall on Cheese Over Listeria Outbreak: What to Know」
+#   「桃園便當店疑食品中毒累計104人有症狀69人就醫| 地方」
+# 這種要「剝掉尾巴」而不是整則丟掉，否則會誤殺真正的召回／疫情；
+# 剝乾淨後同一則事件的不同版本標題也才對得起來（利於去重）。
+TAIL_RE = re.compile(r"""
+    (?:
+        [:\-–—|｜]\s*
+        (?: what\ (?:to|you\ need\ to)\ know .*
+          | here.?s\ (?:what|how|why) .*
+          | everything\ you\ need\ to\ know .*
+          | explained
+          )
+      | [|｜]\s*(?:一次看懂?|懶人包|Q\s*&\s*A|QA)\s*
+      | [|｜]\s*(?:要聞|生活|健康|醫療|社會|地方|財經|國際|政治|影音)\s*
+    )\s*$
+""", re.I | re.X)
+
+
+def strip_tail(title: str) -> str:
+    """剝掉標題尾端的導讀子句／新聞分類標籤，回傳事件本體。"""
+    t = (title or "").strip()
+    for _ in range(3):  # 可能連掛兩層，例如「…| 沙拉油爆致癌物| 生活」
+        new = TAIL_RE.sub("", t).strip(" -–—|｜:：、,，。.")
+        if new == t or not new:
+            break
+        t = new
+    return t
+
+
+# 「非具體事件」雜訊：意見專欄、週期性追蹤欄、多主題彙整、年度回顧、
+# 問答／衛教解釋文、統計彙整、政策修法與政治後續。
 # 這些只是評論/新聞，沒有具體召回或疫情標的，使用者不需要（且常重複）
 NOISE_RE = re.compile(r"""
+    # --- 意見專欄／週期性追蹤欄／彙整／回顧 ---
       ^\s*publisher.?s\ platform        # 出版人意見專欄（Bill Marler）
     | ^\s*opinion\s*[|:]                 # 意見文章
+    | ^\s*article\s*[-–—|]               # 轉載評論（Article - ...）
     | ^\s*quick\ takes\b                 # 多主題新聞彙整
     | investigation\ update\s*:          # 週期性追蹤專欄
     | where\ people\ got\ sick           # 週期性追蹤專欄
@@ -84,15 +119,60 @@ NOISE_RE = re.compile(r"""
     | year\ in\ review                   # 年度回顧
     | review\ includes                   # 年度回顧
     | letter\ from\ the\ editor
+
+    # --- 問答／衛教／解釋文（已先剝尾巴，仍命中代表整篇就是解釋文）---
+    | ^\s*q\s*&?\s*a\s*[:：]
+    | what\ (?:to|you\ need\ to)\ know\b
+    | what\ .{0,40}?\ need\ to\ know\b
+    | here.?s\ (?:what|how|why)\b
+    | answers\ to\ your\b
+    | (?:most\ common|frequently\ asked)\ questions
+    | \bexplain(?:s|ed|er)\b
+    | ^\s*(?:can|should|is|are|do|does|why|how|what|when|who)\b[^?]{0,70}\?   # 問句式標題
+    | \btips\ (?:for|to|on|amid)\b
+    | food\ handling\ tips
+    | \bhow\ to\ (?:avoid|stay|keep|protect)\b
+    | \bwhat\ is\ cross.contamination\b
+
+    # --- 反應／評論／專題／統計彙整（不是新事件）---
+    | \b(?:respond|reacts?|reaction)s?\ to\ the\ (?:outbreak|recall)
+    | \bin\ focus\s*[:：]
+    | \bweigh(?:s|ed)?\ in\ on\b
+    | recalls?\ (?:surged|spiked|jumped|rose|climbed)\b
+    | \bby\ the\ numbers\b
+    | \bare\ you\ recall.ready\b
+    | ^\s*video\b                                   # 電視新聞影音片段
+    | reveals?\ (?:holes|gaps|flaws|cracks|weaknesses|problems)
+    | \bwhat\ .{0,50}\ reveals\ about\b
+    | \bwhat\ .{0,40}\ are\ eating\b
+    | \bsurvey\ (?:finds|shows|reveals)\b
+    | \bgrowing\ concern\b
+    | raises?\ (?:new\ )?(?:concerns|questions)\b
+    | \band\ politics\b
+    | \blessons\ (?:from|learned)\b
 """, re.I | re.X)
+
+# 中文：政策／修法／政治後續／衛教宣導（非具體事件）
+# 註：刻意不收「營養師／醫師」——會誤殺「高雄春捲爆67人食物中毒！營養師點名…」這類真事件
+NOISE_ZH_RE = re.compile(
+    r"修法|修正草案|草案|三讀|立法院|立委|議員|議會|質詢|公聽會|"
+    r"食安會議|食安論壇|研商|座談會|說明會|研討會|"
+    r"擬設|擬修|研議|專家建議|提\d+項建議|籲|呼籲|喊話|批評|抨擊|抱怨|"
+    r"選戰|參選|政見|藍綠|朝野|攻防|"
+    r"精進作為|加強宣導|宣導活動|"
+    r"懶人包|一次看|怎麼辦|如何分辨|如何避免|教你|"
+    r"社論|專欄"
+)
 
 
 def is_noise(title: str) -> bool:
-    """意見／專欄／彙整／回顧等『非具體事件』新聞 → True 表示應濾除。
+    """意見／專欄／彙整／回顧／解釋文／政策後續等『非具體事件』新聞 → True 表示應濾除。
 
     供本爬蟲與 build_data 清理既有資料共用（自癒：舊雜訊下次跑也會被移除）。
+    先剝掉尾巴再判斷，避免「真事件標題 + : What to Know」被整則誤殺。
     """
-    return bool(NOISE_RE.search(title or ""))
+    t = strip_tail(title or "")
+    return bool(NOISE_RE.search(t) or NOISE_ZH_RE.search(t))
 
 
 # Google News 相關性過濾：標題須命中食安事件關鍵字（濾掉政策/活動/標章等雜訊）
@@ -118,8 +198,25 @@ def _all_hazards(text):
     return out
 
 
+# 去重用最短前綴長度：短於此的標題不做前綴比對，避免把不同事件併掉
+DUP_MIN_PREFIX = 24
+
+
 def _norm_title(t: str) -> str:
-    return re.sub(r"[\s\-–—|]+", "", (t or "").lower())[:60]
+    """去重鍵：剝尾巴後只留英數與中日韓文字（標點、空白、大小寫差異都不算）。
+
+    不再截斷長度 —— 改由 _same_event() 以「前綴包含」判斷，
+    這樣「同一標題被追加子句」（Google News 常見）也能對上。
+    """
+    return re.sub(r"[^0-9a-z一-鿿぀-ヿ]+", "", strip_tail(t or "").lower())
+
+
+def _same_event(a: str, b: str) -> bool:
+    """兩個正規化標題是否指同一則事件：完全相同，或一方是另一方的前綴。"""
+    if a == b:
+        return True
+    short, long = (a, b) if len(a) <= len(b) else (b, a)
+    return len(short) >= DUP_MIN_PREFIX and long.startswith(short)
 
 
 def crawl() -> list[dict]:
@@ -148,16 +245,19 @@ def crawl() -> list[dict]:
             elif feed["kind"] == "gnews":
                 title = re.sub(r"\s[-–—]\s[^-–—]{2,30}$", "", title).strip()
 
+            # 剝掉導讀子句／新聞分類標籤，留下事件本體
+            title = strip_tail(title) or title
+
             # Google News：相關性過濾
             if feed["kind"] == "gnews" and not INCIDENT_KW.search(raw_title):
                 continue
 
-            # 濾掉意見專欄／週期性追蹤欄／彙整／回顧（非具體事件）
+            # 濾掉意見專欄／解釋文／彙整／政策後續（非具體事件）
             if is_noise(raw_title) or is_noise(title):
                 continue
 
             nt = _norm_title(title)
-            if link in seen_urls or (nt and nt in seen_titles):
+            if link in seen_urls or (nt and any(_same_event(nt, s) for s in seen_titles)):
                 continue
             seen_urls.add(link)
             if nt:

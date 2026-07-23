@@ -118,36 +118,62 @@ def main():
     #  1) 濾掉意見專欄／週期性追蹤欄／彙整／回顧等「非具體事件」雜訊
     #  2) 依正規化標題去重 — Google News 同一則新聞每天會給不同網址，
     #     只靠 URL 去重會讓同標題累積成多筆，這裡保留 first_seen 最早的一筆
+    #  3) 剝掉標題尾端的導讀子句／新聞分類標籤（「: What to Know」「| 生活」）——
+    #     既讓標題乾淨，也讓同一事件的不同版本標題對得起來
     try:
-        from source_food_incidents import is_noise as _inc_is_noise, _norm_title as _inc_norm
+        from source_food_incidents import (
+            is_noise as _inc_is_noise,
+            _norm_title as _inc_norm,
+            _same_event as _inc_same,
+            strip_tail as _inc_strip,
+        )
         removed_noise = 0
         removed_dup = 0
-        inc_seen: dict[str, str] = {}  # 正規化標題 -> 已保留項目的 url
-        for url in list(merged.keys()):
+        trimmed = 0
+
+        inc_urls = [u for u, it in merged.items() if it.get("source") == "food_incidents"]
+
+        # (1) 雜訊 + (3) 標題剝尾
+        for url in inc_urls:
             it = merged[url]
-            if it.get("source") != "food_incidents":
-                continue
             if _inc_is_noise(it.get("title", "")):
                 del merged[url]
                 removed_noise += 1
                 continue
-            key = _inc_norm(it.get("title", ""))
-            if not key:
+            clean = _inc_strip(it.get("title", ""))
+            if clean and clean != it.get("title"):
+                it["title"] = clean
+                # 中文標題是照舊標題翻的，清掉讓 translate_titles.py 重譯
+                it.pop("title_zh", None)
+                trimmed += 1
+
+        # (2) 依正規化標題去重：排序後相鄰比對，同一組保留 first_seen 最早的一筆
+        keyed = [(_inc_norm(merged[u].get("title", "")), u)
+                 for u in merged if merged[u].get("source") == "food_incidents"]
+        keyed = sorted((k, u) for k, u in keyed if k)
+        rep_key: str | None = None
+        group: list[str] = []
+
+        def _flush(urls: list[str]) -> int:
+            if len(urls) < 2:
+                return 0
+            keep = min(urls, key=lambda u: merged[u].get("first_seen") or "￿")
+            for u in urls:
+                if u != keep:
+                    del merged[u]
+            return len(urls) - 1
+
+        for key, url in keyed:
+            if rep_key is not None and _inc_same(rep_key, key):
+                group.append(url)
                 continue
-            prev_url = inc_seen.get(key)
-            if prev_url is None:
-                inc_seen[key] = url
-            else:
-                prev = merged[prev_url]
-                # 保留 first_seen 較早者（原始那筆），刪掉較新的重複
-                if (it.get("first_seen") or "") < (prev.get("first_seen") or ""):
-                    del merged[prev_url]
-                    inc_seen[key] = url
-                else:
-                    del merged[url]
-                removed_dup += 1
-        if removed_noise or removed_dup:
-            print(f"  [食安事件清理] 移除雜訊 {removed_noise} 筆、重複標題 {removed_dup} 筆")
+            removed_dup += _flush(group)
+            rep_key, group = key, [url]
+        removed_dup += _flush(group)
+
+        if removed_noise or removed_dup or trimmed:
+            print(f"  [食安事件清理] 移除雜訊 {removed_noise} 筆、"
+                  f"重複標題 {removed_dup} 筆、標題剝尾 {trimmed} 筆")
     except Exception as e:
         print(f"  ! 食安事件清理略過：{e}")
 
