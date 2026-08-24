@@ -67,13 +67,32 @@ cd "/Users/mick/Desktop/claude code files/teamnotes-vault/條文自動更新 網
 
 ---
 
-## 萬一忘記密碼 / 想撤銷 token
+## Token 到期了怎麼辦（GitHub 會寄信提醒）
+
+GitHub 會在 token 到期前寄信：「your personal access token ... will expire in N days」。
+**只影響本機的 `./推送.sh`**；網站的每日自動更新走 GitHub Actions，用的是另一組憑證，不受影響。
+
+處理方式（約 1 分鐘）：
+
+1. 開這個網址產生新 token（沿用原本的名稱與權限）：
+   <https://github.com/settings/tokens/4567453164/regenerate>
+   - **Expiration** 選 **No expiration**（一勞永逸）或 **1 year**
+   - 按 **Regenerate token** → 複製那串 `ghp_...`（離開頁面就看不到了）
+2. 回到專案資料夾，**雙擊 `更新Token.command`**
+3. 貼上 token → Enter（不會顯示字元，正常）
+4. 看到「🎉 完成！」就好了
+
+或者直接跟 Claude Code 說「**更新 GitHub token**」，我會幫你開這個工具。
+
+---
+
+## 想完全撤銷 token
 
 1. GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic)
 2. 找到 `foodreg-radar 推送用` → **Delete**
-3. 同時清掉 macOS 鑰匙圈裡的舊記錄：
+3. 清掉 macOS 鑰匙圈裡的舊記錄：
    ```bash
-   git config --global --unset credential.helper  # 暫時關閉自動記憶
+   printf "protocol=https\nhost=github.com\n\n" | git credential-osxkeychain erase
    ```
 4. 重新做步驟 1+2
 

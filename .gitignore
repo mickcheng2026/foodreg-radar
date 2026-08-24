@@ -11,3 +11,6 @@ prototype.html
 
 # 個人 / 機器專屬設定（不要進 repo）
 .claude/settings.local.json
+
+# Token 更新小工具（本機用，不進 repo）
+更新Token.command
