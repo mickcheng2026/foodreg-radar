@@ -238,6 +238,7 @@
     };
 
     let DATA = null;
+    let FULL_LOADED = false;   // 完整資料（items.json）是否已載回來
     let CURRENT_COUNTRY = "all";
     let CURRENT_SOURCE = "all";
     let CURRENT_QUERY = "";
@@ -254,17 +255,75 @@
       { key: "365", label: "近一年",   days: 365 },
     ];
 
-    // 載入 items.json
-    fetch("data/items.json", { cache: "no-cache" })
-      .then(r => r.ok ? r.json() : Promise.reject(r.status))
-      .then(d => { DATA = d; applyUrlState(); render(); })
-      .catch(err => {
-        document.getElementById("feed").innerHTML =
-          `<div class="text-center py-12">
-             <p class="text-slate-600 mb-2">無法載入資料</p>
-             <p class="text-xs text-slate-400">${err}。請在已部署到網路的網站上開啟（直接開檔可能有跨檔限制）。</p>
-           </div>`;
+    // 兩段式載入
+    // ----------------------------------------------------------------
+    // items.json 有 5000+ 筆、壓縮後約 900 KB，網路慢時要等 3-4 秒才看得到
+    // 第一則公告。所以先載 items-recent.json（近 90 天、約 330 KB）立刻上畫面，
+    // 再於背景把完整資料補上；補上時保留使用者的篩選、捲動位置與展開狀態。
+    function showLoadError(err) {
+      document.getElementById("feed").innerHTML =
+        `<div class="text-center py-12">
+           <p class="text-slate-600 mb-2">無法載入資料</p>
+           <p class="text-xs text-slate-400">${err}。請在已部署到網路的網站上開啟（直接開檔可能有跨檔限制）。</p>
+         </div>`;
+    }
+
+    // 重繪但不驚動使用者：捲動位置與已展開的「原文摘要」都保留。
+    // （排序是日期新→舊，補進來的都是更舊的資料，所以前面幾筆的順序不會變，
+    //   用索引還原展開狀態是安全的。）
+    function rerenderPreservingView() {
+      const scrollY = window.scrollY;
+      const openIdx = [];
+      document.querySelectorAll("#feed details").forEach((el, i) => {
+        if (el.open) openIdx.push(i);
       });
+
+      render();
+
+      const details = document.querySelectorAll("#feed details");
+      openIdx.forEach(i => { if (details[i]) details[i].open = true; });
+      window.scrollTo(0, scrollY);
+    }
+
+    (async function loadData() {
+      let shown = false;
+
+      // 第 1 段：近 90 天節選檔（舊版部署可能沒有這個檔，失敗就跳過）
+      try {
+        const r = await fetch("data/items-recent.json", { cache: "no-cache" });
+        if (r.ok) {
+          DATA = await r.json();
+          applyUrlState();
+          render();
+          shown = true;
+        }
+      } catch (e) {
+        // 靜默略過，下面會直接載完整版
+      }
+
+      // 第 2 段：完整資料
+      try {
+        const r = await fetch("data/items.json", { cache: "no-cache" });
+        if (!r.ok) throw r.status;
+        DATA = await r.json();
+        FULL_LOADED = true;
+        if (shown) {
+          rerenderPreservingView();
+        } else {
+          applyUrlState();
+          render();
+        }
+      } catch (err) {
+        if (!shown) {
+          showLoadError(err);
+        } else {
+          // 節選檔已經在畫面上了 → 不要清掉，至少近 90 天可以看。
+          // 把「載入中」提示換成明確說明，使用者才知道舊資料還沒到。
+          FULL_LOADED = "failed";
+          renderFeed();
+        }
+      }
+    })();
 
     function render() {
       renderStats();
@@ -449,10 +508,15 @@
       const hasQuery = CURRENT_QUERY.length > 0;
 
       const isFiltered = CURRENT_QUERY || CURRENT_SOURCE !== "all" || CURRENT_COUNTRY !== "all" || CURRENT_RANGE !== "all";
+      // 完整資料還在背景載入時，先講清楚目前只有近期資料，免得使用者以為舊公告不見了
+      const loadHint = FULL_LOADED === true ? ""
+        : FULL_LOADED === "failed"
+          ? ` · <span class="text-amber-600">較舊資料載入失敗，請重新整理</span>`
+          : ` · <span class="text-slate-400">載入完整資料中…</span>`;
       document.getElementById("result-count").innerHTML =
         `共 ${items.length} 筆${isFiltered
           ? ` · <button onclick="clearFilters()" class="text-emerald-600 hover:underline font-medium">清除篩選</button>`
-          : ""}`;
+          : ""}${loadHint}`;
 
       if (items.length === 0) {
         const emptyBody = hasQuery

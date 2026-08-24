@@ -52,13 +52,19 @@ jobs:
         run: |
           python ai_summary.py
 
+      - name: 產生首屏快速載入用的節選檔
+        run: |
+          python3 scripts/make_recent.py
+
       - name: 檢查是否有變動並 commit
         run: |
           set -euo pipefail
           git config user.name "food-reg-bot"
           git config user.email "bot@users.noreply.github.com"
 
-          git add data/items.json
+          # items-recent.json 是 items.json 的衍生檔（見 scripts/make_recent.py），
+          # 兩者必須一起提交，否則網站首屏會拿到跟完整資料對不上的舊節選。
+          git add data/items.json data/items-recent.json
           if git diff --staged --quiet; then
             echo "本次無新資料"
             exit 0
@@ -78,8 +84,10 @@ jobs:
             git reset --hard FETCH_HEAD          # 取得線上最新（含他人推的程式碼變更）
             cp data/items.json /tmp/theirs.json
             python3 scripts/merge_data.py /tmp/ours.json /tmp/theirs.json data/items.json
+            # 合併後 items.json 內容變了 → 節選檔必須依「合併後」的結果重新產生
+            python3 scripts/make_recent.py
 
-            git add data/items.json
+            git add data/items.json data/items-recent.json
             if git diff --staged --quiet; then
               echo "與線上合併後無差異，不需 commit"
               exit 0

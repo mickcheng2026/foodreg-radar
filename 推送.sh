@@ -21,7 +21,10 @@ for arg in "$@"; do
 done
 
 # 可自動合併的資料檔（其他檔案衝突一律停下來請人處理）
-AUTO_MERGE_FILES="data/items.json data/incident_titles.json"
+# 註：data/items-recent.json 也列在這裡（否則會被當成「無法自動合併」而中斷），
+#     但它是 items.json 的衍生檔，不做聯集合併，
+#     而是等 items.json 合併完後整份重新產生（見下方 rebase 迴圈）。
+AUTO_MERGE_FILES="data/items.json data/incident_titles.json data/items-recent.json"
 
 echo "=== 食規雷達 推送 ==="
 
@@ -36,6 +39,9 @@ fi
 
 # 2. 先 commit 本機變更（在碰線上之前，確保自己的工作已是正式提交）
 echo "[2/5] 偵測並提交本機變更..."
+# items-recent.json 是 items.json 的衍生檔（首屏快速載入用，見 scripts/make_recent.py）。
+# 每次提交前重新產生，確保兩者永遠一致。
+python3 scripts/make_recent.py || echo "  ⚠ 產生 items-recent.json 失敗（不影響推送，網站會退回載完整檔）"
 if [[ -n "$(git status --porcelain)" ]]; then
   git status --short
   git add -A
@@ -96,6 +102,13 @@ else
     # 逐一自動合併（stage 2 = 線上版，stage 3 = 本機版）
     while IFS= read -r f; do
       [[ -z "$f" ]] && continue
+      # 衍生檔不做聯集合併：先擱著，等 items.json 合併完再整份重算
+      if [[ "$f" == "data/items-recent.json" ]]; then
+        NEED_REGEN=1
+        git checkout --theirs -- "$f" 2>/dev/null || true
+        git add "$f"
+        continue
+      fi
       REMOTE_TMP="$(mktemp)"; LOCAL_TMP="$(mktemp)"
       if git show ":2:$f" > "$REMOTE_TMP" 2>/dev/null && git show ":3:$f" > "$LOCAL_TMP" 2>/dev/null; then
         python3 scripts/merge_data.py "$LOCAL_TMP" "$REMOTE_TMP" "$f"
@@ -107,6 +120,12 @@ else
       fi
       rm -f "$REMOTE_TMP" "$LOCAL_TMP"
     done <<< "$UNRESOLVED"
+
+    # items.json 合併完了 → 依合併結果重算節選檔，兩者才會一致
+    if [[ "${NEED_REGEN:-0}" -eq 1 ]] || git diff --cached --name-only | grep -q "data/items.json"; then
+      python3 scripts/make_recent.py >/dev/null 2>&1 && git add data/items-recent.json || true
+      NEED_REGEN=0
+    fi
 
     GIT_EDITOR=true git rebase --continue || true
   done
