@@ -287,12 +287,19 @@
 
     (async function loadData() {
       let shown = false;
+      let fullPromise = null;
 
       // 第 1 段：近 90 天節選檔（舊版部署可能沒有這個檔，失敗就跳過）
       try {
         const r = await fetch("data/items-recent.json", { cache: "no-cache" });
         if (r.ok) {
           DATA = await r.json();
+
+          // 節選檔一到手就立刻排下完整檔的下載，不要等 render() 跑完
+          // （render 實測約 350ms，排在它後面等於白白延後完整資料 350ms）。
+          // 但也不能一開始就兩個一起下載：那會跟節選檔搶頻寬，反而拖慢首屏。
+          fullPromise = fetch("data/items.json", { cache: "no-cache" });
+
           applyUrlState();
           render();
           shown = true;
@@ -303,7 +310,7 @@
 
       // 第 2 段：完整資料
       try {
-        const r = await fetch("data/items.json", { cache: "no-cache" });
+        const r = await (fullPromise || fetch("data/items.json", { cache: "no-cache" }));
         if (!r.ok) throw r.status;
         DATA = await r.json();
         FULL_LOADED = true;
