@@ -72,6 +72,9 @@ def main():
         ("出口指南", source_export_guide.crawl),
         ("食安事件", source_food_incidents.crawl),
     ]
+    # --clean-only：不抓網路，只對既有資料重跑下方的清理／歸併（改了清理規則時用）
+    if "--clean-only" in sys.argv:
+        sources = []
 
     for name, fn in sources:
         print(f"\n--- 抓取 {name} ---")
@@ -121,21 +124,30 @@ def main():
     #     只靠 URL 去重會讓同標題累積成多筆，這裡保留 first_seen 最早的一筆
     #  3) 剝掉標題尾端的導讀子句／新聞分類標籤（「: What to Know」「| 生活」）——
     #     既讓標題乾淨，也讓同一事件的不同版本標題對得起來
+    #  4) 濾掉看不出是具體事件的產業新聞（舊版 Food Safety News 全收留下的）
+    #  5) 標籤重算成只有中文危害分類（拿掉媒體名、公司名、英文重複分類）
+    #  6) 同一事件的多則報導標上同一個 event_id，前端摺成一張卡（不刪任何報導）
     try:
         from source_food_incidents import (
             is_noise as _inc_is_noise,
             is_count_update as _inc_is_count,
+            is_incident as _inc_is_incident,
+            incident_tags as _inc_tags,
+            assign_events as _inc_assign_events,
+            country_from_title as _inc_country,
             _norm_title as _inc_norm,
             _same_event as _inc_same,
             strip_tail as _inc_strip,
         )
         removed_noise = 0
+        removed_offtopic = 0
         removed_dup = 0
         trimmed = 0
+        recountried = 0
 
         inc_urls = [u for u, it in merged.items() if it.get("source") == "food_incidents"]
 
-        # (1) 雜訊 + (3) 標題剝尾
+        # (1) 雜訊 + (4) 非事件 + (3) 標題剝尾 + (5) 標籤
         for url in inc_urls:
             it = merged[url]
             title = it.get("title", "")
@@ -143,12 +155,29 @@ def main():
                 del merged[url]
                 removed_noise += 1
                 continue
+            if not _inc_is_incident(title):
+                del merged[url]
+                removed_offtopic += 1
+                continue
             clean = _inc_strip(it.get("title", ""))
             if clean and clean != it.get("title"):
                 it["title"] = clean
                 # 中文標題是照舊標題翻的，清掉讓 translate_titles.py 重譯
                 it.pop("title_zh", None)
                 trimmed += 1
+            it["tags"] = _inc_tags(it["title"], it.get("summary", ""))
+            # AI 重點的「病原／危害」那行跟著標籤走（舊資料是用舊危害清單產生的）
+            hz = it["tags"][1:]
+            if isinstance(it.get("ai_summary"), list):
+                lines = [b for b in it["ai_summary"] if not b.startswith("病原／危害：")]
+                if hz:
+                    lines.insert(1, "病原／危害：" + "、".join(hz[:4]))
+                it["ai_summary"] = lines
+            # 標題明講的國家優先（事件歸併要求同國家，國家錯了會把別國事件併進來）
+            tc = _inc_country(it["title"])
+            if tc and tc != it.get("country"):
+                it["country"] = tc
+                recountried += 1
 
         # (2) 依正規化標題去重：排序後相鄰比對，同一組保留 first_seen 最早的一筆
         keyed = [(_inc_norm(merged[u].get("title", "")), u)
@@ -174,11 +203,20 @@ def main():
             rep_key, group = key, [url]
         removed_dup += _flush(group)
 
-        if removed_noise or removed_dup or trimmed:
-            print(f"  [食安事件清理] 移除雜訊 {removed_noise} 筆、"
-                  f"重複標題 {removed_dup} 筆、標題剝尾 {trimmed} 筆")
+        # (6) 同一事件歸併（只摺疊）
+        folded = _inc_assign_events(
+            [it for it in merged.values() if it.get("source") == "food_incidents"])
+
+        print(f"  [食安事件清理] 移除雜訊 {removed_noise} 筆、非事件新聞 {removed_offtopic} 筆、"
+              f"重複標題 {removed_dup} 筆、標題剝尾 {trimmed} 筆、依標題更正國家 {recountried} 筆；"
+              f"同一事件摺疊 {folded} 則報導")
     except Exception as e:
         print(f"  ! 食安事件清理略過：{e}")
+
+    # 所有來源：同一張卡片的標籤不重複（例如食藥署「公告」分類 + 標題含「公告」）
+    for it in merged.values():
+        if it.get("tags"):
+            it["tags"] = list(dict.fromkeys(it["tags"]))
 
     # 排序：有日期者依日期新→舊；無日期者照 first_seen
     def sort_key(item: dict):

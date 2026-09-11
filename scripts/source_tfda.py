@@ -146,6 +146,7 @@ def crawl() -> list[dict]:
                 tags.append("修正")
             if "公告" in t:
                 tags.append("公告")
+            tags = list(dict.fromkeys(tags))  # 分類本身就叫「公告」時別再加一次
 
             all_items.append(make_item(
                 source="tfda",
