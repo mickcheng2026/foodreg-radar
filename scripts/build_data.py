@@ -48,6 +48,55 @@ DATA_DIR = ROOT / "data"
 DATA_FILE = DATA_DIR / "items.json"
 
 
+def _batch_key(it: dict) -> str | None:
+    """同一天、同一來源「一整批」發布的公告要歸成一組時，回傳分組鍵；不分組回傳 None。
+
+    - US FDA：同一家廠商同一天的召回（例如 Albertsons 一天召回 150 多項自製熟食）
+    - 日本 FSC：同一天一起開放的公開徵詢（含各案附的「公表資料」PDF）
+    """
+    src, d = it.get("source"), it.get("date")
+    if not d:
+        return None
+    if src == "usfda":
+        firm = (it.get("title") or "").split(" recalls ")[0].strip().lower()
+        return f"usfda|{d}|{firm}" if firm else None
+    if src == "jp_fsc":
+        return f"jp_fsc|{d}"
+    return None
+
+
+def assign_batches(items: list[dict]) -> int:
+    """同批公告標上同一個 batch_id，前端摺成一張卡（只摺疊、不刪除）。
+
+    每次都整批重算：先清掉舊標記，避免規則改了留下過期的分組。
+    主卡（batch_head）優先挑有正式標題、有 AI 重點的那筆。回傳被摺進去的筆數。
+    """
+    groups: dict[str, list[dict]] = {}
+    for it in items:
+        it.pop("batch_id", None)
+        it.pop("batch_head", None)
+        if it.get("event_id"):
+            continue
+        key = _batch_key(it)
+        if key:
+            groups.setdefault(key, []).append(it)
+
+    def head_rank(it: dict):
+        title = it.get("title") or ""
+        return (title.startswith("公表資料"), not it.get("ai_summary"), it.get("url") or "")
+
+    folded = 0
+    for members in groups.values():
+        if len(members) < 2:
+            continue
+        head = min(members, key=head_rank)
+        for it in members:
+            it["batch_id"] = head["url"]
+        head["batch_head"] = True
+        folded += len(members) - 1
+    return folded
+
+
 def main():
     DATA_DIR.mkdir(exist_ok=True)
 
@@ -217,6 +266,9 @@ def main():
     for it in merged.values():
         if it.get("tags"):
             it["tags"] = list(dict.fromkeys(it["tags"]))
+
+    batched = assign_batches(list(merged.values()))
+    print(f"  [同批摺疊] {batched} 筆同日同批的公告摺進同一張卡")
 
     # 排序：有日期者依日期新→舊；無日期者照 first_seen
     def sort_key(item: dict):

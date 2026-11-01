@@ -508,20 +508,31 @@
       ).join("");
     }
 
-    // 同一事件的多則報導摺成一張卡：最新一則當主卡，其餘收進 _related
-    // （event_id 由 build_data 標好；複製一份主卡，避免改到 DATA 本身）
+    // 摺成一張卡，其餘收進 _related（複製一份主卡，避免改到 DATA 本身）：
+    //  - event_id：同一事件的多則報導，最新一則當主卡
+    //  - batch_id：同一天同一批的公告（FDA 同廠商同日召回、日本 FSC 同日徵詢），
+    //    主卡是 build_data 標了 batch_head 的那筆
+    // 摺疊在篩選之後做，所以搜尋某一項時它仍會單獨出現
     function foldEvents(arr) {
-      const heads = new Map();
+      const groups = new Map();
       const out = [];
       for (const it of arr) {
-        const head = it.event_id && heads.get(it.event_id);
-        if (head) { head._related.push(it); continue; }
-        if (!it.event_id) { out.push(it); continue; }
-        const card = Object.assign({}, it, { _related: [] });
-        heads.set(it.event_id, card);
-        out.push(card);
+        const key = it.event_id ? "e:" + it.event_id : it.batch_id ? "b:" + it.batch_id : null;
+        if (!key) { out.push(it); continue; }
+        let g = groups.get(key);
+        if (!g) { g = []; groups.set(key, g); out.push(g); }
+        g.push(it);
       }
-      return out;
+      return out.map(x => {
+        if (!Array.isArray(x)) return x;
+        let hi = x.findIndex(i => i.batch_head);
+        if (hi < 0) hi = 0;
+        const head = x[hi];
+        return Object.assign({}, head, {
+          _related: x.filter((_, i) => i !== hi),
+          _batch: !head.event_id,
+        });
+      });
     }
 
     function renderFeed() {
@@ -540,7 +551,7 @@
           : ` · <span class="text-slate-400">載入完整資料中…</span>`;
       document.getElementById("result-count").innerHTML =
         `共 ${items.length} 筆${foldedCount
-          ? ` <span class="text-slate-400">（同一事件的 ${foldedCount} 則後續報導已合併）</span>`
+          ? ` <span class="text-slate-400">（同一事件／同一批的 ${foldedCount} 筆已合併）</span>`
           : ""}${isFiltered
           ? ` · <button onclick="clearFilters()" class="text-emerald-600 hover:underline font-medium">清除篩選</button>`
           : ""}${loadHint}`;
@@ -630,18 +641,28 @@
 
       const summary = aiBlock + rawSummary;
 
-      // 同一事件的其他報導（foldEvents 摺進來的），預設收合
+      // 同一事件／同一批的其他項目（foldEvents 摺進來的），預設收合
       const related = item._related || [];
+      const relatedSummary = !related.length ? ""
+        : !item._batch
+        ? `同一事件另有 ${related.length} 則報導（${escapeHtml(related[related.length - 1].date || "")} 起）`
+        : item.source === "usfda"
+          ? `同一廠商同日另有 ${related.length} 項產品召回`
+          : `同日同批另有 ${related.length} 筆`;
+      // FDA 同廠商那批：中文標題每筆都是「某廠商 召回 — 原因」，看不出差別，改列原文的產品與原因
+      const relatedText = r => item._batch && r.source === "usfda"
+        ? (r.title || "").replace(/^.*? recalls /, "")
+        : (r.title_zh || r.title || "");
       const relatedBlock = related.length ? `
         <details class="mb-4 rounded-lg border border-slate-200 bg-slate-50">
           <summary class="px-3 py-2 text-xs font-medium text-slate-600 cursor-pointer hover:text-slate-900 select-none">
-            同一事件另有 ${related.length} 則報導（${escapeHtml(related[related.length - 1].date || "")} 起）
+            ${relatedSummary}
           </summary>
-          <ul class="px-3 pb-3 space-y-1.5">
+          <ul class="px-3 pb-3 space-y-1.5 ${related.length > 12 ? "max-h-80 overflow-y-auto" : ""}">
             ${related.map(r => `
               <li class="flex gap-3 text-sm">
                 <span class="text-xs text-slate-400 shrink-0 pt-0.5">${escapeHtml(r.date || "")}</span>
-                <a href="${escapeAttr(r.url)}" target="_blank" rel="noopener" class="text-slate-700 hover:underline leading-snug">${escapeHtml(r.title_zh || r.title || "")}</a>
+                <a href="${escapeAttr(r.url)}" target="_blank" rel="noopener" class="text-slate-700 hover:underline leading-snug">${escapeHtml(relatedText(r))}</a>
               </li>`).join("")}
           </ul>
         </details>` : "";
